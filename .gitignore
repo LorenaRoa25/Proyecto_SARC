@@ -1,0 +1,7 @@
+venv/
+.idea/
+__pycache__/
+*.pyc
+docx_tmp/
+docx_render_check/
+

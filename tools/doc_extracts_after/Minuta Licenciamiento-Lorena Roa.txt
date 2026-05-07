@@ -1,0 +1,239 @@
+P002 [None] MINUTA DE CONTRATO DE LICENCIA DE USO DE SOFTWARE
+P004 [None] SISTEMA DE APOYO ACADÉMICO CON RECOMENDACIÓN DE CURSOS
+P005 [None] SARC – Versión 1.0.0
+P008 [None] Entre:
+P010 [None] LORENA ROA RIVERA
+P011 [None] — Desarrolladora —
+P013 [None] Y
+P015 [None] Corporación Universitaria de Sabaneta - UNISABANETA
+P016 [None] — Institución Universitaria —
+P019 [None] Sabaneta, Antioquia, Colombia — Abril de 2026
+P023 [None] PREÁMBULO
+P024 [None] El presente instrumento contractual regula los términos y condiciones bajo los cuales se otorga una licencia de uso del Software denominado Sistema de Apoyo Académico con Recomendación de Cursos (en adelante, «SARC»), desarrollado en el marco del proyecto de grado de la carrera de Ingeniería Informática de UNISABANETA. Las partes acuerdan suscribir este contrato de buena fe y con pleno conocimiento de sus implicaciones jurídicas, técnicas y académicas, con la voluntad inequívoca de cumplir los compromisos aquí consignados.
+P026 [None] El SARC constituye una obra protegida por el régimen de derechos de autor colombiano y andino. Su licenciamiento responde a un interés legítimo de ambas partes: para LA DESARROLLADORA, la difusión controlada de su creación intelectual en un entorno académico real; para LA INSTITUCIÓN, la incorporación de una herramienta tecnológica de valor pedagógico al servicio de su comunidad estudiantil.
+P028 [None] CLÁUSULA PRIMERA — IDENTIFICACIÓN DE LAS PARTES
+P029 [None] 1.1. La Desarrolladora (Licenciante)
+P030 [None] Nombre completo: Lorena Roa Rivera
+P031 [None] Tipo de persona: Persona natural — Estudiante de Ingeniería Informática
+P032 [None] Institución de origen: Corporación Universitaria de Sabaneta - UNISABANETA
+P033 [None] Rol contractual: Autora y titular exclusiva de los derechos sobre el software SARC
+P034 [None] Documento de identidad: C.C. N.° 1034916196
+P035 [None] Domicilio: Itagüí, Antioquia, Colombia
+P036 [None] Correo de contacto: lorena.roa.196@unisabaneta.edu.co
+P038 [None] 1.2. El Cliente (Licenciatario)
+P039 [None] Razón social: Corporación Universitaria de Sabaneta - UNISABANETA
+P040 [None] NIT: 900.253.021-5
+P041 [None] Tipo de entidad: Institución de educación superior de carácter privado
+P042 [None] Representante legal: Rector(a) o delegado(a) institucional debidamente autorizado(a)
+P043 [None] Dirección: Sabaneta, Antioquia, Colombia
+P044 [None] Correo institucional: contacto@unisabaneta.edu.co
+P046 [None] Las partes declaran que tienen plena capacidad legal para suscribir el presente contrato, que actúan de forma libre y voluntaria, y que no existe vicio del consentimiento —error, fuerza o dolo— que pueda invalidar los acuerdos aquí consignados.
+P048 [None] CLÁUSULA SEGUNDA — DEFINICIONES
+P049 [None] Para efectos del presente contrato, los siguientes términos tendrán el significado que a continuación se indica:
+P051 [None] Software / SARC: La aplicación web denominada «Sistema de Apoyo Académico con Recomendación de Cursos», versión 1.0.0, desarrollada con HTML5, CSS3 y JavaScript puro, bajo una arquitectura frontend modular por vistas y módulos compartidos, con Firebase como plataforma de base de datos y servicio de autenticación.
+P052 [None] Licencia: Derecho de uso del SARC, de carácter limitado, no exclusivo, intransferible e institucional, otorgado por LA DESARROLLADORA a favor de LA INSTITUCIÓN en los términos de este contrato.
+P053 [None] Licenciante / Desarrolladora: Lorena Roa Rivera, autora y titular exclusiva de los derechos de propiedad intelectual sobre el SARC.
+P054 [None] Licenciatario / Institución: Corporación Universitaria de Sabaneta – UNISABANETA, entidad autorizada para usar el SARC según los términos aquí pactados.
+P055 [None] Usuario Autorizado: Toda persona natural habilitada por LA INSTITUCIÓN para acceder al SARC. En la versión 1.0.0 implementada, el uso funcional corresponde al perfil estudiante; roles administrativos o docentes quedan sujetos a desarrollo futuro.
+P056 [None] Código Fuente: Conjunto de instrucciones escritas en lenguaje de programación que conforman el SARC y que no serán entregadas a LA INSTITUCIÓN salvo autorización escrita expresa.
+P057 [None] Datos Personales: Cualquier información que permita identificar a un estudiante u otro individuo en el marco del uso del SARC, sujeta a la Ley 1581 de 2012.
+P058 [None] Incidente de Seguridad: Cualquier evento que comprometa la confidencialidad, integridad o disponibilidad de los datos o del sistema SARC.
+P059 [None] Período de Garantía: Lapso de seis (6) meses contados desde la entrega formal del software, durante el cual LA DESARROLLADORA corregirá fallas imputables al desarrollo original.
+P060 [None] Documentación Técnica: Conjunto de manuales, guías, especificaciones (SRS IEEE 830) y demás materiales que describen el funcionamiento y arquitectura del SARC.
+P061 [None] SLA (Acuerdo de Nivel de Servicio): Marco formal de compromisos de calidad y tiempos de respuesta en la prestación del soporte técnico, conforme a los niveles de criticidad definidos en la Cláusula Séptima del presente contrato.
+P062 [None] Mantenimiento Evolutivo: Conjunto de actividades técnicas orientadas a ampliar, optimizar o adaptar las funcionalidades del SARC más allá de la versión 1.0.0, sujeto a acuerdo separado entre las partes.
+P064 [None] CLÁUSULA TERCERA — OBJETO DEL CONTRATO
+P065 [None] El presente contrato tiene por objeto el otorgamiento, por parte de LA DESARROLLADORA a favor de LA INSTITUCIÓN, de una licencia de uso del software SARC, versión 1.0.0, en los términos y condiciones que se describen en las cláusulas siguientes. Este contrato no implica en ningún caso la cesión, transferencia ni enajenación de los derechos de propiedad intelectual sobre el SARC, los cuales permanecen en cabeza exclusiva de LA DESARROLLADORA.
+P067 [None] 3.1. Descripción Técnica del Software
+P068 [None] El SARC es una aplicación web de arquitectura frontend modular:
+P069 [List Paragraph] Interfaz de usuario: desarrollada en HTML5, CSS3 y JavaScript puro, con arquitectura modular por vistas y módulos compartidos, accesible desde navegadores web estándar sin necesidad de instalación.
+P070 [List Paragraph] Autenticación: gestionada mediante Firebase Authentication con correo y contraseña, control de sesión en memoria y protección de rutas privadas desde el frontend. El uso institucional de correos autorizados es una condición operativa, no una validación estricta del código actual.
+P071 [List Paragraph] Base de datos: Cloud Firestore como plataforma de almacenamiento en la nube, consultada y actualizada desde JavaScript mediante operaciones de lectura y escritura por usuario.
+P073 [None] 3.2. Funcionalidades Principales
+P074 [None] En su versión 1.0.0, el SARC comprende las siguientes funcionalidades:
+P075 [List Paragraph] Autenticación mediante Firebase Email/Password, recuperación de contraseña por Firebase y protección de rutas privadas en el frontend. El correo institucional se mantiene como criterio operativo del proyecto.
+P076 [List Paragraph] Panel principal (Dashboard) con visualización de cursos sugeridos y recomendaciones académicas personalizadas.
+P077 [List Paragraph] Catálogo de cursos complementarios con filtros por área interdisciplinaria y modalidad (virtual, presencial, híbrido).
+P078 [List Paragraph] Módulo de recomendación de cursos basado en datos del perfil, cursos disponibles, modalidad, progreso guardado y tareas sugeridas; no incluye machine learning en la versión 1.0.0.
+P079 [List Paragraph] Módulo de inscripción a cursos con control de cupos y sugerencia de alternativas ante falta de disponibilidad.
+P080 [List Paragraph] Seguimiento del progreso académico por curso: avance, lecciones completadas, tiempo invertido y promedio de evaluaciones.
+P081 [List Paragraph] Generación y descarga de reportes de progreso en formato PDF.
+P082 [List Paragraph] Perfil de usuario editable: foto de perfil, modalidad preferida y datos personales básicos.
+P084 [None] 3.3. Alcance y Limitaciones del Sistema
+P085 [None] El SARC opera como sistema complementario al sistema académico oficial de UNISABANETA, sin pretender reemplazarlo. La versión 1.0.0 objeto de este contrato NO incluye: gestión de contenido por parte de docentes, módulos de pago en línea, videoconferencias integradas, foros académicos ni análisis predictivo avanzado de deserción estudiantil. El alcance técnico de versiones futuras deberá ser acordado mediante adenda al presente contrato.
+P087 [None] CLÁUSULA CUARTA — ALCANCE Y CONDICIONES DE LA LICENCIA
+P088 [None] 4.1. Tipo de Licencia
+P089 [None] LA DESARROLLADORA otorga a LA INSTITUCIÓN una licencia de uso de tipo propietaria, no exclusiva, intransferible e institucional sobre el software SARC, versión 1.0.0. Esta licencia es de naturaleza académica y se concede sin ánimo de lucro, en reconocimiento del carácter formativo del proyecto y del vínculo institucional entre las partes. La presente licencia no confiere a LA INSTITUCIÓN ningún derecho de propiedad sobre el software, ni sobre su código fuente, documentación técnica, arquitectura o cualquier componente intelectual asociado.
+P091 [None] 4.2. Usuarios Autorizados
+P092 [None] La licencia autoriza el acceso y uso del sistema a los siguientes perfiles:
+P093 [List Paragraph] Estudiantes activos y matriculados en cualquier programa académico de UNISABANETA.
+P094 [List Paragraph] Personal administrativo solo en versiones futuras o mediante gestión externa de Firebase; la versión 1.0.0 no incluye panel administrativo.
+P095 [List Paragraph] Docentes o coordinadores académicos como usuarios futuros, sujetos a una ampliación funcional del sistema.
+P096 [None] El número de usuarios concurrentes estará limitado por la capacidad de la infraestructura tecnológica de LA INSTITUCIÓN y las especificaciones técnicas consignadas en la Documentación Técnica entregada con el sistema.
+P098 [None] 4.3. Territorio de Uso
+P099 [None] La licencia autoriza el uso del SARC para fines institucionales de UNISABANETA, con sede principal en Sabaneta, Antioquia, Colombia. El acceso remoto está permitido únicamente para usuarios autorizados por LA INSTITUCIÓN.
+P101 [None] 4.4. Vigencia
+P102 [None] La presente licencia tendrá una vigencia inicial de dos (2) años, contados a partir de la fecha de suscripción del presente contrato. Vencido dicho término, las partes podrán acordar su renovación mediante adenda escrita, firmada por ambas, con al menos treinta (30) días de anticipación al vencimiento. En ausencia de renovación expresa, el contrato cesará de pleno derecho y LA INSTITUCIÓN deberá abstenerse de continuar haciendo uso del software.
+P104 [None] 4.5. Restricciones de Uso
+P105 [None] Queda expresamente prohibido a LA INSTITUCIÓN, sus funcionarios, estudiantes y terceros vinculados:
+P106 [List Paragraph] Usar el SARC fuera del dominio institucional de UNISABANETA o para fines distintos a los académicos e institucionales.
+P107 [List Paragraph] Ceder, sublicenciar, arrendar o transferir a cualquier título la presente licencia o el acceso al software.
+P108 [List Paragraph] Utilizar el sistema o los datos gestionados en él para recolección masiva de información con fines no académicos.
+P109 [List Paragraph] Integrar el SARC con sistemas externos, APIs de terceros o plataformas ajenas a la institución, sin autorización escrita previa de LA DESARROLLADORA.
+P110 [List Paragraph] Reproducir, modificar, descompilar, realizar ingeniería inversa o crear obras derivadas a partir del SARC.
+P111 [List Paragraph] Eliminar, alterar u ocultar cualquier aviso de derechos de autor o créditos de autoría incorporados en el software.
+P113 [None] CLÁUSULA QUINTA — CONTRAPRESTACIÓN ECONÓMICA Y PROYECCIÓN COMERCIAL
+P114 [None] 5.1. Naturaleza Gratuita del Contrato
+P115 [None] Dado el carácter académico del proyecto SARC y el marco de formación universitaria en que fue desarrollado, las partes acuerdan expresamente que la presente licencia se otorga de forma completamente gratuita. No existirá contraprestación económica alguna a cargo de LA INSTITUCIÓN en favor de LA DESARROLLADORA por concepto del uso del software durante la vigencia pactada.
+P117 [None] 5.2. Reconocimiento Institucional
+P118 [None] En reconocimiento al esfuerzo intelectual de LA DESARROLLADORA, LA INSTITUCIÓN se compromete a:
+P119 [List Paragraph] Reconocer formalmente a Lorena Roa Rivera como autora del Sistema SARC en toda documentación institucional, comunicaciones y materiales en los que se mencione o exhiba el sistema.
+P120 [List Paragraph] Expedir, a solicitud de LA DESARROLLADORA, carta de implementación o constancia de uso del sistema para fines académicos, profesionales o de portafolio personal.
+P121 [List Paragraph] Facilitar el acceso a la información necesaria para el mantenimiento y evolución del sistema durante la vigencia del contrato.
+P123 [None] 5.3. Costos de Infraestructura
+P124 [None] Los costos derivados de la configuración y mantenimiento de la infraestructura tecnológica necesaria para la operación del SARC —incluyendo los servicios de Firebase (base de datos y autenticación), hosting estático, conectividad a internet y copias de seguridad— serán asumidos íntegramente por LA INSTITUCÓN. No obstante, LA DESARROLLADORA brindará orientación técnica para la correcta selección de dicha infraestructura, conforme a las especificaciones mínimas documentadas.
+P126 [None] 5.4. Servicios Futuros de Mantenimiento Evolutivo
+P127 [None] Vencido el período de garantía, cualquier servicio adicional de soporte técnico, mantenimiento evolutivo, actualizaciones de versión o nuevas funcionalidades deberá ser objeto de un acuerdo separado entre las partes, con las condiciones económicas y técnicas que en ese momento se pacten. La gratuidad establecida en esta cláusula no se extiende automáticamente a dichos servicios futuros.
+P129 [None] 5.5. Proyección Comercial y Valorización Futura
+P130 [None] Sin perjuicio de la naturaleza gratuita de la presente licencia, las partes reconocen que el software SARC posee un valor tecnológico y económico objetivo que podrá ser formalizado en el futuro. A efectos de planificación, se establecen los siguientes lineamientos de proyección:
+P131 [List Paragraph] Valorización del software: una vez concluido el período de vigencia del presente contrato, el SARC podrá ser objeto de una tasación técnica o pericial que establezca su valor comercial de mercado, considerando criterios como complejidad funcional, base de usuarios, tecnologías implementadas y curva de adopción institucional.
+P132 [List Paragraph] Modelos de licenciamiento futuro: las partes podrán negociar, de forma voluntaria, la conversión de la presente licencia gratuita en un esquema de licenciamiento comercial, bajo modalidades como: suscripción anual, licencia perpetua por usuario o por módulo, o modelo de mantenimiento evolutivo continuo con tarifa diferenciada por funcionalidad.
+P133 [List Paragraph] Mantenimiento evolutivo: las mejoras requeridas por LA INSTITUCIÓN tras el período de garantía serán consideradas como servicios adicionales cuantificables, que podrán presupuestarse y contratarse mediante adenda específica según las necesidades institucionales identificadas.
+P134 [None] Lo anterior no modifica en ninguna forma las condiciones económicas del presente contrato, sino que refleja la visión profesional de gestión del ciclo de vida del software.
+P136 [None] CLÁUSULA SEXTA — PROPIEDAD INTELECTUAL Y CONFIDENCIALIDAD
+P137 [None] 6.1. Titularidad Exclusiva del Software
+P138 [None] LA DESARROLLADORA, Lorena Roa Rivera, conserva en todo momento la titularidad exclusiva e irrevocable de los derechos de propiedad intelectual sobre el software SARC, incluyendo, sin limitación: el código fuente en todas sus versiones, la arquitectura del sistema, los algoritmos y lógicas de negocio, los diseños de interfaz gráfica, los modelos de base de datos y cualquier documentación técnica asociada. La presente licencia no implica cesión, transferencia, renuncia ni constitución de ningún derecho real sobre dichas creaciones intelectuales.
+P140 [None] 6.2. Marco Legal de Protección
+P141 [None] El software SARC se encuentra protegido bajo las disposiciones de la Ley 23 de 1982 sobre Derechos de Autor, la Decisión Andina 351 de 1993, la Ley 44 de 1993, la Ley 1341 de 2009 (Ley TIC) y demás normas aplicables del ordenamiento jurídico colombiano. Su reproducción, distribución o modificación sin autorización expresa de LA DESARROLLADORA constituirá una infracción a los derechos de autor, con las consecuencias civiles, administrativas y penales previstas en la ley.
+P143 [None] 6.3. Restricciones sobre el Código Fuente
+P144 [None] LA INSTITUCIÓN no tendrá acceso al código fuente del software, salvo autorización expresa, escrita y delimitada por LA DESARROLLADORA. En ningún caso LA INSTITUCIÓN podrá copiar, reproducir, distribuir, modificar, adaptar, publicar ni explotar comercialmente el código fuente o cualquier componente del sistema.
+P146 [None] 6.4. Confidencialidad
+P147 [None] Ambas partes se obligan a mantener la más estricta confidencialidad sobre toda información técnica, académica, funcional o institucional que sea compartida en el marco del presente contrato. Esta obligación se extiende a sus colaboradores, funcionarios, estudiantes y terceros vinculados, y subsistirá por un período de tres (3) años después de la terminación del contrato, independientemente de la causa.
+P148 [List Paragraph] LA INSTITUCIÓN no podrá revelar la arquitectura técnica, los mecanismos de recomendación ni las lógicas de negocio del SARC a terceros sin autorización previa y escrita de LA DESARROLLADORA.
+P149 [List Paragraph] LA DESARROLLADORA se compromete a no revelar información institucional, datos de estudiantes ni información académica sensible a la que pueda tener acceso durante las fases de implementación o soporte.
+P150 [List Paragraph] Queda exceptuada de esta obligación la información que deba revelarse por mandato legal o decisión de autoridad judicial competente, en cuyo caso la parte requerida notificará a la otra con la mayor anticipación posible.
+P152 [None] 6.5. Propiedad de los Datos Académicos
+P153 [None] Los datos académicos de los estudiantes generados o almacenados en el SARC durante la vigencia del contrato son de propiedad exclusiva de LA INSTITUCIÓN. LA DESARROLLADORA no adquiere ningún derecho sobre dichos datos por el solo hecho de haber desarrollado el sistema. Ante la terminación del contrato, LA INSTITUCIÓN podrá exportar dichos datos en los formatos disponibles, y LA DESARROLLADORA deberá eliminar cualquier copia a la que hubiere tenido acceso.
+P155 [None] CLÁUSULA SÉPTIMA — GARANTÍAS, SOPORTE TÉCNICO Y ACUERDO DE NIVEL DE SERVICIO (SLA)
+P156 [None] 7.1. Garantía del Sistema
+P157 [None] LA DESARROLLADORA garantiza que el software SARC, versión 1.0.0, cumple con las funcionalidades descritas en la Cláusula Tercera y con los requisitos funcionales y no funcionales establecidos en el documento de especificación de requisitos de software (SRS) elaborado bajo el estándar IEEE 830. Esta garantía tiene una vigencia de seis (6) meses contados desde la fecha de entrega formal y documentada del sistema.
+P159 [None] 7.2. Mantenimiento Correctivo
+P160 [None] Durante el período de garantía, LA DESARROLLADORA se obliga a corregir, sin costo adicional, cualquier falla, error o defecto en el funcionamiento del SARC que sea atribuible a la implementación original, siempre que dicha falla sea reportada formalmente por LA INSTITUCIÓN a través del canal de soporte habilitado. Los tiempos de atención y solución se regirán por los niveles de criticidad definidos en el numeral 7.4 del presente contrato.
+P162 [None] 7.3. Canal de Soporte Técnico
+P163 [None] Durante el período de garantía, LA DESARROLLADORA prestará soporte técnico a través de los siguientes canales y alcances:
+P164 [List Paragraph] Canal principal: correo electrónico institucional (lorena.roa.196@unisabaneta.edu.co), con disponibilidad en días hábiles de lunes a viernes.
+P165 [List Paragraph] Orientación sobre el uso correcto de las funcionalidades del sistema, mediante respuesta escrita documentada.
+P166 [List Paragraph] Diagnóstico técnico de errores reportados, conforme a los tiempos establecidos en el SLA de la cláusula 7.4.
+P167 [List Paragraph] Provisión de actualizaciones menores de corrección de errores (bug fixes) derivadas de la versión inicial, sin costo adicional durante el período de garantía.
+P169 [None] 7.4. Acuerdo de Nivel de Servicio — SLA
+P170 [None] Con el fin de garantizar una prestación ordenada y predecible del soporte técnico, las partes acuerdan el siguiente esquema formal de niveles de servicio (SLA), aplicable durante el período de garantía:
+P172 [None] 7.4.1. Definición de Niveles de Criticidad
+P173 [List Paragraph] Criticidad ALTA (P1): Incidentes que impiden el funcionamiento total del sistema o comprometen la seguridad e integridad de los datos de los usuarios. Ejemplos: sistema completamente inaccesible, falla total del módulo de autenticación, pérdida masiva o corrupción de datos académicos, vulnerabilidad de seguridad activamente explotada.
+P174 [List Paragraph] Criticidad MEDIA (P2): Incidentes que afectan parcialmente una funcionalidad relevante del sistema, sin impedir su operación general. Ejemplos: módulo de recomendaciones con resultados incorrectos, errores de inscripción que afectan a grupos de usuarios, reportes PDF con información incompleta.
+P175 [List Paragraph] Criticidad BAJA (P3): Incidentes de impacto menor que no interrumpen la operación normal del sistema. Ejemplos: inconsistencias visuales en la interfaz, mensajes de error con redacción imprecisa, solicitudes de orientación sobre uso del sistema.
+P177 [None] 7.4.2. Tiempos de Respuesta y Solución
+P178 [None] Los tiempos indicados corresponden a días hábiles, contados desde la recepción formal del reporte por LA DESARROLLADORA:
+P181 [None] 7.4.3. Procedimiento de Reporte de Incidentes
+P182 [None] Todo incidente deberá ser reportado mediante correo electrónico al canal de soporte habilitado, indicando: descripción detallada del problema, capturas de pantalla o evidencias relevantes, nivel de criticidad estimado por LA INSTITUCIÓN, y datos del responsable técnico que reporta. LA DESARROLLADORA acusará recibo del reporte dentro del tiempo de respuesta establecido y comunicará el diagnóstico preliminar y plan de acción en el mismo plazo.
+P184 [None] 7.4.4. Corresponsabilidad Técnica
+P185 [None] El cumplimiento de los tiempos establecidos en el SLA estará condicionado a la colaboración oportuna de LA INSTITUCIÓN, que deberá: facilitar el acceso al entorno de despliegue cuando sea técnicamente necesario para el diagnóstico; proveer información completa y precisa sobre el incidente reportado; y garantizar la disponibilidad del responsable técnico institucional durante el proceso de atención. Los tiempos del SLA se suspenderán mientras LA DESARROLLADORA espere información o acceso requerido de LA INSTITUCIÓN.
+P187 [None] 7.5. Exclusiones de Garantía y SLA
+P188 [None] LA DESARROLLADORA no asumirá responsabilidad por fallas derivadas de:
+P189 [List Paragraph] Modificaciones realizadas al sistema por LA INSTITUCIÓN o por terceros no autorizados por LA DESARROLLADORA.
+P190 [List Paragraph] Inadecuada configuración, administración o mantenimiento de la infraestructura tecnológica a cargo de LA INSTITUCIÓN.
+P191 [List Paragraph] Eventos de fuerza mayor, caso fortuito o ataques externos de terceros.
+P192 [List Paragraph] Uso del sistema en condiciones distintas a las especificadas en la Documentación Técnica entregada.
+P193 [List Paragraph] Incumplimiento por parte de LA INSTITUCIÓN de los requisitos mínimos de infraestructura indicados en la Documentación Técnica.
+P195 [None] CLÁUSULA OCTAVA — OBLIGACIONES DE LAS PARTES
+P196 [None] 8.1. Obligaciones de la Desarrolladora (Licenciante)
+P197 [List Paragraph] Entregar el software SARC en condiciones óptimas de funcionamiento, conforme a las especificaciones técnicas documentadas, en la fecha acordada por las partes.
+P198 [List Paragraph] Suministrar la Documentación Técnica completa necesaria para la correcta implementación y uso del sistema.
+P199 [List Paragraph] Prestar el soporte técnico conforme al SLA pactado en la Cláusula Séptima durante el período de garantía.
+P200 [List Paragraph] Documentar y comunicar oportunamente los requisitos mínimos de infraestructura para la correcta operación del SARC.
+P201 [List Paragraph] Mantener la confidencialidad sobre la información institucional y los datos de los estudiantes a los que tenga acceso.
+P202 [List Paragraph] Notificar a LA INSTITUCIÓN con anticipación razonable sobre cualquier circunstancia que pueda afectar la disponibilidad o el correcto funcionamiento del sistema.
+P203 [List Paragraph] Respetar los canales institucionales y las normativas internas de UNISABANETA durante cualquier intervención técnica en el sistema.
+P205 [None] 8.2. Obligaciones de la Institución (Licenciatario)
+P206 [List Paragraph] Utilizar el software SARC exclusivamente en los términos y condiciones establecidos en el presente contrato.
+P207 [List Paragraph] Garantizar la infraestructura tecnológica mínima requerida para el correcto funcionamiento del sistema, conforme a las especificaciones técnicas entregadas por LA DESARROLLADORA.
+P208 [List Paragraph] Designar al menos un (1) responsable técnico institucional como punto de contacto permanente para la gestión de reportes de incidencias y la coordinación con LA DESARROLLADORA.
+P209 [List Paragraph] Reportar de manera oportuna y formal cualquier falla o incidencia detectada, absteniéndose de realizar modificaciones no autorizadas al sistema.
+P210 [List Paragraph] Respetar los derechos de propiedad intelectual de LA DESARROLLADORA y cumplir con todas las restricciones de uso establecidas en este contrato.
+P211 [List Paragraph] Proteger la información y los datos personales de los estudiantes gestionados a través del SARC, conforme a la Ley 1581 de 2012 y demás normas aplicables.
+P212 [List Paragraph] Implementar controles de acceso adecuados para evitar el uso del sistema por parte de personas no autorizadas.
+P213 [List Paragraph] Suministrar a LA DESARROLLADORA la información y el acceso técnico necesarios para la correcta prestación del soporte, en los plazos requeridos para el cumplimiento del SLA.
+P215 [None] CLÁUSULA NOVENA — LIMITACIÓN DE RESPONSABILIDAD Y EXCLUSIÓN DE DAÑOS
+P216 [None] 9.1. Limitación de Responsabilidad de la Desarrolladora
+P217 [None] En ningún caso LA DESARROLLADORA será responsable por daños directos o indirectos que excedan el valor equivalente al costo de reimplementación del sistema SARC en su versión 1.0.0, cuantificado objetivamente conforme a las tarifas de mercado vigentes al momento del evento generador del daño. Dado que la presente licencia es de carácter gratuito, la responsabilidad máxima de LA DESARROLLADORA queda delimitada al valor de la infraestructura tecnológica certificada por LA INSTITUCIÓN para la operación del sistema.
+P219 [None] 9.2. Exclusión de Daños Indirectos
+P220 [None] LA DESARROLLADORA no asumirá responsabilidad por ninguno de los siguientes tipos de daños, independientemente de su causa:
+P221 [List Paragraph] Pérdida de datos académicos o institucionales, salvo que sea consecuencia directa y demostrable de una falla imputable exclusivamente a LA DESARROLLADORA.
+P222 [List Paragraph] Lucro cesante, pérdida de oportunidad académica o perjuicios derivados de la interrupción del servicio por causas no atribuibles a LA DESARROLLADORA.
+P223 [List Paragraph] Daños ocasionados por el uso indebido del software por parte de LA INSTITUCIÓN, sus funcionarios, estudiantes o terceros.
+P224 [List Paragraph] Daños derivados de ataques de terceros, intrusiones, malware u otras amenazas de ciberseguridad externas al sistema.
+P226 [None] 9.3. Responsabilidad de la Institución
+P227 [None] LA INSTITUCIÓN será directamente responsable por los daños que se deriven del uso indebido del SARC por parte de sus funcionarios, estudiantes o terceros a quienes hubiere otorgado acceso. En particular, asumirá la totalidad de las consecuencias jurídicas derivadas del incumplimiento de la normativa de protección de datos personales en el tratamiento de la información de sus estudiantes.
+P229 [None] CLÁUSULA DÉCIMA — PROTECCIÓN DE DATOS PERSONALES
+P230 [None] El tratamiento de datos personales de los estudiantes de UNISABANETA en el marco del uso del sistema SARC deberá cumplir en todo momento con lo dispuesto en la Ley Estatutaria 1581 de 2012 de Protección de Datos Personales, el Decreto 1377 de 2013 y demás normas reglamentarias. En particular:
+P231 [List Paragraph] LA INSTITUCIÓN actuará como Responsable del Tratamiento de los datos personales de sus estudiantes y será la única autorizada para definir los fines del tratamiento.
+P232 [List Paragraph] LA DESARROLLADORA actuará como Encargada del Tratamiento únicamente durante las fases de implementación y soporte técnico, con acceso limitado a los datos estrictamente necesarios para dichas funciones.
+P233 [List Paragraph] Ninguna de las partes podrá transferir datos personales de los estudiantes a terceros sin autorización previa del titular o sin el cumplimiento de los requisitos legales aplicables.
+P234 [List Paragraph] LA INSTITUCIÓN deberá obtener y conservar evidencia de la autorización de tratamiento de datos de sus estudiantes conforme a los artículos 9 y 10 de la Ley 1581 de 2012.
+P235 [List Paragraph] Ante cualquier Incidente de Seguridad que afecte datos personales, LA INSTITUCIÓN deberá notificar a la Superintendencia de Industria y Comercio (SIC) y a los titulares afectados en los plazos previstos por la normativa vigente, e informar de inmediato a LA DESARROLLADORA.
+P237 [None] CLÁUSULA UNDÉCIMA — SEGURIDAD DE LA INFORMACIÓN
+P238 [None] 11.1. Obligaciones de la Desarrolladora en Materia de Seguridad
+P239 [List Paragraph] Entregar el sistema con mecanismos de autenticación acordes a la versión 1.0.0: Firebase Email/Password, protección de rutas privadas desde el frontend y reglas de Firestore por usuario.
+P240 [List Paragraph] Documentar las vulnerabilidades conocidas del sistema y las medidas de mitigación implementadas en la versión 1.0.0.
+P241 [List Paragraph] Notificar a LA INSTITUCIÓN cualquier vulnerabilidad detectada con posterioridad a la entrega que pueda comprometer la seguridad del sistema o de los datos.
+P243 [None] 11.2. Obligaciones de la Institución en Materia de Seguridad
+P244 [List Paragraph] Garantizar que el entorno de despliegue del SARC cuente con medidas de seguridad perimetral adecuadas (firewall, protección contra accesos no autorizados).
+P245 [List Paragraph] Gestionar las cuentas autorizadas de Firebase con estricta confidencialidad y revocar accesos de usuarios que cesen su vinculación con la institución.
+P246 [List Paragraph] Gestionar y mantener copias de seguridad periódicas de los datos académicos almacenados en Firebase, con una frecuencia mínima semanal, ya sea mediante exportaciones manuales o las herramientas de respaldo disponibles en la plataforma Firebase, garantizando su almacenamiento en entornos seguros y su recuperabilidad.
+P248 [None] CLÁUSULA DUODÉCIMA — TERMINACIÓN DEL CONTRATO
+P249 [None] 12.1. Causales de Terminación
+P250 [None] El presente contrato podrá darse por terminado en los siguientes eventos:
+P251 [List Paragraph] Por mutuo acuerdo entre las partes, expresado mediante comunicación escrita con un preaviso mínimo de treinta (30) días calendario.
+P252 [List Paragraph] Por vencimiento del término pactado en la Cláusula Cuarta, numeral 4.4, sin que medie renovación expresa.
+P253 [List Paragraph] Por incumplimiento grave de cualquiera de las obligaciones establecidas en este contrato, previo envío de comunicación escrita de requerimiento de cumplimiento con plazo de quince (15) días hábiles para subsanar.
+P254 [List Paragraph] Por violación comprobada de los derechos de propiedad intelectual de LA DESARROLLADORA sobre el SARC.
+P255 [List Paragraph] Por uso del software SARC con fines comerciales, ilícitos o contrarios al ordenamiento jurídico colombiano.
+P256 [List Paragraph] Por decisión unilateral justificada de LA DESARROLLADORA ante la imposibilidad sobreviniente de continuar prestando soporte por causas de fuerza mayor o caso fortuito debidamente acreditadas.
+P258 [None] 12.2. Efectos de la Terminación
+P259 [None] Producida la terminación del contrato por cualquier causal, se generarán los siguientes efectos:
+P260 [List Paragraph] LA INSTITUCIÓN deberá cesar de forma inmediata el uso del software SARC y de todos sus componentes.
+P261 [List Paragraph] Todos los accesos de Usuarios Autorizados deberán ser deshabilitados en Firebase o en el mecanismo de autenticación vigente en un plazo no mayor a cinco (5) días hábiles.
+P262 [List Paragraph] LA INSTITUCIÓN deberá eliminar cualquier copia del software instalada en sus sistemas e infraestructuras, y certificar dicha eliminación mediante comunicación escrita a LA DESARROLLADORA en un plazo no mayor a quince (15) días hábiles.
+P263 [List Paragraph] Los datos académicos de los estudiantes almacenados en el sistema podrán ser exportados por LA INSTITUCIÓN, en los formatos disponibles, antes de la desinstalación definitiva, previa solicitud formal.
+P264 [List Paragraph] Las obligaciones de confidencialidad subsistirán por tres (3) años adicionales a la fecha de terminación, independientemente de la causal.
+P266 [None] CLÁUSULA DÉCIMOTERCERA — LEY APLICABLE Y RESOLUCIÓN DE CONTROVERSIAS
+P267 [None] 13.1. Ley Aplicable
+P268 [None] El presente contrato se rige e interpreta de conformidad con las leyes de la República de Colombia, en particular por las disposiciones del Código Civil (Ley 84 de 1873), el Código de Comercio (Decreto 410 de 1971), la Ley 23 de 1982 sobre Derechos de Autor, la Decisión Andina 351 de 1993, la Ley 1341 de 2009 (Ley TIC), la Ley 1581 de 2012 (Habeas Data) y demás normas concordantes y reglamentarias que resulten aplicables.
+P270 [None] 13.2. Resolución de Controversias
+P271 [None] En caso de surgir cualquier controversia derivada de la ejecución, interpretación, cumplimiento o terminación del presente contrato, las partes seguirán el siguiente procedimiento escalonado:
+P272 [List Paragraph] Primera instancia — Negociación directa: las partes intentarán una solución amigable en un plazo no mayor a treinta (30) días calendario desde la notificación formal de la controversia.
+P273 [List Paragraph] Segunda instancia — Mediación: de no alcanzarse acuerdo, las partes podrán acudir a mediación ante el Centro de Conciliación y Arbitraje de la Cámara de Comercio de Medellín.
+P274 [List Paragraph] Tercera instancia — Jurisdicción ordinaria: agotadas las instancias anteriores, la controversia será resuelta por los jueces competentes del Circuito Judicial de Sabaneta, Antioquia, a cuya jurisdicción las partes se someten expresamente, renunciando a cualquier otro fuero.
+P276 [None] CLÁUSULA DÉCIMOCUARTA — DISPOSICIONES GENERALES
+P277 [None] 14.1. Integralidad del Contrato
+P278 [None] El presente contrato constituye el acuerdo completo y definitivo entre las partes con respecto al objeto aquí establecido, y reemplaza cualquier negociación, comunicación o acuerdo previo, oral o escrito, relacionado con el sistema SARC. Cualquier modificación deberá constar por escrito y ser suscrita por los representantes autorizados de ambas partes.
+P280 [None] 14.2. Independencia de Cláusulas
+P281 [None] Si cualquier disposición del presente contrato fuera declarada nula, inválida o inaplicable por autoridad judicial competente, dicha nulidad no afectará la validez y eficacia del resto de las cláusulas, las cuales continuarán en plena vigencia.
+P283 [None] 14.3. Notificaciones
+P284 [None] Toda comunicación entre las partes relacionada con la ejecución del presente contrato deberá realizarse por escrito, mediante correo electrónico a las direcciones registradas en la Cláusula Primera, o mediante comunicación formal entregada en los domicilios indicados. Las notificaciones por correo electrónico se entenderán recibidas al momento de su envío, salvo demostración en contrario.
+P286 [None] 14.4. Renuncia
+P287 [None] La omisión de cualquiera de las partes en exigir el cumplimiento de una obligación o en ejercer un derecho previsto en este contrato no se entenderá como renuncia a dicho derecho u obligación, ni impedirá su exigencia posterior.
+P290 [None] FIRMA Y PERFECCIONAMIENTO DEL CONTRATO
+P291 [None] En constancia de lo anterior, las partes suscriben el presente Contrato de Licencia de Uso de Software, en dos (2) ejemplares del mismo tenor y valor, en la ciudad de Sabaneta, Antioquia, a los ___ días del mes de _______________ de dos mil veintiséis (2026).
+P294 [None] LA DESARROLLADORA (LICENCIANTE)			LA INSTITUCIÓN (LICENCIATARIO)
+P295 [None] ___________________________________	___________________________________
+P296 [None] Lorena Roa Rivera	Representante Legal / Delegado Autorizado
+P297 [None] Autora del Proyecto SARC	Corporación Universitaria de Sabaneta – UNISABANETA
+P298 [None] C.C. N.° 1034916196	Nombre: ______________________________
+P299 [None] Ingeniería Informática – UNISABANETA	C.C. / NIT: ___________________________
+P300 [None] Cargo: ________________________________
+--- TABLES ---
+TABLE 0
+R00: Nivel || Criticidad || Ejemplos de Incidente || Tiempo de Respuesta || Tiempo de Solución
+R01: ALTA (P1) || Crítica || Sistema inaccesible, pérdida masiva de datos, falla de autenticación total || 4 horas hábiles || 3 días hábiles
+R02: MEDIA (P2) || Moderada || Módulo parcialmente inoperante, error en motor de recomendación || 1 día hábil || 8 días hábiles
+R03: BAJA (P3) || Leve || Fallo estético, inconsistencia menor de datos, consulta de uso || 3 días hábiles || 15 días hábiles

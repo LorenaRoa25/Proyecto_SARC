@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Recuperar contraseña: acciones del formulario de actualización.
+   ========================================================================== */
+
+.recovery-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.recovery-actions .mock-btn {
+  width: 50%;
+}
+
+@media (max-width: 680px) {
+  .recovery-actions {
+    flex-direction: column;
+  }
+
+  .recovery-actions .mock-btn {
+    width: 100%;
+  }
+}

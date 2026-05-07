@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SARC | Sistema de apoyo académico</title>
+
+  <!-- Estilos globales y componentes compartidos -->
+  <link rel="stylesheet" href="shared/css/base.css">
+  <link rel="stylesheet" href="shared/css/layout.css">
+  <link rel="stylesheet" href="shared/css/components.css">
+
+  <!-- Estilos independientes por vista -->
+  <link rel="stylesheet" href="pages/login/login.css">
+  <link rel="stylesheet" href="pages/recuperar/recuperar.css">
+  <link rel="stylesheet" href="pages/inicio/inicio.css">
+  <link rel="stylesheet" href="pages/recomendaciones/recomendaciones.css">
+  <link rel="stylesheet" href="pages/detalle/detalle.css">
+  <link rel="stylesheet" href="pages/progreso/progreso.css">
+  <link rel="stylesheet" href="pages/perfil/perfil.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Pantalla inicial de carga -->
+    <div id="loader" class="loader-screen">
+      <div class="loader-brand">
+        <div class="loader-mark">S</div>
+        <p>SARC</p>
+        <span>Sistema de apoyo académico</span>
+        <div class="loader-bar"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Componentes globales de mensajes y modales -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+    <div id="modalRoot" class="modal-root"></div>
+
+    <!-- Contenedor de autenticación: login y recuperación -->
+    <section id="authView" class="auth-shell"></section>
+
+    <!-- Contenedor principal del sistema autenticado -->
+    <section id="dashboardView" class="app-shell hidden">
+      <main class="main-shell">
+        <div class="browser-frame">
+          <div class="browser-top">
+            <span class="browser-app-title">Apoyo académico</span>
+            <span class="browser-url">https://launivirtual.edu.co/</span>
+          </div>
+
+          <div class="frame-body">
+            <!-- Navegación principal del mockup académico -->
+            <header class="top-strip">
+              <div class="brand-word">Unisabaneta</div>
+              <button class="top-nav-link" data-route="inicio" type="button">Inicio</button>
+              <button class="top-nav-link" data-route="recomendaciones" type="button">Recomendaciones</button>
+              <button class="top-nav-link" data-route="progreso" type="button">Mi progreso</button>
+              <button class="top-nav-link" data-route="perfil" type="button">Perfil</button>
+              <div class="user-icon" aria-hidden="true"></div>
+            </header>
+
+            <!-- Aquí se renderiza cada vista del sistema -->
+            <div id="viewContainer" class="view-content"></div>
+
+            <!-- Enlaces externos compartidos -->
+            <footer class="frame-footer">
+              <strong>Enlaces Externos</strong>
+              <a href="https://unisabaneta.edu.co/" target="_blank" rel="noreferrer">Unisabaneta</a>
+              <a href="#" data-static-link="pqrsf">PQRSF</a>
+              <a href="#" data-static-link="caequinos">Caequinos</a>
+              <div class="footer-icons">
+                <span class="footer-icon">IG</span>
+                <span class="footer-icon">F</span>
+                <span class="footer-icon">T</span>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <!-- Punto de entrada JavaScript modular -->
+  <script type="module" src="shared/js/app.js"></script>
+</body>
+</html>

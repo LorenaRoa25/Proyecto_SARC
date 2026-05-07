@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Componentes compartidos: banners, botones, modales y notificaciones.
+   ========================================================================== */
+
+.green-banner {
+  min-height: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.green-banner.left {
+  justify-content: flex-start;
+  font-size: 1.9rem;
+}
+
+.section-title {
+  margin: 0 0 34px;
+  font-size: 2.15rem;
+  font-weight: 700;
+}
+
+.section-title.white {
+  color: var(--white);
+}
+
+.mock-btn {
+  width: 170px;
+  height: 48px;
+  border: none;
+  color: var(--white);
+  font-size: 1.24rem;
+  font-weight: 500;
+}
+
+.mock-btn.blue {
+  background: var(--blue);
+}
+
+.mock-btn.green {
+  background: var(--green);
+}
+
+.mock-btn.gray,
+.mock-btn:disabled {
+  background: #8c8c8c;
+  color: #ffffff;
+  cursor: default;
+}
+
+/* Modales reutilizables */
+.modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1700;
+  pointer-events: none;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.22);
+  pointer-events: auto;
+}
+
+.modal-card {
+  width: 445px;
+  max-width: 100%;
+  padding: 20px 24px 16px;
+  border: 1px solid #d9dee6;
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.modal-card.report-modal {
+  width: 620px;
+  padding: 26px 30px 24px;
+}
+
+.modal-head {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.modal-head h3 {
+  margin: 0;
+  color: var(--blue);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal-inline-icon {
+  position: absolute;
+  top: 2px;
+  left: 14px;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.modal-inline-icon.success {
+  color: var(--green);
+}
+
+.modal-inline-icon.error {
+  color: var(--red);
+}
+
+.modal-inline-icon.none {
+  display: none;
+}
+
+.modal-close-compact {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: none;
+  color: #374151;
+  font-size: 1.4rem;
+}
+
+.modal-body {
+  font-size: 1.52rem;
+}
+
+.modal-copy {
+  text-align: center;
+}
+
+.modal-list {
+  margin: 14px 0 0 26px;
+  padding: 0;
+  font-size: 1.48rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.mini-btn,
+.wide-btn {
+  height: 45px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 1.22rem;
+}
+
+.mini-btn.green,
+.wide-btn.green {
+  background: var(--green);
+}
+
+.mini-btn.red {
+  background: var(--red);
+}
+
+.modal-report-grid,
+.edit-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.modal-report-grid {
+  gap: 16px;
+}
+
+.modal-report-grid div,
+.edit-grid .field-row {
+  font-size: 1.3rem;
+}
+
+.report-line {
+  line-height: 1.55;
+}
+
+.edit-grid .field-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.edit-grid input[type="password"],
+.edit-grid input[type="text"] {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #bcc5cf;
+  border-radius: 8px;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.file-select-btn {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid #9ca3af;
+  background: #f3f4f6;
+}
+
+.radio-stack {
+  display: grid;
+  gap: 6px;
+}
+
+.radio-stack label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Toasts de estado */
+.toast-container {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1800;
+  display: grid;
+  gap: 10px;
+}
+
+.toast {
+  min-width: 250px;
+  max-width: 340px;
+  padding: 12px 14px;
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.toast.success {
+  background: var(--green);
+}
+
+.toast.error {
+  background: var(--red);
+}
+
+.toast.info {
+  background: var(--blue);
+}
+
+.toast strong,
+.toast span {
+  display: block;
+}
+
+@media (max-width: 1040px) {
+  .green-banner {
+    min-height: 60px;
+    height: auto;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .mock-btn {
+    width: 100%;
+  }
+
+  .modal-card {
+    width: 100%;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .mini-btn,
+  .wide-btn {
+    width: 100%;
+  }
+}

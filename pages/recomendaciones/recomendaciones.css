@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Recomendaciones: catálogo, filtros y acciones de cursos.
+   ========================================================================== */
+
+.catalog-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.catalog-title {
+  position: absolute;
+  top: 86px;
+  left: 60px;
+  z-index: 2;
+  color: var(--white);
+  font-size: 2.15rem;
+  font-weight: 700;
+}
+
+.catalog-body {
+  position: relative;
+  min-height: 415px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(90deg, var(--blue) 0, var(--blue) 39%, transparent 39%, transparent 100%);
+}
+
+.filters-row {
+  min-height: 77px;
+  display: grid;
+  grid-template-columns: 276px 266px;
+  gap: 226px;
+  align-items: center;
+  padding: 0 95px;
+  background: var(--green);
+}
+
+.mock-select {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #b3b3b3;
+  background: var(--white);
+  color: var(--gray-dark);
+  font-size: 1.28rem;
+}
+
+.course-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.course-item {
+  min-height: 138px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 170px 170px;
+  align-items: center;
+  padding: 0 37px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(204, 204, 204, 0.75);
+}
+
+.course-name {
+  font-size: 1.78rem;
+}
+
+.course-name strong {
+  font-weight: 700;
+}
+
+.course-actions {
+  display: contents;
+}
+
+@media (max-width: 1040px) {
+  .catalog-body {
+    background: var(--blue);
+  }
+
+  .catalog-title {
+    position: static;
+    padding: 20px 24px 8px;
+  }
+
+  .filters-row {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 24px;
+  }
+
+  .course-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  .course-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}

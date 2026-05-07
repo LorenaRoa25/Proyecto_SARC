@@ -1,0 +1,20 @@
+<!-- Vista Detalle: información ampliada del curso seleccionado -->
+<div class="detail-layout fade-in">
+  <div class="green-banner">Curso: {{courseName}}</div>
+  <div class="detail-page">
+    <!-- Datos descriptivos del curso -->
+    <div class="detail-text">
+      <strong>Descripción:</strong> {{description}}<br>
+      <strong>Duración:</strong> {{duration}}<br>
+      <strong>Nivel:</strong> {{level}}
+    </div>
+
+    <!-- Acciones del detalle -->
+    <div class="detail-actions">
+      <button class="mock-btn blue" id="detailBackButton" type="button">VOLVER</button>
+      <button class="mock-btn {{enrollClass}}" data-enroll="{{courseId}}" type="button" {{disabled}}>
+        {{enrollLabel}}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Inicio: distribución de cursos sugeridos y asistente virtual.
+   ========================================================================== */
+
+.home-grid {
+  min-height: 321px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home-left,
+.home-right {
+  padding: 58px 58px 40px;
+}
+
+.home-left {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.home-right {
+  background: var(--gray);
+}
+
+.simple-list,
+.assistant-list {
+  display: grid;
+  gap: 18px;
+}
+
+.simple-list button {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: 1.95rem;
+  text-align: left;
+}
+
+.assistant-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.82rem;
+}
+
+.assistant-item input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--blue);
+}
+
+@media (max-width: 1040px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-left,
+  .home-right {
+    padding: 28px 24px;
+  }
+
+  .simple-list button,
+  .assistant-item {
+    font-size: 1.3rem;
+  }
+}

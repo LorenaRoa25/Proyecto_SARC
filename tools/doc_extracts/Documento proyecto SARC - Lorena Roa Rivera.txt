@@ -1,0 +1,458 @@
+FILE: C:\Users\Usuario\OneDrive\Desktop\Documento proyecto SARC - Lorena Roa Rivera.docx
+PARAGRAPHS: 263 TABLES: 30
+--- PARAGRAPHS ---
+P004 [Normal] UNISABANETA
+P005 [Normal] Ingeniería Informática
+P006 [Normal] SISTEMA DE APOYO ACADÉMICO CON RECOMENDACIÓN DE CURSOS
+P007 [Normal] Documentación Técnica y Funcional del Proyecto
+P011 [Heading 1] 1. DESCRIPCIÓN GENERAL DEL SISTEMA
+P014 [Heading 2] 1.1 Nombre del Sistema
+P015 [Normal] Sistema de Apoyo Académico con Recomendación de Cursos – SARC
+P017 [Heading 2] 1.2 Problema que Resuelve
+P018 [Normal] En el entorno universitario colombiano, muchos estudiantes presentan dificultades académicas en áreas como matemáticas, idiomas y programación, áreas que son transversales a múltiples carreras. Sin embargo, la oferta de formación complementaria suele ser dispersa, poco accesible o desconocida para los estudiantes. Esto provoca bajo rendimiento académico, deserción y falta de competencias clave para el mercado laboral.
+P019 [Normal] El SARC busca resolver este problema centralizando la oferta de cursos complementarios y orientando al estudiante hacia los recursos más adecuados según su perfil y necesidades académicas.
+P021 [Heading 2] 1.3 Objetivo General
+P022 [Normal] Desarrollar una plataforma web que facilite el acceso de los estudiantes universitarios a cursos complementarios, mediante un sistema de recomendación personalizada y seguimiento del progreso académico, con el fin de fortalecer sus competencias profesionales e interdisciplinarias.
+P024 [Heading 2] 1.4 Objetivos Específicos
+P025 [List Paragraph] Implementar un módulo de autenticación seguro que permita a los estudiantes acceder a la plataforma con sus credenciales institucionales.
+P026 [List Paragraph] Desarrollar un motor de recomendación de cursos basado en el perfil académico del estudiante (carrera, semestre, áreas de interés).
+P027 [List Paragraph] Crear un catálogo de cursos filtrable por área interdisciplinaria y modalidad (virtual, presencial, híbrido).
+P028 [List Paragraph] Diseñar e implementar un módulo de seguimiento del progreso académico que permita al estudiante visualizar su avance en cada curso inscrito.
+P029 [List Paragraph] Generar reportes de progreso descargables en formato PDF para uso personal y administrativo.
+P030 [List Paragraph] Incluir un asistente virtual que proporcione recomendaciones de acciones concretas al estudiante.
+P031 [List Paragraph] Desarrollar un panel de perfil de usuario editable con preferencias de modalidad y datos personales.
+P033 [Heading 2] 1.5 Alcance del Sistema
+P034 [Normal] El sistema cubre los siguientes procesos dentro del ciclo académico complementario:
+P035 [List Paragraph] Registro e inicio de sesión de estudiantes con correo institucional.
+P036 [List Paragraph] Visualización del panel principal (dashboard) con cursos sugeridos y recomendaciones del asistente virtual.
+P037 [List Paragraph] Exploración y filtrado del catálogo de cursos disponibles.
+P038 [List Paragraph] Inscripción a cursos con gestión de disponibilidad de cupos.
+P039 [List Paragraph] Visualización del progreso académico por curso.
+P040 [List Paragraph] Generación y descarga de reportes de progreso en PDF.
+P041 [List Paragraph] Edición del perfil del usuario (contraseña, foto, modalidad preferida).
+P042 [Normal] Quedan fuera del alcance para esta versión: gestión de contenido de cursos por docentes, módulos de pago, videoconferencias, foros académicos y análisis predictivo avanzado de deserción estudiantil.
+P044 [Heading 2] 1.6 Público Objetivo / Usuarios
+P046 [Heading 2] 1.7 Justificación del Proyecto
+P047 [Normal] La formación interdisciplinaria es reconocida mundialmente como un factor diferenciador en la calidad de los egresados universitarios. Unisabaneta, como institución comprometida con la excelencia académica, necesita una herramienta que democratice el acceso a cursos complementarios y que oriente a los estudiantes de manera personalizada.
+P048 [Normal] El SARC es una herramienta tecnológica que apoya uno de los objetivos más importantes de la UNESCO (la organización mundial de educación de las Naciones Unidas): el ODS 4 (Objetivo de Desarrollo Sostenible número 4), que busca garantizar que todas las personas tengan acceso a una educación de calidad a lo largo de toda su vida.
+P049 [Normal] En términos prácticos, el sistema permite que cualquier estudiante, sin importar su carrera o situación, pueda seguir aprendiendo de forma continua, acceder a nuevos conocimientos fácilmente y recibir una experiencia adaptada a sus propias necesidades e intereses, todo a través de una página web moderna y fácil de usar.
+P051 [Heading 1] 2. DOCUMENTO DE REQUERIMIENTOS DEL SISTEMA (SRS)
+P053 [Normal] Basado en el estándar IEEE 830
+P055 [Heading 2] 2.1 Introducción
+P056 [Heading 3] 2.1.1 Propósito del Documento
+P057 [Normal] Este documento describe de forma completa y precisa los requerimientos funcionales y no funcionales del Sistema de Apoyo Académico con Recomendación de Cursos (SARC). Está dirigido al equipo de desarrollo, al cliente institucional (Unisabaneta) y a los evaluadores académicos del proyecto.
+P059 [Heading 3] 2.1.2 Alcance
+P060 [Normal] El SARC es una plataforma web que permite a los estudiantes universitarios acceder a cursos complementarios, recibir recomendaciones personalizadas y hacer seguimiento a su progreso académico. El sistema será accesible desde navegadores web estándar y no requiere instalación de software adicional.
+P062 [Heading 3] 2.1.3 Definiciones y Acrónimos
+P064 [Heading 2] 2.2 Descripción General
+P065 [Heading 3] 2.2.1 Perspectiva del Producto
+P066 [Normal] El SARC es un sistema web independiente que funciona como complemento al sistema académico oficial, sin reemplazarlo. En la versión actual opera como sistema funcional con base de datos implementada en Firebase para soportar autenticación, almacenamiento y consulta de información académica.
+P068 [Heading 3] 2.2.2 Funciones Principales del Sistema
+P069 [List Paragraph] Autenticación y gestión de sesiones de estudiantes.
+P070 [List Paragraph] Motor de recomendación de cursos basado en perfil académico.
+P071 [List Paragraph] Catálogo de cursos con filtros por área y modalidad.
+P072 [List Paragraph] Gestión de inscripciones con control de cupos.
+P073 [List Paragraph] Módulo de seguimiento del progreso académico.
+P074 [List Paragraph] Generación de reportes en PDF.
+P075 [List Paragraph] Edición del perfil de usuario.
+P077 [Heading 3] 2.2.3 Restricciones del Sistema
+P078 [List Paragraph] El sistema no gestiona contenido de cursos (videos, materiales); solo inscripción y seguimiento.
+P079 [List Paragraph] La autenticación se realiza exclusivamente con correo del dominio @unisabaneta.edu.co.
+P080 [List Paragraph] No se procesan pagos ni transacciones monetarias en esta versión.
+P082 [Heading 3] 2.2.4 Suposiciones y Dependencias
+P083 [List Paragraph] Se asume que los estudiantes tienen acceso a internet estable y con buena velocidad.
+P084 [List Paragraph] Los datos académicos del estudiante (carrera, semestre, facultad) son provistos por el sistema académico institucional.
+P085 [List Paragraph] La plataforma depende de un servidor de correo institucional activo para la recuperación de contraseñas.
+P087 [Heading 2] 2.3 Requerimientos Funcionales
+P089 [Heading 2] 2.4 Requerimientos No Funcionales
+P091 [Heading 2] 2.5 Reglas de Negocio
+P093 [Heading 1] 3. DIAGRAMAS DE CASOS DE USO
+P096 [Heading 2] 3.1 Actores del Sistema
+P098 [Heading 2] 3.2 Lista de Casos de Uso
+P100 [Heading 2] 3.3 Representación del Diagrama de Casos de Uso (UML)
+P101 [Normal] A continuación se describe la notación textual del diagrama UML de casos de uso:
+P103 [Normal] Sistema: [SARC – Sistema de Apoyo Académico]
+P104 [Normal] Actor: Estudiante
+P105 [List Paragraph] (CU-01) Iniciar sesión
+P106 [List Paragraph] (CU-02) Recuperar contraseña <<extend>> (CU-01)
+P107 [List Paragraph] (CU-03) Ver dashboard <<include>> (CU-04) Explorar catálogo
+P108 [List Paragraph] (CU-05) Ver detalle de curso
+P109 [List Paragraph] (CU-06) Inscribirse en curso <<include>> (CU-09) Gestionar cupos
+P110 [List Paragraph] (CU-07) Ver mi progreso
+P111 [List Paragraph] (CU-08) Ver reporte detallado <<include>> (CU-09) Descargar reporte PDF
+P112 [List Paragraph] (CU-10) Editar perfil
+P113 [List Paragraph] (CU-11) Cerrar sesión
+P115 [Heading 2] 3.4 Escenarios Principales y Alternativos
+P116 [Heading 3] CU-06: Inscribirse en Curso
+P118 [Heading 1] 4. HISTORIAS DE USUARIO
+P121 [Heading 3] HU-01: Inicio de sesión seguro
+P123 [Heading 3] HU-02: Recuperar contraseña
+P125 [Heading 3] HU-03: Ver dashboard con recomendaciones
+P127 [Heading 3] HU-04: Explorar y filtrar catálogo de cursos
+P129 [Heading 3] HU-05: Inscribirse en un curso
+P131 [Heading 3] HU-06: Seguimiento de progreso
+P133 [Heading 3] HU-07: Descargar reporte de progreso
+P135 [Heading 3] HU-08: Editar perfil
+P138 [Heading 1] 5. ANÁLISIS DE MOCKUPS / PROTOTIPOS
+P141 [Heading 2] 5.1 Descripción de Pantallas
+P143 [Heading 2] 5.2 Flujo de Navegación
+P144 [Normal] El flujo principal de navegación del sistema sigue la siguiente secuencia:
+P147 [Heading 1] 6. FICHA TÉCNICA DEL SISTEMA
+P151 [Heading 2] 6.1 Requerimientos de Hardware (Servidor)
+P153 [Heading 2] 6.2 Requerimientos de Software (Cliente)
+P155 [Heading 1] 7. CRONOGRAMA DEL PROYECTO
+P158 [Normal] El siguiente diagrama de Gantt muestra la planificación temporal del proyecto.
+P162 [Heading 1] 8. MINUTA DE LICENCIAMIENTO DE SOFTWARE
+P165 [Normal] CONTRATO DE LICENCIA DE USO DE SOFTWARE
+P167 [Normal] Entre LORENA ROA RIVERA, en adelante EL DESARROLLADOR, y la INSTITUCIÓN UNIVERSITARIA UNISABANETA, en adelante EL CLIENTE, se acuerda el siguiente contrato de licencia:
+P169 [Heading 2] 8.1 Tipo de Licencia
+P170 [Normal] Licencia Propietaria de Uso Institucional Exclusivo. El software SARC es de propiedad del Desarrollador y se licencia al Cliente para uso exclusivo dentro del dominio institucional de Unisabaneta.
+P172 [Heading 2] 8.2 Derechos del Cliente
+P173 [List Paragraph] Usar el software en los servidores y plataformas institucionales de Unisabaneta.
+P174 [List Paragraph] Acceder al sistema desde cualquier dispositivo dentro o fuera de la red institucional.
+P175 [List Paragraph] Solicitar correcciones de errores críticos dentro del período de garantía (6 meses post-entrega).
+P176 [List Paragraph] Recibir capacitación básica para administradores del sistema.
+P178 [Heading 2] 8.3 Derechos del Desarrollador
+P179 [List Paragraph] Conservar los derechos de autor y propiedad intelectual del código fuente.
+P180 [List Paragraph] Incluir el proyecto en su portafolio profesional y académico.
+P181 [List Paragraph] Desarrollar versiones mejoradas del sistema de forma independiente, siempre que no sean distribuidas a terceros sin consentimiento del Cliente.
+P183 [Heading 2] 8.4 Restricciones de Uso
+P184 [List Paragraph] El Cliente no puede redistribuir, vender ni sublicenciar el software a terceros.
+P185 [List Paragraph] Está prohibida la ingeniería inversa, descompilación o modificación del código fuente sin autorización escrita del Desarrollador.
+P186 [List Paragraph] El sistema no puede ser usado para fines distintos a los académicos e institucionales de Unisabaneta.
+P188 [Heading 2] 8.5 Propiedad Intelectual
+P189 [Normal] Todo el código fuente, diseños, bases de datos, documentación y activos digitales del SARC son propiedad intelectual del Desarrollador, protegidos bajo la Ley 23 de 1982 y la Decisión Andina 351 de 1993 (Colombia). El Cliente recibe únicamente una licencia de uso, no la titularidad.
+P191 [Heading 2] 8.6 Condiciones de Mantenimiento
+P192 [Normal] El período de garantía es de 6 meses desde la entrega. Durante este período, el Desarrollador corregirá errores funcionales sin costo adicional. El mantenimiento evolutivo (nuevas funcionalidades) será cotizado por separado.
+P194 [Heading 2] 8.7 Responsabilidades
+P196 [Heading 2] 8.8 Condiciones de Terminación
+P197 [List Paragraph] El contrato termina por mutuo acuerdo entre las partes con notificación de 30 días calendario.
+P198 [List Paragraph] El Cliente puede rescindir el contrato si el Desarrollador incumple los plazos acordados sin justificación.
+P199 [List Paragraph] Al terminar el contrato, el Cliente deberá cesar el uso del software y eliminar todas las copias instaladas.
+P201 [Heading 1] 9. MODELO DE ARQUITECTURA DEL SISTEMA
+P204 [Heading 2] 9.1 Patrón Arquitectónico
+P205 [Normal] El SARC implementa una arquitectura web modular basada en vistas independientes y módulos compartidos. La versión actual utiliza HTML5, CSS3 y JavaScript puro en el frontend, con integración de base de datos implementada en Firebase para persistencia, autenticación y consulta de información.
+P208 [Heading 2] 9.2 Componentes del Sistema
+P209 [List Paragraph] Auth Module: Gestiona login, logout, recuperación de contraseña y validación de sesiones.
+P210 [List Paragraph] Dashboard Module: Presenta cursos sugeridos y recomendaciones del asistente virtual.
+P211 [List Paragraph] Catalog Module: Administra el catálogo de cursos con filtros y paginación.
+P212 [List Paragraph] Enrollment Module: Controla inscripciones, verifica cupos y sugiere alternativas.
+P213 [List Paragraph] Progress Module: Registra y calcula el progreso del estudiante por curso.
+P214 [List Paragraph] Report Module: Genera reportes en formato PDF con datos académicos.
+P215 [List Paragraph] Profile Module: Gestiona la información del perfil del estudiante.
+P216 [List Paragraph] Recommendation Module: Presenta sugerencias académicas a partir de los cursos disponibles, el perfil del estudiante y las tareas configuradas, usando la información persistente almacenada en Firebase.
+P218 [Heading 2] 9.3 Interacción entre Componentes
+P219 [List Paragraph] El navegador carga el archivo index.html, los estilos globales y el módulo principal shared/js/app.js.
+P220 [List Paragraph] El módulo app.js controla la navegación por hash, valida la sesión demo y renderiza la vista correspondiente.
+P221 [List Paragraph] Cada vista carga su plantilla HTML, aplica su CSS propio y registra sus eventos en JavaScript puro.
+P222 [List Paragraph] El sistema guarda la información principal en Firebase, incluyendo datos de usuario, cursos, inscripciones y progreso académico, lo que permite persistencia real entre sesiones.
+P223 [List Paragraph] Los módulos compartidos administran cursos, modales, reportes PDF, navegación y estado global.
+P224 [List Paragraph] La interfaz se actualiza dinámicamente al cambiar la ruta o ejecutar acciones como inscripción, edición de perfil o descarga de reportes.
+P226 [Heading 1] 10. MODELO DE DATOS
+P229 [Heading 2] 10.1 Entidades Principales
+P231 [Heading 2] 10.2 Relaciones entre Entidades
+P234 [Heading 1] 11. PLAN DE PRUEBAS
+P237 [Heading 2] 11.1 Tipos de Pruebas
+P238 [List Paragraph] Pruebas Funcionales: Verifican que cada función del sistema opere según los requerimientos.
+P239 [List Paragraph] Pruebas de Seguridad: Validan la correcta implementación de autenticación y autorización.
+P240 [List Paragraph] Pruebas de Rendimiento: Miden tiempos de respuesta bajo condiciones normales.
+P241 [List Paragraph] Pruebas de Usabilidad: Evalúan la facilidad de uso y experiencia del usuario.
+P242 [List Paragraph] Pruebas de Compatibilidad: Verifican el correcto funcionamiento en múltiples navegadores.
+P244 [Heading 2] 11.2 Casos de Prueba
+P246 [Heading 1] 12. CONCLUSIÓN DEL PROYECTO
+P249 [Heading 2] 12.1 Beneficios del Sistema
+P251 [Heading 2] 12.2 Impacto Esperado
+P252 [Normal] Se estima que el SARC generará los siguientes impactos medibles en el ecosistema académico de Unisabaneta:
+P253 [List Paragraph] Reducción del 15% en la tasa de reprobación en materias transversales (matemáticas, inglés) gracias al acceso a cursos de refuerzo.
+P254 [List Paragraph] Incremento del 20% en la participación estudiantil en actividades de formación complementaria.
+P255 [List Paragraph] Mejora en el perfil de egreso de los estudiantes, con nuevas competencias digitales e interdisciplinarias.
+P256 [List Paragraph] Eficiencia administrativa al digitalizar el proceso de inscripción y seguimiento de cursos complementarios.
+P258 [Heading 2] 12.3 Mejoras Complementarias
+P260 [Heading 2] 12.4 Conclusión Final
+P261 [Normal] El Sistema de Apoyo Académico con Recomendación de Cursos (SARC) representa una inversión estratégica en la calidad educativa de Unisabaneta. Al combinar tecnología web moderna con una propuesta pedagógica centrada en el estudiante, la plataforma tiene el potencial de transformar la experiencia del aprendizaje complementario y contribuir significativamente al perfil de excelencia de los egresados de la institución.
+--- TABLES ---
+TABLE 0
+R00: Autora || Lorena Roa Rivera
+R01: Institución || Unisabaneta
+R02: Versión || 1.0.0
+R03: Fecha || Marzo 2026
+R04: Estado || En desarrollo
+TABLE 1
+R00: Tipo de Usuario || Descripción
+R01: Estudiante || Usuario principal. Accede a la plataforma para explorar cursos, inscribirse, ver su progreso y descargar reportes. Puede ser de cualquier carrera o facultad.
+R02: Administrador || Gestor de la plataforma. Administra el catálogo de cursos, cupos, usuarios y reportes generales. (Fuera del alcance de esta versión visual, pero considerado en arquitectura.)
+TABLE 2
+R00: Término / Acrónimo || Definición
+R01: SARC || Sistema de Apoyo Académico con Recomendación de Cursos.
+R02: SRS || Software Requirements Specification – Especificación de Requerimientos de Software.
+R03: IEEE 830 || Estándar para documentos de especificación de requerimientos de software.
+R04: RF || Requerimiento Funcional.
+R05: RNF || Requerimiento No Funcional.
+R06: Dashboard || Panel principal que centraliza la información más relevante para el usuario.
+R07: Cupo || Disponibilidad de inscripciones en un curso específico.
+TABLE 3
+R00: ID || Nombre || Descripción || Prioridad || Actor
+R01: RF-01 || Registro de usuario || El sistema no contempla registro propio; el acceso se realiza con credenciales institucionales preexistentes. || Alta || Estudiante
+R02: RF-02 || Inicio de sesión || El estudiante ingresa su correo institucional y contraseña. El sistema valida y redirige al dashboard. || Alta || Estudiante
+R03: RF-03 || Recuperar contraseña || El sistema permite al usuario solicitar recuperación de contraseña ingresando su correo. Redirige a formulario con campos de nueva contraseña. || Alta || Estudiante
+R04: RF-04 || Dashboard principal || Al iniciar sesión, el sistema muestra: bienvenida, cursos sugeridos (hasta 3) y lista de tareas recomendadas por el asistente virtual. || Alta || Estudiante
+R05: RF-05 || Catálogo de cursos || El módulo de Recomendaciones lista todos los cursos disponibles con opciones de filtrado por área interdisciplinaria y modalidad. || Alta || Estudiante
+R06: RF-06 || Filtrar cursos || El sistema filtra la lista de cursos en tiempo real al seleccionar valores en los selectores de Área y Modalidad. || Media || Estudiante
+R07: RF-07 || Ver detalle del curso || Al hacer clic en 'Ver detalles', el sistema muestra una pantalla con descripción, duración y nivel del curso. || Media || Estudiante
+R08: RF-08 || Inscripción a curso || El sistema permite inscribirse a un curso. Si hay cupos disponibles, muestra confirmación exitosa. Si no hay cupos, muestra modal con cursos alternativos. || Alta || Estudiante
+R09: RF-09 || Cursos alternativos || Cuando no hay cupos, el sistema sugiere 2 cursos alternativos relacionados con el curso solicitado. || Media || Estudiante
+R10: RF-10 || Mi progreso || El módulo muestra todos los cursos inscritos con barra de progreso, estado, último acceso e icono representativo. || Alta || Estudiante
+R11: RF-11 || Reporte detallado || Al hacer clic en 'Ver reporte detallado', el sistema muestra modal con: lecciones completadas, tiempo invertido, promedio de evaluaciones y recomendación. || Alta || Estudiante
+R12: RF-12 || Descargar reporte PDF || El sistema genera y descarga un archivo PDF con el reporte de progreso del curso seleccionado, incluyendo logo institucional. || Alta || Estudiante
+R13: RF-13 || Ver perfil || El sistema muestra datos del estudiante: nombre, facultad, carrera, semestre, modalidad preferida y foto de perfil. || Alta || Estudiante
+R14: RF-14 || Editar perfil || El sistema permite al estudiante cambiar su foto de perfil, actualizar su contraseña y modificar su modalidad preferida. || Media || Estudiante
+R15: RF-15 || Cerrar sesión || El sistema cierra la sesión activa del usuario y redirige a la pantalla de inicio de sesión. || Alta || Estudiante
+TABLE 4
+R00: ID || Categoría || Descripción
+R01: RNF-01 || Seguridad || Las credenciales deben gestionarse de forma segura en la versión con Firebase Authentication. En la demo actual se usan datos simulados y sesión local con expiración.
+R02: RNF-02 || Seguridad || El sistema debe proteger la información contra ataques informáticos comunes, revisando y filtrando todo lo que el usuario escribe en los formularios, y verificando que cada acción realizada provenga realmente del sistema y no de una fuente externa maliciosa.
+R03: RNF-03 || Rendimiento || El tiempo de carga del dashboard principal no debe superar 2 segundos con conexión estándar.
+R04: RNF-04 || Rendimiento || El sistema debe responder adecuadamente en un entorno académico de demostración y quedar preparado para escalar mediante servicios administrados de Firebase.
+R05: RNF-05 || Usabilidad || La interfaz debe seguir principios de Material Design. Los flujos de inscripción no deben requerir más de 3 clics.
+R06: RNF-06 || Usabilidad || El sistema debe ser responsivo y adaptable a dispositivos móviles.
+R07: RNF-07 || Disponibilidad || La disponibilidad dependerá del entorno de despliegue seleccionado. Para la versión con Firebase, se proyecta el uso de servicios administrados para mejorar disponibilidad.
+R08: RNF-08 || Escalabilidad || La arquitectura debe permitir evolucionar desde el prototipo frontend hacia una solución con Firebase para autenticación, base de datos y almacenamiento.
+R09: RNF-09 || Compatibilidad || Compatible con Google Chrome 100+, Firefox 95+, Microsoft Edge 100+ y Safari 15+.
+TABLE 5
+R00: ID || Regla de Negocio
+R01: RN-01 || Un estudiante solo puede inscribirse en un mismo curso una vez. No se permiten inscripciones duplicadas.
+R02: RN-02 || Si un curso no tiene cupos disponibles, el sistema debe sugerir automáticamente 2 cursos alternativos de la misma área.
+R03: RN-03 || Las recomendaciones del asistente virtual se generan con base en los cursos del perfil del usuario y su progreso actual.
+R04: RN-04 || El reporte de progreso PDF siempre incluye: nombre del estudiante, fecha, curso, modalidad, progreso, lecciones, tiempo, promedio y estado.
+R05: RN-05 || El correo institucional debe ser del dominio @unisabaneta.edu.co para poder iniciar sesión.
+TABLE 6
+R00: Actor || Descripción
+R01: Estudiante || Actor principal. Interactúa con todas las funciones de la plataforma: autenticación, exploración de cursos, inscripción y seguimiento.
+R02: Sistema || Actor secundario. Ejecuta procesos automáticos: recomendaciones, validación de cupos, generación de reportes PDF.
+R03: Administrador || Actor futuro (fuera del alcance visual actual). Gestiona el catálogo de cursos, cupos y usuarios.
+TABLE 7
+R00: CU-ID || Nombre || Descripción || Actor || RF Asociado
+R01: CU-01 || Iniciar sesión || El estudiante ingresa credenciales y accede al dashboard. || Estudiante || RF-02
+R02: CU-02 || Recuperar contraseña || El estudiante solicita recuperación enviando su correo. || Estudiante || RF-03
+R03: CU-03 || Ver dashboard || El estudiante visualiza cursos sugeridos y recomendaciones. || Estudiante, Sistema || RF-04
+R04: CU-04 || Explorar catálogo || El estudiante navega y filtra el catálogo de cursos. || Estudiante || RF-05, RF-06
+R05: CU-05 || Ver detalle de curso || El estudiante consulta información detallada de un curso. || Estudiante || RF-07
+R06: CU-06 || Inscribirse en curso || El estudiante solicita inscripción. El sistema valida cupos. || Estudiante, Sistema || RF-08, RF-09
+R07: CU-07 || Ver mi progreso || El estudiante consulta el avance en sus cursos inscritos. || Estudiante || RF-10
+R08: CU-08 || Ver reporte detallado || El estudiante consulta estadísticas detalladas de un curso. || Estudiante || RF-11
+R09: CU-09 || Descargar reporte PDF || El sistema genera y descarga un reporte en PDF. || Estudiante, Sistema || RF-12
+R10: CU-10 || Editar perfil || El estudiante actualiza contraseña, foto y modalidad. || Estudiante || RF-14
+R11: CU-11 || Cerrar sesión || El estudiante finaliza su sesión activa. || Estudiante || RF-15
+TABLE 8
+R00: Flujo Principal || Descripción
+R01: 1. Precondición || El estudiante está autenticado y se encuentra en la pantalla de Recomendaciones.
+R02: 2. Acción || El estudiante hace clic en el botón 'INSCRIBIRSE' de un curso.
+R03: 3. Validación || El sistema verifica que hay cupos disponibles para ese curso.
+R04: 4. Resultado || El sistema muestra modal 'Inscripción exitosa' con opciones: Volver al Inicio / Ir a Mi progreso.
+R05: Flujo Alternativo || Descripción
+R06: 3a. Sin cupos || El sistema muestra modal 'No hay cupos disponibles' con 2 cursos alternativos sugeridos y botón 'Volver a cursos'.
+TABLE 9
+R00: Campo || Detalle
+R01: ID || HU-01
+R02: Como || estudiante universitario
+R03: Quiero || iniciar sesión con mi correo institucional (@unisabaneta.edu.co) y contraseña
+R04: Para || acceder a mi plataforma de cursos complementarios de forma segura
+R05: Criterios || 1. El sistema acepta solo correos @unisabaneta.edu.co. 2. Con credenciales incorrectas muestra 'Correo o contraseña incorrectos' y opción Reintentar. 3. Con credenciales correctas redirige al dashboard. 4. La sesión expira tras 8 h de inactividad.
+R06: Prioridad || Alta
+TABLE 10
+R00: Campo || Detalle
+R01: ID || HU-02
+R02: Como || estudiante que olvidó su contraseña
+R03: Quiero || solicitar recuperación de contraseña desde la pantalla de login
+R04: Para || poder acceder nuevamente a mi cuenta sin contactar soporte
+R05: Criterios || 1. El botón 'Recuperar contraseña' está visible en login. 2. El formulario solicita correo institucional. 3. Muestra campos para nueva contraseña y confirmación. 4. Al enviar, permite volver al login.
+R06: Prioridad || Alta
+TABLE 11
+R00: Campo || Detalle
+R01: ID || HU-03
+R02: Como || estudiante autenticado
+R03: Quiero || ver un panel principal con cursos sugeridos y recomendaciones del asistente virtual
+R04: Para || tener una visión rápida de mis oportunidades de aprendizaje complementario
+R05: Criterios || 1. El dashboard muestra saludo 'Bienvenido, Estudiante'. 2. Sección 'Cursos Sugeridos' con mínimo 3 cursos. 3. Sección 'Asistente Virtual' con 3 tareas recomendadas. 4. Barra de navegación con Inicio, Recomendaciones, Mi progreso, Perfil.
+R06: Prioridad || Alta
+TABLE 12
+R00: Campo || Detalle
+R01: ID || HU-04
+R02: Como || estudiante
+R03: Quiero || filtrar el catálogo de cursos por área interdisciplinaria y modalidad
+R04: Para || encontrar rápidamente cursos relevantes para mi carrera e intereses
+R05: Criterios || 1. Selector 'Área Interdisciplinaria' con opciones: Matemáticas, Programación, Derecho, Comunicación, Todas las áreas. 2. Selector 'Modalidad' con: Virtual, Presencial, Híbrido. 3. La lista se actualiza al seleccionar filtros. 4. Cada curso muestra botones 'Ver detalles' e 'INSCRIBIRSE'.
+R06: Prioridad || Alta
+TABLE 13
+R00: Campo || Detalle
+R01: ID || HU-05
+R02: Como || estudiante
+R03: Quiero || inscribirme en un curso disponible con un solo clic
+R04: Para || comenzar mi formación complementaria de forma ágil
+R05: Criterios || 1. Al hacer clic en INSCRIBIRSE con cupos disponibles, aparece modal 'Inscripción exitosa'. 2. El modal ofrece opciones: Volver al Inicio / Ir a Mi progreso. 3. Sin cupos, aparece modal 'No hay cupos disponibles' con 2 alternativas. 4. El usuario no puede inscribirse dos veces en el mismo curso.
+R06: Prioridad || Alta
+TABLE 14
+R00: Campo || Detalle
+R01: ID || HU-06
+R02: Como || estudiante inscrito en cursos
+R03: Quiero || ver el progreso de todos mis cursos en una sola pantalla
+R04: Para || monitorear mi avance académico complementario y mantenerme motivado
+R05: Criterios || 1. La pantalla Mi Progreso muestra todos los cursos inscritos. 2. Cada curso tiene: barra de progreso con %, estado, último acceso e icono. 3. Botón 'Ver reporte detallado' para cada curso.
+R06: Prioridad || Alta
+TABLE 15
+R00: Campo || Detalle
+R01: ID || HU-07
+R02: Como || estudiante
+R03: Quiero || descargar un reporte PDF detallado de mi progreso en un curso
+R04: Para || tener evidencia de mi proceso de aprendizaje y presentarla cuando sea necesario
+R05: Criterios || 1. El modal 'Reporte detallado' muestra: lecciones completadas, tiempo invertido, promedio de evaluaciones y recomendación. 2. El botón 'Descargar' genera un PDF con logo institucional. 3. El PDF incluye todos los campos del reporte.
+R06: Prioridad || Alta
+TABLE 16
+R00: Campo || Detalle
+R01: ID || HU-08
+R02: Como || estudiante
+R03: Quiero || actualizar mi foto de perfil, contraseña y modalidad preferida
+R04: Para || mantener mi información actualizada y personalizar mi experiencia
+R05: Criterios || 1. Modal 'Editar Perfil' con: selector de archivo para foto, campos de contraseña (actual, nueva, confirmar), selector de modalidad (radio buttons). 2. Botones Cancelar y Actualizar funcionales. 3. Al actualizar, la foto cambia en el header.
+R06: Prioridad || Media
+TABLE 17
+R00: Pantalla || Nombre || Descripción y Funcionalidad || CU Relacionado
+R01: P-01 || Login – Estado inicial || Pantalla de inicio de sesión con correo precompletado (@unisabaneta.edu.com) y 10 asteriscos en contraseña. Botones: INGRESAR y Recuperar contraseña. Footer con enlaces: Unisabaneta, Caequinos, PQRSF, redes sociales. || CU-01
+R02: P-02 || Login – Correo correcto || Muestra el correo correcto (@unisabaneta.edu.co) con 5 asteriscos. Diferencia con P-01: el dominio cambia de .com a .co. || CU-01
+R03: P-03 || Login – Error credenciales || Modal sobre el formulario que muestra 'Correo o contraseña incorrectos' con botón rojo 'Reintentar'. El fondo del formulario permanece visible. || CU-01
+R04: P-04 || Recuperar contraseña || Formulario independiente con campo de correo y botones: Volver (regresa a login) y Enviar (procesa solicitud). || CU-02
+R05: P-05 || Dashboard principal || Panel dividido en dos bloques: izquierdo (fondo azul) con 'Cursos Sugeridos' (3 ítems clickeables) y derecho (fondo gris) con 'Asistente Virtual' (3 recomendaciones con checkbox). Header con navegación: Inicio, Recomendaciones, Mi progreso, Perfil. || CU-03
+R06: P-06 || Recomendaciones – Sin filtro || Lista de cursos (Matemáticas Básicas, Programación, Inglés Nivel A2). Cada fila con botones 'Ver detalles' (azul) e 'INSCRIBIRSE' (verde). Filtros en header verde: Área Interdisciplinaria y Modalidad (selectores). || CU-04
+R07: P-07 || Modal – Sin cupos || Modal con icono X rojo, título 'No hay cupos disponibles', lista de 2 cursos alternativos (específicos por área) y botón 'Volver a cursos'. || CU-06
+R08: P-08 || Modal – Inscripción exitosa || Modal con checkmark verde, título 'Inscripción exitosa', texto 'Te has inscrito correctamente' y dos botones: 'Volver al Inicio' (azul) y 'Ir a Mi progreso' (verde). || CU-06
+R09: P-09 || Filtro Área abierto || Dropdown del selector 'Área Interdisciplinaria' desplegado con opciones: Matemáticas, Programación, Derecho, Comunicación, Todas las áreas. || CU-04
+R10: P-10 || Filtro Modalidad abierto || Dropdown del selector 'Modalidad' desplegado con opciones: Virtual, Presencial, Híbrido. || CU-04
+R11: P-11 || Detalle de curso || Pantalla con header verde (nombre del curso), área de contenido con: Descripción, Duración y Nivel. Botones: VOLVER (azul) e INSCRIBIRSE (verde). || CU-05, CU-06
+R12: P-12 || Mi Progreso || Lista de 3 cursos con: icono representativo, nombre, barra de progreso con color diferenciado (azul/rojo/verde), %, estado y último acceso. Botón 'Ver reporte detallado' por curso. || CU-07
+R13: P-13 || Reporte detallado – modal || Modal con ícono de documento verde, datos del curso: lecciones completadas, tiempo invertido, evaluación promedio, recomendación. Botones: Volver y Descargar (verde). || CU-08
+R14: P-14 || PDF de reporte || Vista del PDF generado con logo Unisabaneta, título 'Reporte de progreso académico', y todos los campos: estudiante, fecha, curso, modalidad, progreso, lecciones, tiempo, promedio, recomendación, estado. || CU-09
+R15: P-15 || Perfil del usuario || Sección PERFIL con datos del estudiante (Nombre, Facultad, Carrera, Semestre, Modalidad preferida) y foto de perfil. Botones: Editar Perfil (azul) y Cerrar Sesión (verde). || CU-10, CU-11
+R16: P-16 || Editar perfil – modal || Modal 'Editar Perfil' con: campo de cambio de imagen (Seleccionar archivo), sección 'Actualizar contraseña' con 3 campos enmascarados, selector de Modalidad con radio buttons (Virtual/Presencial/Híbrido), botones Cancelar y Actualizar. || CU-10
+TABLE 18
+R00: Paso || Descripción del Flujo
+R01: 1 || P-01/P-02: El estudiante accede a la URL del sistema y se presenta la pantalla de Login.
+R02: 2 || P-03: Si las credenciales son incorrectas, aparece modal de error con opción Reintentar.
+R03: 3 || P-04: Desde P-01, el usuario puede hacer clic en 'Recuperar contraseña' para ir al formulario de recuperación.
+R04: 4 || P-05: Con login exitoso, el sistema redirige al Dashboard con cursos sugeridos y asistente virtual.
+R05: 5 || P-06: Desde el menú o el Dashboard, el usuario navega a 'Recomendaciones' para ver el catálogo.
+R06: 6 || P-09/P-10: El usuario puede abrir los selectores de Área y Modalidad para filtrar cursos.
+R07: 7 || P-11: Al hacer clic en 'Ver detalles', se muestra la pantalla de detalle del curso con opciones VOLVER e INSCRIBIRSE.
+R08: 8 || P-07/P-08: Al hacer clic en 'INSCRIBIRSE', el sistema muestra modal de éxito o modal de sin cupos.
+R09: 9 || P-12: Desde el menú 'Mi progreso', el usuario ve el avance de todos sus cursos.
+R10: 10 || P-13/P-14: Al hacer clic en 'Ver reporte detallado', aparece modal con opción de descargar PDF.
+R11: 11 || P-15: Desde 'Perfil', el usuario visualiza sus datos institucionales.
+R12: 12 || P-16: Al hacer clic en 'Editar Perfil', aparece el modal de edición.
+TABLE 19
+R00: Campo || Detalle
+R01: Nombre del sistema || Sistema de Apoyo Académico con Recomendación de Cursos (SARC)
+R02: Versión || 1.0.0
+R03: Tipo de sistema || Aplicación web accesible desde navegador, sin instalación. La versión actual usa HTML5, CSS3 y JavaScript puro con módulos ES; la persistencia real se encuentra implementada con Firebase.
+R04: Arquitectura || Arquitectura frontend modular por vistas y módulos compartidos. La demo usa persistencia en Firebase y se proyecta Firebase como capa de autenticación y base de datos.
+R05: Lenguajes (Frontend) || HTML5, CSS3, JavaScript
+R06: Servicios de datos || No aplica servidor propio en la versión actual; se proyecta integración con servicios de Firebase.
+R07: Framework Frontend || JavaScript puro, sin frameworks frontend.
+R08: Servicios externos || Servicios de Firebase en desarrollo para autenticación y base de datos; no se usa framework de servidor propio en esta versión.
+R09: Base de datos || Firebase para la demo actual. Firebase se encuentra en desarrollo como base de datos y servicio de persistencia del sistema.
+R10: Autenticación || Autenticación simulada en la demo actual. Se proyecta Firebase Authentication para una versión con credenciales y sesiones gestionadas de forma segura.
+R11: Generación PDF || Generación de reportes PDF implementada en JavaScript puro desde el frontend, sin depender de un servidor propio.
+R12: Control de versiones || Git + GitHub / GitLab
+R13: Infraestructura || Ejecución local mediante app.py para desarrollo y pruebas. Como despliegue futuro se puede usar hosting estático o servicios de Firebase.
+R14: Servidor web || Servidor local simple con app.py durante desarrollo. Para publicación se proyecta un hosting web compatible con archivos estáticos y Firebase.
+R15: Protocolo || HTTP local durante desarrollo. En despliegue público se recomienda HTTPS mediante el proveedor de hosting seleccionado.
+TABLE 20
+R00: Componente || Especificación mínima
+R01: Procesador || Intel Xeon o AMD EPYC – 4 núcleos / 2.4 GHz
+R02: Memoria RAM || 8 GB DDR4 (mínimo), 16 GB recomendado
+R03: Almacenamiento || SSD 100 GB (SO + BD) + 50 GB adicionales para backups
+R04: Red || Conexión de al menos 100 Mbps simétrico
+TABLE 21
+R00: Componente || Requerimiento
+R01: Navegador || Chrome 100+, Firefox 95+, Edge 100+, Safari 15+
+R02: JavaScript || Habilitado en el navegador
+R03: Conectividad || Internet mínimo 5 Mbps
+R04: Resolución || Mínimo 320px de ancho (responsivo)
+TABLE 22
+R00: Fase || Actividad || Descripción || Inicio || Fin || Prioridad || Estado
+R01: F1 || Recolección y Análisis de Requisitos || Recolección y Análisis de Requisitos || 02/02/2026 || 27/02/2026 ||  || 
+R02: 1.1 || Identificación del problema || Se analiza la necesidad de desarrollar un sistema que brinde apoyo académico a los estudiantes, definiendo el objetivo general y los alcances del proyecto. || 02/02 || 06/02 || Alta || Terminado
+R03: 1.2 || Definición de requisitos funcionales || Se establecen las principales funcionalidades del sistema: registro e inicio de sesión, generación de recomendaciones académicas, visualización del progreso y administración de usuarios. || 09/02 || 17/02 || Alta || En progreso
+R04: 1.3 || Definición de requisitos no funcionales || Se definen aspectos relacionados con la seguridad, rendimiento, disponibilidad y facilidad de uso del sistema. || 18/02 || 23/02 || Media || En progreso
+R05: 1.4 || Elaboración del documento SRS || Se consolidan todos los requisitos en un documento formal que servirá como guía para las siguientes fases del proyecto. || 23/02 || 27/02 || Alta || En progreso
+R06: F2 || Diseño del Sistema || Diseño del Sistema || 02/03/2026 || 20/03/2026 ||  || 
+R07: 2.1 || Diseño de la arquitectura del sistema || Se define la estructura general del sistema, organizando los módulos y estableciendo la separación de funciones entre usuarios y administrador. || 02/03 || 06/03 || Alta || Abierto
+R08: 2.2 || Diseño de la base de datos || Se diseñan las estructuras de datos necesarias para usuarios, cursos, progreso y recomendaciones, considerando Firebase como base de datos del proyecto. || 09/03 || 13/03 || Alta || En desarrollo
+R09: 2.3 || Diseño de interfaces (mockups) || Se elaboran los diseños de las principales pantallas del sistema, incluyendo inicio de sesión, panel del estudiante y panel administrativo. || 16/03 || 20/03 || Media || Terminado
+R10: F3 || Implementación || Implementación || 23/03/2026 || 30/04/2026 ||  || 
+R11: 3.1 || Configuración del entorno de desarrollo || Se prepara el entorno de trabajo, la estructura modular del frontend y la integración progresiva con Firebase para persistencia de datos. || 23/03 || 27/03 || Alta || En desarrollo
+R12: 3.2 || Implementación del sistema de autenticación || Se desarrolla el módulo de registro, inicio de sesión y control de acceso según el tipo de usuario. || 30/03 || 03/04 || Alta || Abierto
+R13: 3.3 || Desarrollo del módulo de recomendaciones || Se implementa la funcionalidad que permite generar recomendaciones académicas personalizadas según el perfil del estudiante. || 06/04 || 15/04 || Alta || Abierto
+R14: 3.4 || Desarrollo del módulo de seguimiento || Se desarrolla la sección que permitirá visualizar el avance y rendimiento académico del estudiante. || 16/04 || 23/04 || Alta || Abierto
+R15: 3.5 || Implementación del panel de perfil || Se implementa el módulo que permitirá gestionar usuarios y contenidos académicos dentro del sistema. || 24/04 || 30/04 || Alta || Abierto
+R16: F4 || Pruebas || Pruebas || 01/05/2026 || 07/05/2026 ||  || 
+R17: 4.1 || Ejecución de pruebas funcionales || Se realizan pruebas para verificar que todas las funcionalidades cumplan con los requisitos establecidos. || 01/05 || 05/05 || Alta || Abierto
+R18: 4.2 || Corrección y ajustes finales || Se corrigen los errores detectados y se realizan mejoras finales antes de la entrega. || 06/05 || 07/05 || Alta || Abierto
+R19: F5 || Documentación y Entrega || Documentación y Entrega || 08/05/2026 || 15/05/2026 ||  || 
+R20: 5.1 || Elaboración del informe final || Se redacta el documento final que describe el proceso completo del proyecto y sus resultados. || 08/05 || 13/05 || Alta || Abierto
+R21: 5.2 || Preparación de la sustentación || Se prepara la presentación del proyecto y se realiza el ensayo para su exposición final. || 14/05 || 15/05 || Media || Abierto
+R22: TOTAL || Duración total del proyecto || Duración total del proyecto || 02/02/2026 || 15/05/2026 || 15 semanas || 15 semanas
+TABLE 23
+R00: Parte || Responsabilidad
+R01: Desarrollador || Entregar el software funcionando conforme a los requerimientos acordados, proveer documentación técnica y brindar soporte durante el período de garantía.
+R02: Cliente || Proveer la infraestructura de servidores, gestionar el acceso de usuarios, garantizar el uso ético del sistema y notificar fallas en tiempo razonable.
+TABLE 24
+R00: Capa || Descripción y Tecnologías
+R01: Capa de Presentación (Frontend) || Interfaz de usuario desarrollada con HTML5, CSS3 y JavaScript puro. Cada pantalla se organiza en archivos independientes dentro de pages/, y los módulos compartidos se ubican en shared/.
+R02: Capa de Lógica de Aplicación || Lógica de aplicación implementada en JavaScript puro en el navegador. Incluye navegación, validación de sesión demo, filtros, inscripción, progreso, reportes PDF y edición de perfil.
+R03: Capa de Datos || Persistencia en Firebase con Firebase para la demo actual. Firebase se encuentra en desarrollo como base de datos y servicio de persistencia para usuarios, cursos, inscripciones, progreso y recomendaciones.
+TABLE 25
+R00: Colección || Descripción y Atributos
+R01: Estudiante || Colección de estudiantes. Campos: id, nombre, correo, facultad, carrera, semestre, modalidad_preferida, foto_perfil y fecha_registro. La autenticación se proyecta mediante Firebase Authentication.
+R02: Curso || Colección de cursos. Campos: id, nombre, descripcion, duracion_semanas, nivel, area_interdisciplinaria, modalidad, cupos_disponibles y cupos_totales.
+R03: Inscripcion || Colección de inscripciones. Campos: id, estudiante_id, curso_id, fecha_inscripcion y estado.
+R04: Progreso || Colección de progreso. Campos: id, inscripcion_id, porcentaje_progreso, lecciones_completadas, total_lecciones, tiempo_invertido_horas, promedio_evaluaciones, recomendacion_sistema y ultimo_acceso.
+R05: Recomendacion || Colección de recomendaciones. Campos: id, estudiante_id, texto_recomendacion, tipo y fecha_generacion.
+R06: CursoAlternativo || Colección o subcolección de cursos alternativos. Campos: curso_original_id y curso_alternativo_id para sugerencias cuando no hay cupos.
+TABLE 26
+R00: Relación || Cardinalidad || Descripción
+R01: Estudiante – Inscripcion || 1 a N || Un estudiante puede tener múltiples documentos de inscripción asociados por estudiante_id.
+R02: Curso – Inscripcion || 1 a N || Un curso puede aparecer en múltiples documentos de inscripción asociados por curso_id.
+R03: Inscripcion – Progreso || 1 a 1 || Cada inscripción puede tener un documento de progreso asociado.
+R04: Estudiante – Recomendacion || 1 a N || Un estudiante puede recibir múltiples documentos de recomendación.
+R05: Curso – CursoAlternativo || 1 a N || Un curso puede tener múltiples referencias a cursos alternativos definidos.
+TABLE 27
+R00: CP-ID || Tipo || Nombre || Entrada || Resultado esperado || RF/RNF || Prioridad
+R01: CP-01 || Funcional || Login exitoso || Correo válido @unisabaneta.edu.co y contraseña correcta || Redirección al Dashboard con saludo al estudiante || RF-02 || Alta
+R02: CP-02 || Funcional || Login fallido || Correo con dominio @gmail.com y contraseña cualquiera || Modal 'Correo o contraseña incorrectos' con botón Reintentar || RF-02 || Alta
+R03: CP-03 || Funcional || Recuperar contraseña || Correo válido en formulario de recuperación || El sistema acepta el envío y permite volver al login || RF-03 || Alta
+R04: CP-04 || Funcional || Filtrar por área || Seleccionar 'Matemáticas' en selector de área || La lista muestra solo cursos del área de Matemáticas || RF-06 || Media
+R05: CP-05 || Funcional || Inscripción exitosa || Clic en INSCRIBIRSE con cupos disponibles || Modal 'Inscripción exitosa' con opciones de navegación || RF-08 || Alta
+R06: CP-06 || Funcional || Sin cupos || Clic en INSCRIBIRSE sin cupos disponibles || Modal 'No hay cupos disponibles' con 2 alternativas correctas || RF-08, RF-09 || Alta
+R07: CP-07 || Funcional || Ver detalle del curso || Clic en 'Ver detalles' en cualquier curso || Pantalla de detalle con descripción, duración y nivel correctos || RF-07 || Media
+R08: CP-08 || Funcional || Ver progreso || Navegar a 'Mi progreso' || Lista de 3 cursos con barras de progreso y datos correctos || RF-10 || Alta
+R09: CP-09 || Funcional || Descargar PDF || Clic en 'Descargar' en reporte detallado || Archivo PDF con todos los campos requeridos descargado || RF-12 || Alta
+R10: CP-10 || Funcional || Editar perfil – cambio de foto || Subir imagen en formulario de edición || La foto de perfil se actualiza en el header y en la pantalla de perfil || RF-14 || Media
+R11: CP-11 || Seguridad || Sesión inválida o expirada || Intento de acceso a ruta privada sin sesión activa o sesión local expirada || Redirección al login en la demo actual. En la versión Firebase, rechazo de acceso si no existe usuario autenticado. || RNF-01 || Alta
+R12: CP-12 || Rendimiento || Carga del Dashboard || Medir tiempo de carga inicial del Dashboard || Tiempo de carga menor a 2 segundos || RNF-03 || Media
+R13: CP-13 || Usabilidad || Flujo de inscripción || Contar clics para completar inscripción || Inscripción completada en máximo 3 clics || RNF-05 || Media
+R14: CP-14 || Compatibilidad || Navegadores || Probar en Chrome, Firefox, Edge y Safari || Funcionalidad correcta en todos los navegadores definidos || RNF-09 || Alta
+TABLE 28
+R00: Beneficio || Descripción
+R01: Centralización de la oferta || El SARC unifica todos los cursos complementarios en una sola plataforma, eliminando la dispersión de información.
+R02: Recomendación personalizada || El motor de recomendación orienta a cada estudiante hacia los recursos más relevantes según su perfil, mejorando la pertinencia del aprendizaje.
+R03: Transparencia del progreso || Los módulos de seguimiento y reportes en PDF permiten al estudiante y a la institución tener evidencia cuantificable del aprendizaje.
+R04: Formación interdisciplinaria || El sistema rompe las barreras de carrera, permitiendo que cualquier estudiante acceda a cursos de áreas complementarias.
+R05: Accesibilidad || Modalidades virtual, presencial e híbrida adaptadas a las necesidades y circunstancias de cada estudiante.
+TABLE 29
+R00: Versión || Mejora Propuesta
+R01: v2.0 || Integración de un chatbot de IA generativa como asistente virtual interactivo, capaz de responder preguntas académicas en tiempo real.
+R02: v2.1 || Motor de recomendación avanzado basado en Machine Learning, utilizando historial de aprendizaje y datos de rendimiento académico.
+R03: v2.2 || Módulo de gestión de contenido para docentes: subida de materiales, videos y evaluaciones directamente en la plataforma.
+R04: v2.3 || Panel de administración institucional con estadísticas de uso, tasas de inscripción y reportes consolidados.
+R05: v3.0 || Aplicación móvil nativa (Android/iOS) para acceso desde dispositivos móviles con notificaciones push y modo offline.
+R06: v3.1 || Gamificación del aprendizaje: insignias, rankings, sistema de puntos y recompensas por completar cursos.
+R07: v3.2 || Análisis predictivo de deserción estudiantil con alertas tempranas para tutores y coordinadores académicos.

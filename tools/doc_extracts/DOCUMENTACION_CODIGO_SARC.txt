@@ -1,0 +1,84 @@
+FILE: C:\Users\Usuario\OneDrive\Desktop\Proyecto_SARC_1\DOCUMENTACION_CODIGO_SARC.docx
+PARAGRAPHS: 26 TABLES: 4
+--- PARAGRAPHS ---
+P000 [Normal] Documentacion del Codigo
+SARC
+P001 [Normal] Sistema de Apoyo Academico con Recomendacion de Cursos
+P002 [Heading 1] 1. Resumen del proyecto
+P003 [Normal] SARC es una aplicacion web local construida con HTML5, CSS3 y JavaScript puro. Implementa autenticacion con Firebase, recuperacion de contrasena, catalogo de cursos, inscripcion, progreso del estudiante, reportes PDF y edicion de perfil.
+P004 [Heading 1] 2. Tecnologias utilizadas
+P006 [Heading 1] 3. Estructura de carpetas
+P007 [Normal] Proyecto_SARC_1/
+  index.html
+  app.py
+  README.txt
+  FIREBASE_SETUP.md
+  firestore.rules
+  DOCUMENTACION_CODIGO_SARC.docx
+  shared/
+    css/
+    js/
+    components/
+  pages/
+    login/
+    recuperar/
+    inicio/
+    recomendaciones/
+    detalle/
+    progreso/
+    perfil/
+  tools/
+P008 [Heading 1] 4. Archivos principales
+P010 [Heading 1] 5. Vistas del sistema
+P012 [Heading 1] 6. Flujo de ejecucion
+P013 [List Number] El navegador carga index.html.
+P014 [List Number] index.html importa shared/js/app.js como modulo ES.
+P015 [List Number] app.js inicializa Firebase y el estado global.
+P016 [List Number] La ruta hash define si se renderiza autenticacion o dashboard.
+P017 [List Number] Cada vista carga su HTML con template-loader.js y enlaza sus eventos.
+P018 [List Number] Los cambios se guardan en Firestore filtrados por userId.
+P019 [Heading 1] 7. Funciones importantes
+P021 [Heading 1] 8. Persistencia Firebase
+P022 [Normal] El proyecto usa Firebase Authentication para usuarios y Cloud Firestore para datos. Las colecciones globales son usuarios, cursos, recomendaciones y tareasAsistente. Cada documento de datos incluye userId, lo que permite separar multiples usuarios sin crear una coleccion distinta para cada uno.
+P023 [Heading 1] 9. Ejecucion recomendada
+P024 [Normal] python app.py
+http://localhost:8000/index.html
+P025 [Normal] Los usuarios se gestionan desde Firebase Authentication. El formulario de login no incluye credenciales precargadas.
+--- TABLES ---
+TABLE 0
+R00: Tecnologia || Uso en el proyecto
+R01: HTML5 || Estructura de vistas y plantillas de pantalla.
+R02: CSS3 || Estilos globales, componentes y estilos por vista.
+R03: JavaScript puro || Rutas hash, estado, eventos, modales, Firebase y reportes.
+R04: Firebase Authentication || Login y recuperacion con correo y contrasena.
+R05: Cloud Firestore || Persistencia por userId en colecciones globales.
+R06: Python || Servidor local simple para ejecutar el proyecto desde el navegador.
+TABLE 1
+R00: Archivo || Responsabilidad
+R01: index.html || Shell principal, enlaces CSS y entrada JavaScript.
+R02: shared/js/app.js || Inicializa estado, controla rutas y renderiza vistas.
+R03: shared/js/data.js || Define datos base, estado global y sincronizacion por usuario.
+R04: shared/js/firebase-service.js || Centraliza Auth, lecturas, escrituras y reseteo en Firestore.
+R05: shared/js/firebase-config.js || Configuracion del proyecto Firebase.
+R06: shared/js/courses.js || Filtros, busqueda e inscripcion de cursos.
+R07: shared/components/feedback.js || Modales, toasts y enlaces visuales del prototipo.
+R08: firestore.rules || Reglas de seguridad para aislar datos por userId.
+R09: app.py || Servidor HTTP local con headers anti-cache para desarrollo.
+TABLE 2
+R00: Vista || Archivos || Descripcion
+R01: Login || pages/login/login.* || Autentica con Firebase y carga datos del usuario.
+R02: Recuperar || pages/recuperar/recuperar.* || Envia recuperacion de contrasena por Firebase.
+R03: Inicio || pages/inicio/inicio.* || Muestra cursos sugeridos y asistente virtual.
+R04: Recomendaciones || pages/recomendaciones/recomendaciones.* || Catalogo filtrable e inscripcion.
+R05: Detalle || pages/detalle/detalle.* || Descripcion, duracion, nivel e inscripcion.
+R06: Progreso || pages/progreso/progreso.* || Avances y reportes detallados.
+R07: Perfil || pages/perfil/perfil.* || Avatar, modalidad, contrasena y sesion.
+TABLE 3
+R00: Funcion || Ubicacion || Proposito
+R01: renderApp() || shared/js/app.js || Decide que vista mostrar segun ruta y sesion.
+R02: initializeState() || shared/js/data.js || Inicializa Firebase, sesion y datos del usuario.
+R03: loginWithEmail(email, password) || shared/js/firebase-service.js || Autentica o registra usuarios.
+R04: saveUserData(userId, database) || shared/js/firebase-service.js || Persiste perfil, cursos, recomendaciones y tareas.
+R05: handleEnrollment(courseId) || shared/js/courses.js || Gestiona inscripcion, cupos, mensajes y persistencia.
+R06: showModal(config) || shared/components/feedback.js || Renderiza modales reutilizables.
+R07: downloadReport(course) || shared/js/pdf.js || Genera y descarga PDF de progreso.
