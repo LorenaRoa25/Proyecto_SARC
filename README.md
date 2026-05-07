@@ -217,27 +217,6 @@ El proyecto ya cuenta con:
 - Publicar el proyecto en Firebase Hosting.
 - Mejorar el motor de recomendacion con mas criterios academicos.
 
-## Como actualizar GitHub despues de hacer cambios
-
-Los cambios que haces en tu computador no se suben automaticamente a GitHub. Cada vez que quieras refrescar el repositorio, usa:
-
-```bash
-git status
-git add .
-git commit -m "Describe el cambio realizado"
-git push
-```
-
-Ejemplo:
-
-```bash
-git add .
-git commit -m "Actualiza README y estructura de documentos"
-git push
-```
-
-Despues de `git push`, entra al repositorio en GitHub y recarga la pagina.
-
 ## Autora
 
 Proyecto desarrollado por Lorena Roa Rivera.
