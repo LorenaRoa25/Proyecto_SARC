@@ -1,5 +1,5 @@
 /**
- * Vista Recuperar: solicita restablecimiento de contrasena con Firebase.
+ * Vista Recuperar: solicita restablecimiento de contraseña con Firebase.
  */
 
 import { state } from "../../shared/js/data.js";
@@ -9,7 +9,7 @@ import { interpolate, loadTemplate } from "../../shared/js/template-loader.js";
 import { bindStaticLinks, showToast } from "../../shared/components/feedback.js";
 
 /**
- * Renderiza la pantalla de recuperacion.
+ * Renderiza la pantalla de recuperación.
  * @param {HTMLElement} container
  */
 export async function renderRecovery(container) {
@@ -20,7 +20,7 @@ export async function renderRecovery(container) {
 }
 
 /**
- * Registra eventos del formulario de recuperacion.
+ * Registra eventos del formulario de recuperación.
  * @param {HTMLElement} container
  */
 function bindRecoveryEvents(container) {
@@ -45,18 +45,18 @@ async function handleRecovery(event) {
   }
 
   if (!newPassword || newPassword.length < 6) {
-    showToast("error", "ContraseÃ±a invÃ¡lida", "La nueva contraseÃ±a debe tener al menos 6 caracteres.");
+    showToast("error", "Contraseña inválida", "La nueva contraseña debe tener al menos 6 caracteres.");
     return;
   }
 
   if (newPassword !== confirmPassword) {
-    showToast("error", "ConfirmaciÃ³n incorrecta", "Las contraseÃ±as no coinciden.");
+    showToast("error", "Confirmación incorrecta", "Las contraseñas no coinciden.");
     return;
   }
 
   try {
     await sendPasswordRecovery(email);
-    showToast("success", "Solicitud enviada", "Firebase enviÃ³ un enlace seguro para actualizar la contraseÃ±a.");
+    showToast("success", "Solicitud enviada", "Firebase envió un enlace seguro para actualizar la contraseña.");
     navigate("login");
   } catch (error) {
     showToast("error", "No fue posible enviar el correo", "Verifica el correo institucional e intenta nuevamente.");

@@ -257,7 +257,7 @@ function buildGenericProfile(email) {
   return {
     name: name || "Estudiante SARC",
     faculty: "Facultad por definir",
-    career: "Programa academico",
+    career: "Programa académico",
     semester: "1",
     modality: "Virtual",
     courses: {
@@ -270,7 +270,7 @@ function buildGenericProfile(email) {
 
 function buildGenericTasks(name) {
   return [
-    { id: "a1", label: `Completar diagnostico academico de ${name}`, done: false },
+    { id: "a1", label: `Completar diagnóstico académico de ${name}`, done: false },
     { id: "a2", label: "Revisar cursos recomendados", done: false },
     { id: "a3", label: "Actualizar modalidad preferida", done: false }
   ];

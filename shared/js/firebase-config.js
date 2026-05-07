@@ -1,5 +1,5 @@
 /**
- * Configuracion de Firebase para SARC.
+ * Configuración de Firebase para SARC.
  * Este archivo debe contener solo JavaScript modular, sin etiquetas <script>.
  */
 export const firebaseConfig = {

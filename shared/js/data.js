@@ -210,7 +210,7 @@ export const state = {
 };
 
 /**
- * Inicializa Firebase antes de renderizar la aplicacion.
+ * Inicializa Firebase antes de renderizar la aplicación.
  */
 export async function initializeState() {
   await initializeFirebase();
@@ -239,7 +239,7 @@ export async function saveDatabase() {
 }
 
 /**
- * Carga una sesion vigente o devuelve una sesion no autenticada.
+ * Carga una sesión vigente o devuelve una sesión no autenticada.
  * @returns {{authenticated: boolean, email?: string, userId?: string, loginAt?: number}}
  */
 export function loadSession(user = getCurrentFirebaseUser()) {
@@ -248,7 +248,7 @@ export function loadSession(user = getCurrentFirebaseUser()) {
 }
 
 /**
- * Actualiza la sesion activa en memoria.
+ * Actualiza la sesión activa en memoria.
  * @param {{authenticated: boolean, email?: string, userId?: string, loginAt?: number}} session
  */
 export function saveSession(session) {
@@ -308,7 +308,7 @@ export async function enableAllCourses() {
 }
 
 /**
- * Reinicia por completo la informacion del usuario autenticado.
+ * Reinicia por completo la información del usuario autenticado.
  */
 export async function resetSarcDemo() {
   const user = getCurrentFirebaseUser();

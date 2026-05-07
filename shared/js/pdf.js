@@ -59,7 +59,7 @@ function buildSimplePdf(lines) {
   streamChunks.push(encodeAscii("q 0.95 0.95 0.95 rg 0 0 595 842 re f Q\n"));
   streamChunks.push(encodeAscii(`q 1 1 1 rg ${boxX} ${boxY} ${boxWidth} ${boxHeight} re f Q\n`));
   streamChunks.push(encodeAscii(`q 0 0 0 RG 0.7 w ${boxX} ${boxY} ${boxWidth} ${boxHeight} re S Q\n`));
-  streamChunks.push(drawCenteredText("Reporte de progreso academico", 297, 750, 18));
+  streamChunks.push(drawCenteredText("Reporte de progreso académico", 297, 750, 18));
 
   lines.slice(2).forEach((line, index) => {
     streamChunks.push(drawTextLine(line, 128, y, 16, index < 2));

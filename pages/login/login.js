@@ -31,7 +31,7 @@ function bindLoginEvents(container) {
 }
 
 /**
- * Valida credenciales y abre la sesion de usuario.
+ * Valida credenciales y abre la sesión de usuario.
  * @param {SubmitEvent} event
  */
 async function handleLogin(event) {
@@ -56,7 +56,7 @@ async function handleLogin(event) {
 }
 
 /**
- * Traduce errores comunes de Firebase para diagnosticar la configuracion.
+ * Traduce errores comunes de Firebase para diagnosticar la configuración.
  * @param {{code?: string}} error
  * @returns {string}
  */
@@ -67,14 +67,14 @@ function getFirebaseLoginMessage(error) {
   }
 
   const messages = {
-    "auth/configuration-not-found": "Revisa que Authentication este activado en este proyecto Firebase.",
-    "auth/operation-not-allowed": "Activa el proveedor Correo electronico/Contrasena en Authentication.",
+    "auth/configuration-not-found": "Revisa que Authentication esté activado en este proyecto Firebase.",
+    "auth/operation-not-allowed": "Activa el proveedor Correo electrónico/Contraseña en Authentication.",
     "auth/unauthorized-domain": "Agrega localhost y 127.0.0.1 en Authentication > Settings > Authorized domains.",
     "auth/api-key-not-valid.-please-pass-a-valid-api-key.": "La apiKey no corresponde a este proyecto.",
-    "permission-denied": "Firestore rechazo la escritura. Revisa reglas y que el usuario este autenticado."
+    "permission-denied": "Firestore rechazó la escritura. Revisa reglas y que el usuario esté autenticado."
   };
 
-  return `${messages[code] || "Revisa la consola del navegador para ver el detalle."} Codigo: ${code}`;
+  return `${messages[code] || "Revisa la consola del navegador para ver el detalle."} Código: ${code}`;
 }
 
 function getFirebaseLoginTitle(error) {

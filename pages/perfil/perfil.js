@@ -162,7 +162,7 @@ async function submitProfileUpdate() {
     try {
       await updateCurrentUserPassword(currentPassword, newPassword);
     } catch (error) {
-      showToast("error", "Error de validaciÃ³n", "La contraseÃ±a actual no es correcta.");
+      showToast("error", "Error de validación", "La contraseña actual no es correcta.");
       return;
     }
   }
