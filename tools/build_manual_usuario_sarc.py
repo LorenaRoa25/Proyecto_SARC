@@ -361,7 +361,7 @@ def build_doc(images: dict[str, Path]) -> None:
     numbered(
         doc,
         [
-            "Abra la direccion local o web donde se encuentre publicado SARC.",
+            "Si usa la aplicacion instalada, haga doble clic en Proyecto SARC; si usa una version web, abra la direccion publicada.",
             "Escriba el correo institucional y la contrasena asignada.",
             "Use el boton de ojo si necesita visualizar u ocultar la contrasena.",
             "Marque la aceptacion de Habeas Data y presione INGRESAR.",

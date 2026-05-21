@@ -119,7 +119,8 @@ def build_document():
         """Proyecto_SARC/
   index.html
   app.py
-  README.txt
+  README.md
+  iniciar_sarc.vbs
   FIREBASE_SETUP.md
   firestore.rules
   DOCUMENTACION_CODIGO_SARC.docx
@@ -263,7 +264,7 @@ def build_document():
         document.add_paragraph(item, style="List Bullet")
 
     add_heading(document, "11. Ejecucion recomendada", 1)
-    add_code_block(document, "iniciar_sarc.bat\nhttp://localhost:8000/")
+    add_code_block(document, "iniciar_sarc.vbs\nhttp://localhost:8000/")
     document.add_paragraph(
         "Los usuarios se gestionan desde Firebase Authentication. El formulario de login no incluye credenciales precargadas."
     )

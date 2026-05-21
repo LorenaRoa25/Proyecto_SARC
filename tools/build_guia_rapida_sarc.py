@@ -187,7 +187,7 @@ def build_doc() -> Document:
 
     heading(doc, "3. Como iniciar sesion")
     numbered(doc, [
-        "Ingrese a la direccion del sistema SARC en el navegador.",
+        "Si usa la aplicacion instalada, haga doble clic en Proyecto SARC; si usa una version web, abra la direccion publicada.",
         "Escriba su correo institucional en el campo Correo institucional.",
         "Escriba su contrasena.",
         "Acepte el tratamiento de datos personales.",
@@ -253,7 +253,7 @@ def build_doc() -> Document:
     heading(doc, "12. Solucion de problemas frecuentes")
     small_table(doc, ["Problema", "Solucion rapida"], [
         ["No puedo ingresar", "Verifique correo, contrasena y aceptacion de datos personales."],
-        ["No carga el sistema", "Recargue con Ctrl + F5 y confirme conexion a internet."],
+        ["No carga el sistema", "Abra nuevamente Proyecto SARC, recargue con Ctrl + F5 y confirme conexion a internet."],
         ["No aparecen cursos", "Revise filtros de area/modalidad o vuelva a Inicio."],
         ["No llega correo de recuperacion", "Revise spam y confirme que el correo este registrado."],
         ["La navegacion no cambia", "Use la barra superior o recargue la pagina del sistema."],

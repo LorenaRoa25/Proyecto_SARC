@@ -317,7 +317,7 @@ def build_document():
     )
 
     add_heading(doc, "3. Flujo general de ejecucion")
-    number(doc, "El usuario ejecuta iniciar_sarc.bat y abre http://localhost:8000/.")
+    number(doc, "El usuario ejecuta iniciar_sarc.vbs; app.py inicia en segundo plano y el navegador abre http://localhost:8000/.")
     number(doc, "index.html carga todos los CSS y despues importa shared/js/app.js con type=\"module\".")
     number(doc, "app.js ejecuta init(), que inicializa datos, Firebase, sesion, eventos y renderizado.")
     number(doc, "La ruta hash de la URL decide la pantalla: #login, #inicio, #recomendaciones, #detalle/id, #progreso o #perfil.")

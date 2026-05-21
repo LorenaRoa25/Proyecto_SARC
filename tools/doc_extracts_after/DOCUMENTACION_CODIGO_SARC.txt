@@ -8,7 +8,8 @@ P006 [Heading 1] 3. Estructura de carpetas
 P007 [Normal] Proyecto_SARC/
   index.html
   app.py
-  README.txt
+  README.md
+  iniciar_sarc.vbs
   FIREBASE_SETUP.md
   firestore.rules
   DOCUMENTACION_CODIGO_SARC.docx
@@ -62,7 +63,7 @@ P044 [List Bullet] Retiro de constantes antiguas de localStorage y codigo de dep
 P045 [List Bullet] Actualizacion del README y documentacion tecnica a Firebase.
 P046 [List Bullet] Login sin credenciales precargadas.
 P047 [Heading 1] 11. Ejecucion recomendada
-P048 [Normal] iniciar_sarc.bat
+P048 [Normal] iniciar_sarc.vbs
 http://localhost:8000/
 P049 [Normal] Los usuarios se gestionan desde Firebase Authentication. El formulario de login no incluye credenciales precargadas.
 --- TABLES ---

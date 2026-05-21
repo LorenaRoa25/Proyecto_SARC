@@ -582,7 +582,7 @@ def build_doc() -> Document:
         ["Servidor desarrollo", "Python ThreadingHTTPServer en app.py, puerto 8000."],
         ["Seguridad", "Firebase Auth, reglas Firestore por userId, Habeas Data y protección de rutas frontend."],
         ["Compatibilidad", "Navegadores modernos con soporte ES Modules."],
-        ["Despliegue", "Local con iniciar_sarc.bat y app.py; futuro posible en Firebase Hosting u hosting estático."],
+        ["Despliegue", "Local con iniciar_sarc.vbs y app.py en segundo plano; futuro posible en Firebase Hosting u hosting estático."],
         ["Dependencias", "SDK Firebase desde gstatic; no usa npm ni framework frontend."],
         ["Integraciones", "Firebase Authentication, Cloud Firestore; Firebase Storage futuro para avatares."],
     ], [2.0, 4.8])

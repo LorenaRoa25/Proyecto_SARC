@@ -240,7 +240,7 @@ def build_doc() -> Document:
         ["Firebase", "Autenticacion Email/Password, recuperacion y cambio de contrasena; Firestore para usuarios, cursos, recomendaciones, tareas y Habeas Data."],
         ["Librerias", "No se requieren dependencias npm obligatorias ni frameworks frontend; el SDK de Firebase se consume desde CDN."],
         ["Compatibilidad", "Chrome, Edge, Firefox y Safari modernos con JavaScript habilitado, fetch, Blob y FileReader."],
-        ["Hosting", "Ejecucion local con iniciar_sarc.bat y app.py; despliegue recomendado en hosting estatico HTTPS o Firebase Hosting."],
+        ["Hosting", "Ejecucion local con iniciar_sarc.vbs y app.py en segundo plano; despliegue recomendado en hosting estatico HTTPS o Firebase Hosting."],
         ["Dependencias del proyecto", "shared/js/firebase-config.js, firestore.rules y conexion a internet para servicios Firebase."],
     ], [1.7, 4.9])
 
@@ -250,7 +250,8 @@ def build_doc() -> Document:
         "Configurar Firebase en shared/js/firebase-config.js con los datos del proyecto institucional.",
         "Activar Firebase Authentication con Email/Password y crear Cloud Firestore.",
         "Publicar firestore.rules para proteger datos por userId.",
-        "Ejecutar localmente con iniciar_sarc.bat y abrir http://localhost:8000/.",
+        "Para instalar en Windows, ejecutar instalar_proyecto_sarc.bat como administrador; el instalador copia el proyecto en C:\\Program Files\\Proyecto_SARC y crea el acceso directo Proyecto SARC.",
+        "Al abrir la aplicacion instalada, el acceso directo ejecuta iniciar_sarc.vbs; este lanzador inicia app.py en segundo plano y abre http://localhost:8000/ automaticamente sin mostrar terminal.",
         "Para despliegue basico, publicar los archivos estaticos en un hosting compatible con HTTPS, por ejemplo Firebase Hosting.",
     ])
 

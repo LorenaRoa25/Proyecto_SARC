@@ -41,6 +41,10 @@ class SarcHandler(SimpleHTTPRequestHandler):
         self.send_header("Expires", "0")
         super().end_headers()
 
+    def log_message(self, format, *args):
+        """Evita fallos al ejecutarse con pythonw.exe sin consola visible."""
+        return
+
 
 def open_browser():
     """Abre el navegador en la pagina principal del sistema."""
@@ -79,6 +83,7 @@ def main():
         print("Causa probable: ya existe otro servidor usando http://localhost:8000/")
         print("Solucion: cierre la otra ventana de SARC o detenga el proceso anterior.")
         print(f"Detalle tecnico: {error}")
+        open_browser()
         sys.exit(1)
 
     server.timeout = 0.5

@@ -27,18 +27,32 @@ Centralizar en una interfaz sencilla la informacion de cursos de apoyo academico
 - Conexion a internet para Firebase Authentication y Cloud Firestore.
 - Carpeta completa del proyecto SARC.
 
+## Instalacion En Windows
+
+La instalacion se realiza con el archivo `instalar_proyecto_sarc.bat`. Este archivo debe ejecutarse como administrador porque copia el proyecto en `C:\Program Files\Proyecto_SARC`, configura variables de entorno y crea el acceso directo del escritorio.
+
+Pasos:
+
+1. Colocar `instalar_proyecto_sarc.bat` y `Proyecto_SARC.zip` en la misma carpeta.
+2. Hacer clic derecho sobre `instalar_proyecto_sarc.bat`.
+3. Seleccionar `Ejecutar como administrador`.
+4. Esperar a que el instalador copie los archivos y cree el acceso directo `Proyecto SARC`.
+5. Abrir la aplicacion desde el acceso directo del escritorio.
+
+El acceso directo no abre `index.html` directamente. Apunta a `iniciar_sarc.vbs`, que inicia `app.py` en segundo plano y abre el navegador en `http://localhost:8000/` sin mostrar una terminal.
+
 ## Ejecucion Local En Windows
 
 1. Abrir la carpeta principal del proyecto `Proyecto_SARC`.
-2. Hacer doble clic en el archivo `iniciar_sarc.bat`.
-3. Esperar a que la consola valide el entorno e inicie el servidor local.
+2. Hacer doble clic en el archivo `iniciar_sarc.vbs`.
+3. Esperar a que el navegador abra automaticamente el sistema.
 4. El navegador se abrira automaticamente en:
 
 ```text
 http://localhost:8000/
 ```
 
-5. Para cerrar el sistema, presionar `Ctrl+C` en la consola o cerrar la ventana del servidor.
+5. Para cerrar el sistema, cerrar el navegador y detener el proceso `pythonw.exe` desde el Administrador de tareas si necesita apagar el servidor local oculto.
 
 No se recomienda abrir `index.html` directamente con doble clic, porque la aplicacion usa JavaScript ES Modules y carga plantillas HTML mediante `fetch`.
 
@@ -64,7 +78,8 @@ El usuario demo se utiliza para pruebas y sustentacion academica. Esta cuenta ti
 Proyecto_SARC/
   index.html
   app.py
-  iniciar_sarc.bat
+  iniciar_sarc.vbs
+  instalar_proyecto_sarc.bat
   README.md
   FIREBASE_SETUP.md
   firestore.rules
@@ -109,7 +124,9 @@ Proyecto_SARC/
 
 `app.py` sirve los archivos estaticos en `localhost` para que el navegador cargue correctamente modulos JavaScript, plantillas y Firebase.
 
-`iniciar_sarc.bat` automatiza el despliegue local en Windows: valida archivos esenciales, detecta Python, ejecuta `app.py` y abre el navegador.
+`iniciar_sarc.vbs` automatiza el despliegue local en Windows sin mostrar una terminal: valida archivos esenciales, detecta Python, ejecuta `app.py` en segundo plano y abre el navegador.
+
+`instalar_proyecto_sarc.bat` instala SARC en `C:\Program Files\Proyecto_SARC`, extrae `Proyecto_SARC.zip`, configura `SARC_HOME`, agrega la ruta al PATH y crea el acceso directo `Proyecto SARC` en el escritorio.
 
 `shared/js/app.js` inicializa el sistema, controla rutas y protege vistas privadas.
 
@@ -121,14 +138,15 @@ Proyecto_SARC/
 
 ## Funcionamiento General
 
-1. El usuario abre SARC desde `iniciar_sarc.bat`.
-2. `app.py` inicia el servidor local en `http://localhost:8000/`.
-3. El navegador carga `index.html` y los modulos JavaScript.
-4. El estudiante inicia sesion con Firebase Authentication.
-5. Los datos academicos se cargan desde Cloud Firestore.
-6. Las vistas trabajan con el estado en memoria del frontend.
-7. Los cambios de perfil, cursos, progreso y tareas se guardan en Firestore.
-8. Los reportes PDF se generan desde JavaScript en el navegador.
+1. El usuario abre SARC desde el acceso directo `Proyecto SARC` o desde `iniciar_sarc.vbs`.
+2. `iniciar_sarc.vbs` detecta Python y ejecuta `app.py` en segundo plano.
+3. `app.py` inicia el servidor local en `http://localhost:8000/`.
+4. El navegador carga `index.html` y los modulos JavaScript.
+5. El estudiante inicia sesion con Firebase Authentication.
+6. Los datos academicos se cargan desde Cloud Firestore.
+7. Las vistas trabajan con el estado en memoria del frontend.
+8. Los cambios de perfil, cursos, progreso y tareas se guardan en Firestore.
+9. Los reportes PDF se generan desde JavaScript en el navegador.
 
 ## Firebase
 
@@ -162,7 +180,8 @@ El sistema implementa:
 - Reportes PDF.
 - Perfil de estudiante editable.
 - Perfil demo con reinicio controlado.
-- Despliegue local portable mediante `.bat`.
+- Instalador Windows mediante `instalar_proyecto_sarc.bat`.
+- Despliegue local portable mediante lanzador silencioso `.vbs`.
 
 No implementa panel administrativo funcional, backend propio, Express, base de datos local, chatbot conversacional ni inteligencia artificial predictiva.
 
@@ -170,10 +189,12 @@ No implementa panel administrativo funcional, backend propio, Express, base de d
 
 | Situacion | Causa probable | Solucion |
 | --- | --- | --- |
+| El instalador no avanza | No se ejecuto como administrador o falta `Proyecto_SARC.zip`. | Ejecutar `instalar_proyecto_sarc.bat` como administrador y verificar que el ZIP este junto al BAT. |
 | No se encontro Python | Python no esta instalado o no esta agregado al PATH. | Instalar Python 3 desde python.org y marcar "Add python.exe to PATH". |
-| No se encontro `index.html` | El `.bat` no esta en la raiz del proyecto. | Ejecutar `iniciar_sarc.bat` desde la carpeta principal de SARC. |
+| No se encontro `index.html` | El lanzador no esta en la raiz del proyecto. | Ejecutar `iniciar_sarc.vbs` desde la carpeta principal de SARC. |
 | No se encontro `firebase-config.js` | Falta la configuracion Firebase. | Verificar que exista `shared/js/firebase-config.js`. |
-| Puerto 8000 ocupado | Ya existe otra instancia local ejecutandose. | Cerrar la consola anterior o detener el proceso que usa el puerto 8000. |
+| Puerto 8000 ocupado | Ya existe otra instancia local ejecutandose. | Cerrar la instancia anterior o detener `pythonw.exe` desde el Administrador de tareas. |
+| La app queda en pantalla de carga | Se abrio `index.html` directamente como archivo. | Abrir SARC desde `Proyecto SARC` o desde `iniciar_sarc.vbs`. |
 | Login o Firestore no responden | No hay internet o Firebase no esta disponible. | Revisar conexion, credenciales Firebase y reglas de Firestore. |
 
 ## Autora
