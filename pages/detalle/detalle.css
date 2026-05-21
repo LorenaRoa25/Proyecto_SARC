@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Detalle: ficha extendida del curso y acciones de navegación.
+   ========================================================================== */
+
+.detail-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.detail-page {
+  min-height: 415px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 44px;
+  background: rgba(204, 204, 204, 0.5);
+}
+
+.detail-text {
+  max-width: 920px;
+  font-size: 1.66rem;
+  line-height: 1.55;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 42px 100px 0;
+}
+
+.detail-actions .mock-btn {
+  width: 177px;
+  height: 57px;
+}
+
+@media (max-width: 1040px) {
+  .detail-page {
+    padding: 30px 24px;
+  }
+
+  .detail-actions {
+    gap: 14px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 680px) {
+  .detail-actions .mock-btn {
+    width: 100%;
+  }
+}

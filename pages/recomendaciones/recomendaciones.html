@@ -1,0 +1,30 @@
+<!-- Vista Recomendaciones: catálogo filtrable de cursos sugeridos -->
+<div class="catalog-layout fade-in">
+  <div class="catalog-body">
+    <div class="catalog-title">CURSOS SUGERIDOS</div>
+
+    <!-- Filtros de búsqueda del catálogo -->
+    <div class="filters-row">
+      <select id="filterArea" class="mock-select" aria-label="Área Interdisciplinaria">
+        <option value="">Área Interdisciplinaria</option>
+        <option value="Matemáticas" {{areaMatematicas}}>Matemáticas</option>
+        <option value="Programación" {{areaProgramacion}}>Programación</option>
+        <option value="Derecho" {{areaDerecho}}>Derecho</option>
+        <option value="Comunicación" {{areaComunicacion}}>Comunicación</option>
+        <option value="Todas las áreas" {{areaTodas}}>Todas las áreas</option>
+      </select>
+
+      <select id="filterModality" class="mock-select" aria-label="Modalidad">
+        <option value="">Modalidad</option>
+        <option value="Virtual" {{modalityVirtual}}>Virtual</option>
+        <option value="Presencial" {{modalityPresencial}}>Presencial</option>
+        <option value="Híbrido" {{modalityHibrido}}>Híbrido</option>
+      </select>
+    </div>
+
+    <!-- Resultados de cursos sugeridos -->
+    <div class="course-list">
+      {{courseList}}
+    </div>
+  </div>
+</div>

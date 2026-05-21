@@ -1,0 +1,52 @@
+FILE: C:\Users\Usuario\OneDrive\Desktop\Informe_evaluacion_SARC.docx
+PARAGRAPHS: 63 TABLES: 0
+--- PARAGRAPHS ---
+P000 [Normal] Informe de Revisión del Proyecto SARC
+P001 [Normal] Sistema de Apoyo Académico con Recomendación de Cursos
+P002 [Normal] Lorena Roa Rivera
+P004 [Heading 1] Estado general del proyecto
+P005 [Normal] El proyecto SARC cuenta con una base funcional y documental sólida. La aplicación implementa una experiencia web navegable que permite al estudiante iniciar sesión, recuperar contraseña, ver cursos sugeridos, filtrar recomendaciones, consultar detalles de cursos, inscribirse, visualizar progreso, descargar reportes en PDF y editar su perfil.
+P006 [Normal] El código está organizado en una estructura por vistas, con archivos HTML, CSS y JavaScript independientes para cada pantalla. Además, se separaron módulos compartidos para estado, navegación, cursos, reportes, sonido, componentes de feedback y estilos globales.
+P008 [Heading 2] 1. Problema y contexto
+P009 [Normal] Respuesta: Sí.
+P010 [Normal] Por qué: El proyecto inicia con un problema identificable: apoyar a los estudiantes en la selección de cursos complementarios de acuerdo con sus necesidades académicas. También delimita el contexto institucional, los usuarios principales y la finalidad del sistema antes de presentar la solución tecnológica.
+P012 [Heading 2] 2. Requisitos
+P013 [Normal] Respuesta: Sí.
+P014 [Normal] Por qué: El documento plantea requisitos funcionales, requisitos no funcionales, reglas de negocio, casos de uso e historias de usuario. La secuencia es adecuada porque primero define lo que debe resolver el sistema y luego lo conecta con funcionalidades como autenticación, recomendaciones, inscripción, progreso, reportes y perfil.
+P016 [Heading 2] 3. Arquitectura y diseño
+P017 [Normal] Respuesta: Sí.
+P018 [Normal] Por qué: Después de los requisitos se presenta una arquitectura modular con separación entre vistas, lógica de aplicación, componentes compartidos y base de datos implementada en Firebase. El diseño técnico responde a las funciones definidas previamente, por lo que la secuencia es coherente.
+P020 [Heading 2] 4. Planificación y gestión
+P021 [Normal] Respuesta: No completamente.
+P022 [Normal] Por qué: El proyecto evidencia entregables y avances, pero falta mostrar con mayor claridad el orden de ejecución: cronograma, fases, responsables, control de cambios y seguimiento.
+P024 [Heading 2] 5. Desarrollo
+P025 [Normal] Respuesta: Sí.
+P026 [Normal] Por qué: La implementación refleja una organización por pantallas y módulos. La secuencia entre diseño y desarrollo es lógica porque las funcionalidades descritas en los requisitos se materializan en vistas concretas del sistema y en componentes reutilizables.
+P028 [Heading 2] 6. Pruebas
+P029 [Normal] Respuesta: No completamente.
+P030 [Normal] Por qué: En el documento se mencionan pruebas y casos esperados, pero se debe incluir evidencia más clara de ejecución: capturas, resultados obtenidos, validaciones realizadas. La etapa está proyectada, pero necesita mejor soporte probatorio.
+P032 [Heading 2] 7. Seguridad
+P033 [Normal] Respuesta: Sí.
+P034 [Normal] Por qué: La versión final contempla autenticación, protección de rutas, manejo de datos personales y reglas asociadas a Firebase. La seguridad aparece en una etapa adecuada porque se define después de identificar usuarios, datos y accesos del sistema.
+P036 [Heading 2] 8. DevOps y despliegue
+P037 [Normal] Respuesta: No completamente.
+P038 [Normal] Por qué: El proyecto puede ejecutarse y demostrarse, pero falta dejar más visible la evidencia de despliegue, configuración reproducible, entornos o pipeline. Falta anexar instrucciones de despliegue y capturas.
+P040 [Heading 2] 9. Documentación
+P041 [Normal] Respuesta: Sí.
+P042 [Normal] Por qué: El proyecto cuenta con documento técnico, minuta de licenciamiento, README, informe de evaluación y documentación del código. La documentación acompaña el desarrollo y permite entender propósito, alcance, funcionamiento y condiciones legales del sistema.
+P044 [Heading 2] 10. Trabajo en equipo
+P045 [Normal] Respuesta: Sí, presentado como trabajo individual organizado.
+P046 [Normal] Por qué: El proyecto fue realizado por una sola estudiante, así que este criterio se responde desde la gestión individual: organización de tareas, bitácora de avances, historial de versiones, retroalimentación recibida y cumplimiento de entregables.
+P048 [Heading 2] 11. Producto final
+P049 [Normal] Respuesta: Sí.
+P050 [Normal] Por qué: El sistema permite demostrar un flujo funcional del estudiante: autenticación, consulta de recomendaciones, detalle de cursos, inscripción, progreso, reporte y perfil. La secuencia entre problema, requisitos, desarrollo y producto final es clara.
+P052 [Heading 2] 12. Presentación y defensa
+P053 [Normal] Respuesta: No completamente.
+P054 [Normal] Por qué: El documento permite preparar la sustentación, pero este criterio se comprueba con la exposición oral, la demo y las respuestas técnicas. Falta preparar un guion de presentación y una ruta de demostración del sistema.
+P056 [Heading 2] 13. Mantenibilidad y escalabilidad
+P057 [Normal] Respuesta: Sí.
+P058 [Normal] Por qué: La estructura modular facilita mantenimiento, crecimiento de funcionalidades y conexión con Firebase. La secuencia es coherente porque primero se organiza el sistema y luego se proyecta su evolución técnica.
+P060 [Heading 2] 14. Ética y legalidad
+P061 [Normal] Respuesta: Sí.
+P062 [Normal] Por qué: La minuta de licenciamiento, la protección de propiedad intelectual y el tratamiento de datos personales respaldan este criterio. El proyecto contempla uso responsable del software, derechos de autor, confidencialidad y manejo de información académica.
+--- TABLES ---

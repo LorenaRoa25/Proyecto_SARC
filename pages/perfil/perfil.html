@@ -1,0 +1,28 @@
+<!-- Vista Perfil: información del estudiante y acciones de cuenta -->
+<div class="profile-layout fade-in">
+  <div class="green-banner">PERFIL</div>
+
+  <div class="profile-page">
+    <!-- Datos principales del estudiante -->
+    <div class="profile-content">
+      <div class="profile-text">
+        <strong>Nombre:</strong> {{name}}<br>
+        <strong>Facultad:</strong> {{faculty}}<br>
+        <strong>Carrera:</strong> {{career}}<br>
+        <strong>Semestre:</strong> {{semester}}<br>
+        <strong>Modalidad preferida:</strong> {{modality}}
+      </div>
+
+      <div class="profile-card">
+        <img class="profile-avatar" src="{{avatar}}" alt="Foto de perfil">
+      </div>
+    </div>
+
+    <!-- Acciones de perfil y sesión -->
+    <div class="profile-actions">
+      <button class="mock-btn blue" id="editProfileButton" type="button">Editar Perfil</button>
+      {{resetDemoAction}}
+      <button class="mock-btn green" id="logoutButton" type="button">Cerrar Sesión</button>
+    </div>
+  </div>
+</div>

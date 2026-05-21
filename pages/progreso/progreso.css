@@ -1,0 +1,256 @@
+/* ==========================================================================
+   Progreso: seguimiento academico visual y resumido.
+   ========================================================================== */
+
+.progress-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.progress-page {
+  flex: 1;
+  display: grid;
+  gap: 18px;
+  padding: 28px 42px 36px;
+  background: #f6f8fb;
+}
+
+.progress-course-card {
+  border: 1px solid #dfe6ee;
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 10px 28px rgba(8, 83, 148, 0.08);
+  overflow: hidden;
+}
+
+.progress-card-main {
+  display: grid;
+  grid-template-columns: 78px 1fr 223px;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 28px;
+}
+
+.progress-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #e8f1fb;
+  color: var(--blue);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.progress-icon.red {
+  background: #fbeaea;
+  color: var(--red);
+}
+
+.progress-icon.green {
+  background: #edf7e9;
+  color: var(--green);
+}
+
+.progress-info {
+  display: grid;
+  gap: 14px;
+}
+
+.progress-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.progress-card-header h3 {
+  margin: 0 0 3px;
+  color: var(--blue);
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.progress-card-header p {
+  margin: 0;
+  color: #667085;
+  font-size: 1rem;
+}
+
+.status-pill {
+  min-width: max-content;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e8f1fb;
+  color: var(--blue);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.status-pill.high,
+.status-pill.completed {
+  background: #edf7e9;
+  color: #2e7d32;
+}
+
+.status-pill.starting {
+  background: #fff4df;
+  color: #9a6700;
+}
+
+.progress-meter-row {
+  display: grid;
+  grid-template-columns: 1fr 58px;
+  gap: 14px;
+  align-items: center;
+}
+
+.progress-track {
+  width: 100%;
+  height: 18px;
+  display: block;
+  overflow: hidden;
+  border: 1px solid #c8d3df;
+  border-radius: 999px;
+  background: #edf1f5;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  transition: width 0.65s ease;
+}
+
+.progress-fill.blue {
+  background: #3f7fc2;
+}
+
+.progress-fill.red {
+  background: #d9534f;
+}
+
+.progress-fill.green {
+  background: #6aa84f;
+}
+
+.progress-meter-row strong {
+  color: var(--blue);
+  font-size: 1.25rem;
+  text-align: right;
+}
+
+.progress-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.metric-card {
+  min-height: 70px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.metric-label {
+  color: #667085;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.metric-card strong {
+  color: var(--text);
+  font-size: 1.08rem;
+}
+
+.progress-explanation {
+  padding: 11px 14px;
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+  background: #f1f8ee;
+  color: #37512f;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.progress-btn {
+  width: 223px;
+  height: 48px;
+  align-self: center;
+}
+
+.progress-empty {
+  display: grid;
+  gap: 8px;
+  padding: 34px;
+  border: 1px dashed #c6d0dc;
+  border-radius: 8px;
+  background: var(--white);
+  color: #667085;
+  text-align: center;
+}
+
+.progress-empty strong {
+  color: var(--blue);
+  font-size: 1.35rem;
+}
+
+.progress-report-modal .report-note {
+  padding: 14px 16px;
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+  background: #f1f8ee;
+  color: #37512f;
+  font-size: 1.04rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1040px) {
+  .progress-page {
+    padding: 22px;
+  }
+
+  .progress-card-main {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .progress-btn {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .progress-card-main {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .progress-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .progress-card-header {
+    flex-direction: column;
+  }
+
+  .progress-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-btn {
+    width: 100%;
+    grid-column: auto;
+  }
+}

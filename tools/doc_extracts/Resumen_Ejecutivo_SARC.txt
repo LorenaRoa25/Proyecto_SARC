@@ -1,0 +1,97 @@
+FILE: C:\Users\Usuario\OneDrive\Desktop\Resumen_Ejecutivo_SARC.docx
+PARAGRAPHS: 119 TABLES: 1
+--- PARAGRAPHS ---
+P001 [Normal] RESUMEN EJECUTIVO
+P002 [Normal] CONTRATO DE LICENCIA DE USO DE SOFTWARE
+P003 [Normal] SISTEMA DE APOYO ACADÉMICO CON RECOMENDACIÓN DE CURSOS
+P004 [Normal] SARC – Versión 1.0.0
+P006 [Normal] Entre:
+P008 [Normal] LORENA ROA RIVERA
+P009 [Normal] — Desarrolladora —
+P011 [Normal] Y
+P013 [Normal] Corporación Universitaria de Sabaneta - UNISABANETA
+P014 [Normal] — Institución Universitaria —
+P016 [Normal] Sabaneta, Antioquia, Colombia — Abril de 2026
+P019 [Normal] PREÁMBULO
+P020 [Normal] El presente resumen ejecutivo sintetiza los términos y condiciones esenciales del Contrato de Licencia de Uso de Software SARC, versión 1.0.0, suscrito entre LORENA ROA RIVERA como Licenciante y la CORPORACIÓN UNIVERSITARIA DE SABANETA – UNISABANETA como Licenciataria. Este documento no sustituye el contrato completo, sino que facilita su comprensión y consulta rápida por parte de las partes.
+P022 [Normal] CLÁUSULA PRIMERA — IDENTIFICACIÓN DE LAS PARTES
+P023 [Normal] 1.1. La Desarrolladora (Licenciante)
+P024 [Normal] Nombre completo: Lorena Roa Rivera
+P025 [Normal] Rol contractual: Autora y titular exclusiva de los derechos sobre el software SARC
+P026 [Normal] Documento de identidad: C.C. N.° 1034916196
+P027 [Normal] Domicilio: Itagüí, Antioquia, Colombia
+P028 [Normal] Correo de contacto: lorena.roa.196@unisabaneta.edu.co
+P030 [Normal] 1.2. La Institución (Licenciataria)
+P031 [Normal] Razón social: Corporación Universitaria de Sabaneta – UNISABANETA
+P032 [Normal] NIT: 900.253.021-5
+P033 [Normal] Representante legal: Rector(a) o delegado(a) institucional debidamente autorizado(a)
+P034 [Normal] Domicilio: Sabaneta, Antioquia, Colombia
+P035 [Normal] Correo institucional: contacto@unisabaneta.edu.co
+P037 [Normal] CLÁUSULA SEGUNDA — OBJETO Y SOFTWARE LICENCIADO
+P038 [Normal] Se otorga una licencia de uso propietaria, no exclusiva, intransferible e institucional sobre el Sistema de Apoyo Académico con Recomendación de Cursos (SARC) — versión 1.0.0, aplicación web desarrollada en HTML5, CSS3 y JavaScript puro, bajo una arquitectura frontend modular por vistas y módulos compartidos, con Firebase como plataforma de base de datos y servicio de autenticación. El presente contrato no implica cesión de derechos de propiedad intelectual. El código fuente permanece bajo titularidad exclusiva de LA DESARROLLADORA.
+P040 [Normal] CLÁUSULA TERCERA — CONDICIONES CLAVE DE LA LICENCIA
+P041 [Normal] Tipo de licencia: Propietaria — no exclusiva — intransferible — institucional.
+P042 [Normal] Vigencia: Dos (2) años desde la suscripción, renovable por adenda escrita con preaviso mínimo de treinta (30) días.
+P043 [Normal] Territorio: Dominio institucional de UNISABANETA. El acceso remoto está permitido únicamente con credenciales institucionales válidas.
+P044 [Normal] Usuarios autorizados: Estudiantes activos, personal administrativo con rol de Administrador y docentes habilitados institucionalmente.
+P045 [Normal] Contraprestación: Gratuita durante la vigencia del presente contrato.
+P047 [Normal] Prohibiciones expresas:
+P048 [List Paragraph] Sublicenciar, ceder o transferir la licencia a terceros.
+P049 [List Paragraph] Descompilar, modificar o realizar ingeniería inversa del SARC.
+P050 [List Paragraph] Integrar el SARC con sistemas externos sin autorización escrita previa de LA DESARROLLADORA.
+P051 [List Paragraph] Utilizar el sistema con fines distintos a los académicos e institucionales de UNISABANETA.
+P053 [Normal] CLÁUSULA CUARTA — GARANTÍA Y ACUERDO DE NIVEL DE SERVICIO (SLA)
+P054 [Normal] Período de garantía: Seis (6) meses desde la entrega formal del sistema.
+P055 [Normal] Alcance: Corrección de fallas atribuibles a la implementación original, sin costo adicional.
+P056 [Normal] Canal de soporte: Correo electrónico institucional, en días hábiles de lunes a viernes.
+P059 [Normal] Niveles de criticidad y tiempos de atención:
+P062 [Normal] Los tiempos del SLA podrán ajustarse cuando la corrección dependa de la disponibilidad de servicios externos, incluyendo Firebase, infraestructura institucional, entrega de credenciales o acceso a registros técnicos por parte de LA INSTITUCIÓN.
+P064 [Normal] CLÁUSULA QUINTA — PROPIEDAD INTELECTUAL Y CONFIDENCIALIDAD
+P065 [List Paragraph] LA DESARROLLADORA conserva la titularidad exclusiva del SARC: código fuente, arquitectura, algoritmos, diseños y documentación técnica. Marco legal: Ley 23/1982, Decisión Andina 351/1993, Ley 44/1993, Ley 1341/2009.
+P066 [List Paragraph] Los datos académicos generados durante la vigencia son propiedad exclusiva de LA INSTITUCIÓN. LA DESARROLLADORA los elimina al término del contrato.
+P067 [List Paragraph] Ambas partes quedan obligadas a mantener confidencialidad por tres (3) años posteriores a la terminación, independientemente de la causal.
+P069 [Normal] CLÁUSULA SEXTA — OBLIGACIONES PRINCIPALES DE CADA PARTE
+P070 [Normal] 6.1. Desarrolladora (Licenciante):
+P071 [List Paragraph] Entregar el SARC en condiciones óptimas con documentación técnica completa (SRS IEEE 830).
+P072 [List Paragraph] Prestar soporte técnico conforme al SLA pactado durante el período de garantía.
+P073 [List Paragraph] Documentar vulnerabilidades conocidas y notificar las detectadas con posterioridad a la entrega.
+P074 [List Paragraph] Orientar técnicamente en la selección de infraestructura y mantener confidencialidad sobre datos institucionales y de estudiantes.
+P076 [Normal] 6.2. Institución (Licenciataria):
+P077 [List Paragraph] Garantizar la infraestructura tecnológica mínima según las especificaciones entregadas.
+P078 [List Paragraph] Designar un responsable técnico institucional como punto de contacto permanente.
+P079 [List Paragraph] Reportar incidentes formalmente y abstenerse de modificar el sistema sin autorización.
+P080 [List Paragraph] Cumplir la Ley 1581/2012 en el tratamiento de datos personales de los estudiantes.
+P081 [List Paragraph] Facilitar acceso e información oportuna a LA DESARROLLADORA para el cumplimiento del SLA.
+P083 [Normal] CLÁUSULA SÉPTIMA — CONDICIONES ECONÓMICAS Y PROYECCIÓN COMERCIAL
+P084 [Normal] Licencia vigente: Gratuita — sin contraprestación económica durante la vigencia pactada.
+P085 [Normal] Infraestructura: A cargo íntegro de LA INSTITUCIÓN, incluyendo los costos derivados de los servicios de Firebase (base de datos y autenticación), hosting, conectividad y copias de seguridad.
+P086 [Normal] Servicios futuros: Soporte adicional y mantenimiento evolutivo vencido el período de garantía estarán sujetos a acuerdo separado entre las partes, con las condiciones económicas y técnicas que en ese momento se pacten.
+P087 [Normal] Proyección comercial: El SARC podrá ser objeto de tasación técnica y licenciamiento comercial al vencimiento del contrato. Los acuerdos futuros podrán contemplar, entre otros, el número de usuarios, nuevas funcionalidades, costos de Firebase y reconocimiento económico a favor de LA DESARROLLADORA.
+P089 [Normal] CLÁUSULA OCTAVA — TERMINACIÓN Y EFECTOS
+P090 [Normal] 8.1. Causales principales:
+P091 [List Paragraph] Mutuo acuerdo con preaviso mínimo de treinta (30) días calendario.
+P092 [List Paragraph] Vencimiento del término pactado sin renovación expresa.
+P093 [List Paragraph] Incumplimiento grave con plazo de quince (15) días hábiles para subsanar.
+P094 [List Paragraph] Violación de derechos de propiedad intelectual o uso comercial no autorizado.
+P096 [Normal] 8.2. Efectos al terminar:
+P097 [List Paragraph] Cese inmediato del uso del SARC y deshabilitación de todos los accesos en un plazo máximo de cinco (5) días hábiles.
+P098 [List Paragraph] Eliminación certificada del software mediante comunicación escrita en un plazo no mayor a quince (15) días hábiles.
+P099 [List Paragraph] Exportación previa de datos académicos a solicitud formal de LA INSTITUCIÓN, antes de la desinstalación definitiva.
+P101 [Normal] CLÁUSULA NOVENA — LEY APLICABLE Y RESOLUCIÓN DE CONTROVERSIAS
+P102 [Normal] El presente contrato se rige por las leyes de la República de Colombia. Las controversias se resolverán mediante el siguiente procedimiento escalonado: (1) negociación directa en un plazo de treinta (30) días calendario; (2) mediación ante la Cámara de Comercio de Medellín; (3) jurisdicción ordinaria del Circuito Judicial de Sabaneta, Antioquia, a cuya competencia las partes se someten expresamente.
+P107 [Normal] FIRMA Y PERFECCIONAMIENTO DEL CONTRATO
+P108 [Normal] En constancia de lo anterior, las partes suscriben el presente Resumen Ejecutivo del Contrato de Licencia de Uso de Software, en la ciudad de Sabaneta, Antioquia, a los ___ días del mes de _______________ de dos mil veintiséis (2026).
+P110 [Normal] LA DESARROLLADORA (LICENCIANTE)			LA INSTITUCIÓN (LICENCIATARIO)
+P111 [Normal] ___________________________________	___________________________________
+P112 [Normal] Lorena Roa Rivera	Representante Legal / Delegado Autorizado
+P113 [Normal] Autora del Proyecto SARC	Corporación Universitaria de Sabaneta – UNISABANETA
+P114 [Normal] C.C. N.° 1034916196	Nombre: ______________________________
+P115 [Normal] Ingeniería Informática – UNISABANETA	C.C. / NIT: ___________________________
+P116 [Normal] Cargo: ________________________________
+P118 [Normal] Este resumen ejecutivo complementa el Contrato de Licencia completo suscrito entre las partes y no lo sustituye en ningún caso.
+--- TABLES ---
+TABLE 0
+R00: Nivel || Criticidad || Ejemplo de Incidente || Respuesta || Solución
+R01: ALTA (P1) || Crítica || Sistema inaccesible / falla total de autenticación Firebase || 1 día háb. || 5 días háb.
+R02: MEDIA (P2) || Moderada || Funcionalidad principal bloqueada (inscripción, progreso, reportes) || 2 días háb. || 10 días háb.
+R03: BAJA (P3) || Leve || Error parcial de visualización / consulta de uso || 3 días háb. || 15 días háb.

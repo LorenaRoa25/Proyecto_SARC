@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Inicio: distribucion original con mejoras visuales ligeras.
+   ========================================================================== */
+
+.home-grid {
+  min-height: 321px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home-left,
+.home-right {
+  padding: 58px 58px 40px;
+}
+
+.home-left {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.home-right {
+  background: var(--gray);
+}
+
+.simple-list {
+  display: grid;
+  gap: 16px;
+}
+
+.home-course-button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.home-course-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(2px);
+}
+
+.home-course-icon {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  margin-top: 4px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 0;
+}
+
+.home-course-icon::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.home-course-button strong,
+.home-course-button small {
+  display: block;
+}
+
+.home-course-button strong {
+  font-size: 1.72rem;
+  line-height: 1.22;
+  font-weight: 500;
+}
+
+.home-course-button small {
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.96rem;
+}
+
+.home-empty {
+  padding: 10px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.15rem;
+}
+
+.assistant-recommendations {
+  margin-bottom: 20px;
+}
+
+.assistant-chat {
+  display: grid;
+  gap: 12px;
+}
+
+.assistant-message {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0 12px;
+  border-bottom: 1px solid rgba(8, 83, 148, 0.18);
+}
+
+.assistant-badge {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.assistant-message.suggestion .assistant-badge {
+  background: var(--green);
+}
+
+.assistant-message p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.18rem;
+  line-height: 1.44;
+}
+
+@media (max-width: 1040px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-left,
+  .home-right {
+    padding: 28px 24px;
+  }
+
+  .home-course-button strong {
+    font-size: 1.3rem;
+  }
+
+  .assistant-message {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-message p {
+    font-size: 1.05rem;
+  }
+}

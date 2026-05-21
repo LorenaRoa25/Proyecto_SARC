@@ -1,0 +1,10 @@
+venv/
+.idea/
+__pycache__/
+*.pyc
+docx_tmp/
+docx_render_check/
+tools/.chrome-sarc-profile/
+tools/rendered_docs/
+tools/*_tmp.docx
+
