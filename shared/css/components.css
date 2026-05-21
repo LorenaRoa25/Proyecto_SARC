@@ -264,6 +264,12 @@
   display: block;
 }
 
+.habeas-modal {
+  width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
 @media (max-width: 1040px) {
   .green-banner {
     min-height: 60px;
@@ -279,6 +285,10 @@
   }
 
   .modal-card {
+    width: 100%;
+  }
+
+  .habeas-modal {
     width: 100%;
   }
 

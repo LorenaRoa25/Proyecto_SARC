@@ -6,6 +6,7 @@ import { resetSarcDemo, saveDatabase, saveSession, state } from "../../shared/js
 import { logoutFirebaseUser, updateCurrentUserPassword } from "../../shared/js/firebase-service.js";
 import { navigate } from "../../shared/js/navigation.js";
 import { interpolate, loadTemplate } from "../../shared/js/template-loader.js";
+import { isAuthorizedDemoEmail } from "../../shared/js/user-profiles.js";
 import { closeModal, showModal, showToast } from "../../shared/components/feedback.js";
 
 let refreshProfile = () => {};
@@ -25,9 +26,13 @@ export async function renderProfile(container) {
     career: user.career,
     semester: user.semester,
     modality: user.modality,
-    avatar: user.avatar
+    avatar: user.avatar,
+    resetDemoAction: isAuthorizedDemoUser()
+      ? '<button class="mock-btn gray" id="resetDemoButton" type="button">Reiniciar demo</button>'
+      : ""
   });
 
+  enforceDemoControls(container);
   bindProfileEvents(container);
 }
 
@@ -37,14 +42,32 @@ export async function renderProfile(container) {
  */
 function bindProfileEvents(container) {
   container.querySelector("#editProfileButton").addEventListener("click", openProfileEditor);
-  container.querySelector("#resetDemoButton").addEventListener("click", confirmResetDemo);
+  container.querySelector("#resetDemoButton")?.addEventListener("click", confirmResetDemo);
   container.querySelector("#logoutButton").addEventListener("click", logout);
+}
+
+/**
+ * Elimina controles demo si vienen de una plantilla cacheada o antigua.
+ * @param {HTMLElement} container
+ */
+function enforceDemoControls(container) {
+  if (isAuthorizedDemoUser()) return;
+  container.querySelector("#resetDemoButton")?.remove();
+}
+
+/**
+ * Valida que la funcionalidad demo pertenezca solo al usuario autorizado.
+ */
+function isAuthorizedDemoUser() {
+  return isAuthorizedDemoEmail(state.session?.email) && isAuthorizedDemoEmail(state.db.user?.email);
 }
 
 /**
  * Solicita confirmación antes de reiniciar la demo.
  */
 function confirmResetDemo() {
+  if (!isAuthorizedDemoUser()) return;
+
   showModal({
     title: "Reiniciar demo",
     icon: "none",
@@ -152,8 +175,8 @@ async function submitProfileUpdate() {
     return;
   }
 
-  if (newPassword && newPassword.length < 6) {
-    showToast("error", "Error de validación", "La nueva contraseña debe tener mínimo 6 caracteres.");
+  if (newPassword && !isPasswordStrong(newPassword)) {
+    showToast("error", "Error de validación", "La contraseña debe tener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.");
     return;
   }
 
@@ -192,11 +215,38 @@ async function finalizeProfileUpdate() {
 }
 
 /**
+ * Valida la fortaleza de la contraseña institucional.
+ * @param {string} password
+ * @returns {boolean}
+ */
+function isPasswordStrong(password) {
+  return password.length >= 8 &&
+    /[A-Z]/.test(password) &&
+    /[a-z]/.test(password) &&
+    /\d/.test(password) &&
+    /[!@#$%^&*(),.?":{}|<>_\-+=[\]\\;'`~]/.test(password);
+}
+
+/**
  * Cierra la sesión actual y vuelve al login.
  */
 async function logout() {
   saveSession({ authenticated: false });
-  await logoutFirebaseUser();
   closeModal();
+  clearAuthenticatedView();
   navigate("login");
+  await logoutFirebaseUser();
+}
+
+/**
+ * Evita que se vea una vista privada con datos anteriores durante el cierre.
+ */
+function clearAuthenticatedView() {
+  const dashboardView = document.getElementById("dashboardView");
+  const authView = document.getElementById("authView");
+  const viewContainer = document.getElementById("viewContainer");
+
+  if (viewContainer) viewContainer.innerHTML = "";
+  dashboardView?.classList.add("hidden");
+  authView?.classList.remove("hidden");
 }

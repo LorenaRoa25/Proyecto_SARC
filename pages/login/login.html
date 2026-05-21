@@ -22,14 +22,23 @@
           <h1 class="login-title">Sistema de apoyo académico</h1>
         </div>
 
-        <form id="loginForm" autocomplete="off">
+        <form id="loginForm" autocomplete="off" novalidate>
           <div class="auth-field">
             <input class="auth-input" id="loginEmail" type="email" placeholder="Correo institucional" autocomplete="off" aria-label="Correo institucional">
           </div>
-          <div class="auth-field">
+          <div class="auth-field password-field">
             <input class="auth-input" id="loginPassword" type="password" placeholder="Contraseña" autocomplete="new-password" aria-label="Contraseña">
+            <button class="password-toggle" id="togglePassword" type="button" aria-label="Mostrar contrasena" title="Mostrar contrasena">
+              <span class="eye-icon" aria-hidden="true"></span>
+            </button>
           </div>
-          <button class="auth-button" type="submit">INGRESAR</button>
+          <div class="habeas-data-field">
+            <label class="habeas-checkbox">
+              <input type="checkbox" id="habeasDataCheck">
+              <span>Acepto el tratamiento de mis datos personales de acuerdo con la <a href="#" id="showHabeasModal">política de privacidad</a> y términos institucionales</span>
+            </label>
+          </div>
+          <button class="auth-button" id="loginSubmitBtn" type="submit" disabled>INGRESAR</button>
           <a href="#recuperar" class="auth-link" id="loginRecoverLink">Recuperar contraseña</a>
         </form>
       </div>

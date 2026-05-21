@@ -1,14 +1,16 @@
 /**
- * Generación simple de reportes PDF sin dependencias externas.
+ * Generacion simple de reportes PDF sin dependencias externas.
  */
 
 import { state } from "./data.js";
+import { getCourseProgressSummary } from "./progress-utils.js";
 
 /**
  * Descarga el reporte de progreso de un curso.
  * @param {object} course
  */
 export function downloadReport(course) {
+  const summary = getCourseProgressSummary(course);
   const today = new Date().toLocaleDateString("es-CO", {
     year: "numeric",
     month: "2-digit",
@@ -16,18 +18,16 @@ export function downloadReport(course) {
   });
 
   const lines = [
-    "Reporte de progreso académico",
+    "Reporte de progreso academico",
     "",
     `Estudiante: ${state.db.user.name}`,
     `Fecha: ${today}`,
     `Curso: ${course.name}`,
-    `Modalidad: ${course.modality}`,
-    `Progreso: ${course.progress}%`,
-    `Lecciones completadas: ${course.lessons}`,
-    `Tiempo invertido: ${course.timeSpent}`,
-    `Promedio de evaluaciones: ${course.average}`,
-    `Recomendación del sistema: ${course.recommendation}`,
-    `Estado: ${course.status}`
+    `Estado: ${summary.statusLabel}`,
+    `Avance general: ${summary.progress}%`,
+    `Actividades completadas: ${summary.completedLessons} de ${summary.totalLessons}`,
+    `Ultimo acceso: ${course.lastAccess}`,
+    `Recomendacion general: ${course.recommendation}`
   ];
 
   const pdfBytes = buildSimplePdf(lines);
@@ -44,27 +44,43 @@ export function downloadReport(course) {
 }
 
 /**
- * Construye bytes mínimos de un PDF con texto.
+ * Construye bytes minimos de un PDF con texto.
  * @param {string[]} lines
  * @returns {Uint8Array}
  */
 function buildSimplePdf(lines) {
   const streamChunks = [];
-  const boxX = 66;
-  const boxY = 92;
-  const boxWidth = 480;
-  const boxHeight = 630;
-  let y = 660;
+  const left = 72;
+  let y = 748;
 
-  streamChunks.push(encodeAscii("q 0.95 0.95 0.95 rg 0 0 595 842 re f Q\n"));
-  streamChunks.push(encodeAscii(`q 1 1 1 rg ${boxX} ${boxY} ${boxWidth} ${boxHeight} re f Q\n`));
-  streamChunks.push(encodeAscii(`q 0 0 0 RG 0.7 w ${boxX} ${boxY} ${boxWidth} ${boxHeight} re S Q\n`));
-  streamChunks.push(drawCenteredText("Reporte de progreso académico", 297, 750, 18));
+  streamChunks.push(encodeAscii("q 1 1 1 rg 0 0 595 842 re f Q\n"));
+  streamChunks.push(drawTextLine(lines[0], left, y, 20, true));
+  y -= 18;
+  streamChunks.push(drawTextLine("Sistema de Apoyo Academico con Recomendacion de Cursos", left, y, 11));
+  y -= 18;
+  streamChunks.push(drawRule(left, y, 451, 1.1, "0.04 0.33 0.58"));
 
-  lines.slice(2).forEach((line, index) => {
-    streamChunks.push(drawTextLine(line, 128, y, 16, index < 2));
-    y -= 42;
+  y -= 44;
+  streamChunks.push(drawTextLine("Datos del estudiante", left, y, 13, true));
+  y -= 26;
+  streamChunks.push(drawTextLine(lines[2], left, y, 12));
+  y -= 22;
+  streamChunks.push(drawTextLine(lines[3], left, y, 12));
+
+  y -= 34;
+  streamChunks.push(drawTextLine("Seguimiento del curso", left, y, 13, true));
+  y -= 26;
+  lines.slice(4, 9).forEach((line) => {
+    streamChunks.push(drawTextLine(line, left, y, 12));
+    y -= 24;
   });
+
+  y -= 8;
+  streamChunks.push(drawRule(left, y, 451, 0.7, "0.42 0.66 0.31"));
+  y -= 30;
+  streamChunks.push(drawTextLine("Recomendacion general", left, y, 13, true));
+  y -= 24;
+  streamChunks.push(...drawWrappedText(lines[9].replace("Recomendacion general: ", ""), left, y, 12, 76));
 
   const contentStream = concatBytes(streamChunks);
   const objects = [
@@ -100,7 +116,7 @@ function buildSimplePdf(lines) {
 }
 
 /**
- * Dibuja una línea de texto dentro del PDF.
+ * Dibuja una linea de texto dentro del PDF.
  * @param {string} text
  * @param {number} x
  * @param {number} y
@@ -116,6 +132,46 @@ function drawTextLine(text, x, y, size, bold = false) {
     encodePdfString(text),
     encodeAscii(") Tj ET\n")
   ]);
+}
+
+/**
+ * Dibuja una linea horizontal simple.
+ * @param {number} x
+ * @param {number} y
+ * @param {number} width
+ * @param {number} stroke
+ * @param {string} color
+ * @returns {Uint8Array}
+ */
+function drawRule(x, y, width, stroke, color) {
+  return encodeAscii(`q ${color} RG ${stroke} w ${x} ${y} m ${x + width} ${y} l S Q\n`);
+}
+
+/**
+ * Divide texto largo en varias lineas legibles.
+ * @param {string} text
+ * @param {number} x
+ * @param {number} y
+ * @param {number} size
+ * @param {number} maxChars
+ * @returns {Uint8Array[]}
+ */
+function drawWrappedText(text, x, y, size, maxChars) {
+  const lines = [];
+  let current = "";
+
+  String(text).split(/\s+/).forEach((word) => {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = next;
+    }
+  });
+
+  if (current) lines.push(current);
+  return lines.map((line, index) => drawTextLine(line, x, y - (index * 19), size));
 }
 
 /**

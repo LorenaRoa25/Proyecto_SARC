@@ -317,7 +317,7 @@ def build_document():
     )
 
     add_heading(doc, "3. Flujo general de ejecucion")
-    number(doc, "El usuario abre http://localhost:8000/index.html.")
+    number(doc, "El usuario ejecuta iniciar_sarc.bat y abre http://localhost:8000/.")
     number(doc, "index.html carga todos los CSS y despues importa shared/js/app.js con type=\"module\".")
     number(doc, "app.js ejecuta init(), que inicializa datos, Firebase, sesion, eventos y renderizado.")
     number(doc, "La ruta hash de la URL decide la pantalla: #login, #inicio, #recomendaciones, #detalle/id, #progreso o #perfil.")
@@ -524,7 +524,7 @@ export async function loginWithEmail(email, password) {
 """,
     )
     doc.add_paragraph(
-        "La funcion primero intenta iniciar sesion. Si Firebase responde que el usuario no existe, lo crea automaticamente. "
+        "La funcion autentica al usuario existente mediante Firebase Authentication. "
         "Esto facilita la demo, aunque en un sistema real podria separarse registro e inicio de sesion para tener mayor control."
     )
     add_code(

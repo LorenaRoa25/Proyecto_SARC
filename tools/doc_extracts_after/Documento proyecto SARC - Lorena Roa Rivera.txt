@@ -254,7 +254,7 @@ R01: ID || HU-01
 R02: Como || estudiante universitario
 R03: Quiero || iniciar sesión con mi correo institucional (@unisabaneta.edu.co) y contraseña
 R04: Para || acceder a mi plataforma de cursos complementarios de forma segura
-R05: Criterios || 1. El sistema recibe correo y contraseña. 2. Con credenciales incorrectas muestra mensaje de error. 3. Con credenciales correctas carga Firestore y redirige al dashboard. 4. Si el usuario no existe, la demo puede crearlo automáticamente en Firebase.
+R05: Criterios || 1. El sistema recibe correo y contraseña. 2. Con credenciales incorrectas muestra mensaje de error. 3. Con credenciales correctas carga Firestore y redirige al dashboard. 4. El usuario debe existir previamente en Firebase Authentication.
 R06: Prioridad || Alta
 TABLE 10
 R00: Campo || Detalle

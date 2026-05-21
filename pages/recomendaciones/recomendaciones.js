@@ -1,5 +1,5 @@
 /**
- * Vista Recomendaciones: catálogo con filtros e inscripción.
+ * Vista Recomendaciones: catalogo personalizado con filtros e inscripcion.
  */
 
 import { state } from "../../shared/js/data.js";
@@ -12,45 +12,74 @@ import { interpolate, loadTemplate } from "../../shared/js/template-loader.js";
  */
 export async function renderRecommendations(container) {
   const template = await loadTemplate("pages/recomendaciones/recomendaciones.html");
+  const courses = getFilteredCourses();
 
   container.innerHTML = interpolate(template, {
-    courseList: renderCourseList(getFilteredCourses()),
-    areaMatematicas: selected(state.filters.area, "Matemáticas"),
-    areaProgramacion: selected(state.filters.area, "Programación"),
+    courseList: renderCourseList(courses),
+    areaMatematicas: selected(state.filters.area, "MatemÃ¡ticas"),
+    areaProgramacion: selected(state.filters.area, "ProgramaciÃ³n"),
     areaDerecho: selected(state.filters.area, "Derecho"),
-    areaComunicacion: selected(state.filters.area, "Comunicación"),
-    areaTodas: selected(state.filters.area, "Todas las áreas"),
+    areaComunicacion: selected(state.filters.area, "ComunicaciÃ³n"),
+    areaTodas: selected(state.filters.area, "Todas las Ã¡reas"),
     modalityVirtual: selected(state.filters.modality, "Virtual"),
     modalityPresencial: selected(state.filters.modality, "Presencial"),
-    modalityHibrido: selected(state.filters.modality, "Híbrido")
+    modalityHibrido: selected(state.filters.modality, "HÃ­brido")
   });
 
   bindRecommendationEvents(container);
 }
 
 /**
- * Renderiza las filas de cursos filtrados.
+ * Renderiza tarjetas de cursos filtrados.
  * @param {Array<object>} courses
  * @returns {string}
  */
 function renderCourseList(courses) {
+  if (!courses.length) {
+    return `
+      <div class="recommendation-empty">
+        <strong>No hay nuevos cursos para esos filtros.</strong>
+        <span>Prueba otra area o modalidad para ver alternativas disponibles.</span>
+      </div>
+    `;
+  }
+
   return courses
     .map((course) => `
-      <div class="course-item">
-        <div class="course-name"><strong>Curso:</strong> ${course.name}</div>
+      <article class="course-card">
+        <div class="course-card-head">
+          <div class="course-icon ${getColorClass(course.color)}">${escapeHtml(course.icon)}</div>
+          <div>
+            <h3>${escapeHtml(course.name)}</h3>
+            <p>${escapeHtml(course.area)} &middot; ${escapeHtml(course.modality)}</p>
+          </div>
+        </div>
+
+        <p class="course-description">${escapeHtml(course.description)}</p>
+
+        <div class="course-meta">
+          <span>${escapeHtml(course.duration)}</span>
+          <span>${escapeHtml(course.level)}</span>
+          <span>${Number(course.seats) > 0 ? `${course.seats} cupos` : "Sin cupos"}</span>
+        </div>
+
+        <div class="course-progress-hint">
+          <span>Recomendado segun tu perfil academico</span>
+        </div>
+
         <div class="course-actions">
-          <button class="mock-btn blue" type="button" data-detail="${course.id}">Ver detalles</button>
-          <button class="mock-btn ${course.registered ? "gray" : "green"}" type="button" data-enroll="${course.id}" ${course.registered ? "disabled" : ""}>
-            ${course.registered ? "INSCRITO" : "INSCRIBIRSE"}
+          <button class="mock-btn blue" type="button" data-detail="${escapeHtml(course.id)}">Ver detalles</button>
+          <button class="mock-btn ${Number(course.seats) > 0 ? "green" : "gray"}" type="button" data-enroll="${escapeHtml(course.id)}">
+            ${Number(course.seats) > 0 ? "INSCRIBIRSE" : "SIN CUPOS"}
           </button>
         </div>
-      </div>
+      </article>
     `)
     .join("");
 }
 
 /**
- * Devuelve selected si la opción coincide con el filtro.
+ * Devuelve selected si la opcion coincide con el filtro.
  * @param {string} current
  * @param {string} expected
  * @returns {string}
@@ -60,7 +89,7 @@ function selected(current, expected) {
 }
 
 /**
- * Enlaza filtros y botones del catálogo.
+ * Enlaza filtros y botones del catalogo.
  * @param {HTMLElement} container
  */
 function bindRecommendationEvents(container) {
@@ -75,4 +104,27 @@ function bindRecommendationEvents(container) {
   });
 
   bindCourseActions(container);
+}
+
+/**
+ * Evita que datos del curso se interpreten como HTML.
+ * @param {string|number} value
+ * @returns {string}
+ */
+function escapeHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/**
+ * Restringe las clases visuales a la paleta definida por SARC.
+ * @param {string} color
+ * @returns {string}
+ */
+function getColorClass(color = "blue") {
+  return ["blue", "red", "green"].includes(color) ? color : "blue";
 }

@@ -1,4 +1,4 @@
-FILE: C:\Users\Usuario\OneDrive\Desktop\Proyecto_SARC_1\DOCUMENTACION_CODIGO_SARC.docx
+FILE: C:\Users\Usuario\OneDrive\Desktop\Proyecto_SARC\DOCUMENTACION_CODIGO_SARC.docx
 PARAGRAPHS: 26 TABLES: 4
 --- PARAGRAPHS ---
 P000 [Normal] Documentacion del Codigo
@@ -8,7 +8,7 @@ P002 [Heading 1] 1. Resumen del proyecto
 P003 [Normal] SARC es una aplicacion web local construida con HTML5, CSS3 y JavaScript puro. Implementa autenticacion con Firebase, recuperacion de contrasena, catalogo de cursos, inscripcion, progreso del estudiante, reportes PDF y edicion de perfil.
 P004 [Heading 1] 2. Tecnologias utilizadas
 P006 [Heading 1] 3. Estructura de carpetas
-P007 [Normal] Proyecto_SARC_1/
+P007 [Normal] Proyecto_SARC/
   index.html
   app.py
   README.txt
@@ -41,8 +41,8 @@ P019 [Heading 1] 7. Funciones importantes
 P021 [Heading 1] 8. Persistencia Firebase
 P022 [Normal] El proyecto usa Firebase Authentication para usuarios y Cloud Firestore para datos. Las colecciones globales son usuarios, cursos, recomendaciones y tareasAsistente. Cada documento de datos incluye userId, lo que permite separar multiples usuarios sin crear una coleccion distinta para cada uno.
 P023 [Heading 1] 9. Ejecucion recomendada
-P024 [Normal] python app.py
-http://localhost:8000/index.html
+P024 [Normal] iniciar_sarc.bat
+http://localhost:8000/
 P025 [Normal] Los usuarios se gestionan desde Firebase Authentication. El formulario de login no incluye credenciales precargadas.
 --- TABLES ---
 TABLE 0

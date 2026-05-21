@@ -11,7 +11,7 @@ from docx.shared import Inches, Pt, RGBColor
 
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
-OUTPUT_PATH = PROJECT_DIR / "DOCUMENTACION_CODIGO_SARC.docx"
+OUTPUT_PATH = PROJECT_DIR / "Documentos" / "DOCUMENTACION_CODIGO_SARC.docx"
 
 
 def set_cell_shading(cell, fill):
@@ -116,7 +116,7 @@ def build_document():
     add_heading(document, "3. Estructura de carpetas", 1)
     add_code_block(
         document,
-        """Proyecto_SARC_1/
+        """Proyecto_SARC/
   index.html
   app.py
   README.txt
@@ -148,6 +148,7 @@ def build_document():
             ["shared/js/data.js", "Define datos base, estado global y sincronizacion por usuario."],
             ["shared/js/firebase-service.js", "Centraliza Auth, lecturas, escrituras y reseteo en Firestore."],
             ["shared/js/firebase-config.js", "Configuracion del proyecto Firebase."],
+            ["shared/js/user-profiles.js", "Define el correo demo autorizado y helpers para funciones exclusivas."],
             ["shared/js/courses.js", "Filtros, busqueda e inscripcion de cursos."],
             ["shared/components/feedback.js", "Modales, toasts y enlaces visuales del prototipo."],
             ["firestore.rules", "Reglas de seguridad para aislar datos por userId."],
@@ -188,8 +189,9 @@ def build_document():
         [
             ["renderApp()", "shared/js/app.js", "Decide que vista mostrar segun ruta y sesion."],
             ["initializeState()", "shared/js/data.js", "Inicializa Firebase, sesion y datos del usuario."],
-            ["loginWithEmail(email, password)", "shared/js/firebase-service.js", "Autentica o registra usuarios."],
+            ["loginWithEmail(email, password)", "shared/js/firebase-service.js", "Autentica usuarios existentes mediante Firebase Authentication."],
             ["saveUserData(userId, database)", "shared/js/firebase-service.js", "Persiste perfil, cursos, recomendaciones y tareas."],
+            ["isAuthorizedDemoEmail(email)", "shared/js/user-profiles.js", "Valida que una funcion exclusiva pertenezca solo al usuario demo Lorena."],
             ["handleEnrollment(courseId)", "shared/js/courses.js", "Gestiona inscripcion, cupos, mensajes y persistencia."],
             ["showModal(config)", "shared/components/feedback.js", "Renderiza modales reutilizables."],
             ["downloadReport(course)", "shared/js/pdf.js", "Genera y descarga PDF de progreso."],
@@ -241,7 +243,7 @@ def build_document():
 
     add_heading(document, "9.5 Aspectos a mejorar", 2)
     for item in [
-        "Separar formalmente registro e inicio de sesion; loginWithEmail crea el usuario si no existe, lo cual es util para demo.",
+        "Separar formalmente registro e inicio de sesion si se requiere alta de usuarios desde la interfaz.",
         "No reiniciar siempre la sesion al cargar si se desea comportamiento productivo persistente.",
         "Subir avatares a Firebase Storage en vez de guardar imagenes como data URL dentro del perfil.",
         "Agregar pruebas funcionales para login, filtros, inscripcion, progreso, perfil y reglas de Firestore.",
@@ -255,11 +257,13 @@ def build_document():
         "Retiro de constantes antiguas de localStorage y codigo de depuracion.",
         "Actualizacion del README y documentacion tecnica a Firebase.",
         "Login sin credenciales precargadas.",
+        "Ingreso limpio sin notificacion automatica de sesion autenticada.",
+        "Boton Reiniciar demo restringido al correo lorena.roa@unisabaneta.edu.co.",
     ]:
         document.add_paragraph(item, style="List Bullet")
 
     add_heading(document, "11. Ejecucion recomendada", 1)
-    add_code_block(document, "python app.py\nhttp://localhost:8000/index.html")
+    add_code_block(document, "iniciar_sarc.bat\nhttp://localhost:8000/")
     document.add_paragraph(
         "Los usuarios se gestionan desde Firebase Authentication. El formulario de login no incluye credenciales precargadas."
     )

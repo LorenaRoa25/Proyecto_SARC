@@ -1,38 +1,16 @@
 /**
  * Servicio unico para Firebase Authentication y Firestore.
+ * Usa importacion dinamica para que la app funcione incluso sin conexion a Firebase CDN.
  * La UI conserva su estructura; este archivo reemplaza la persistencia local.
  */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import {
-  browserSessionPersistence,
-  createUserWithEmailAndPassword,
-  EmailAuthProvider,
-  getAuth,
-  onAuthStateChanged,
-  reauthenticateWithCredential,
-  sendPasswordResetEmail,
-  setPersistence,
-  signInWithEmailAndPassword,
-  signOut,
-  updatePassword
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  getDocs,
-  getFirestore,
-  query,
-  where,
-  writeBatch
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
+import { isAuthorizedDemoEmail } from "./user-profiles.js";
 
 let app = null;
 let auth = null;
 let db = null;
+let firebaseModules = null;
 
 export function isFirebaseConfigured() {
   return Boolean(
@@ -47,11 +25,24 @@ export async function initializeFirebase() {
   if (!isFirebaseConfigured()) return false;
   if (app) return true;
 
-  app = initializeApp(firebaseConfig);
-  auth = getAuth(app);
-  db = getFirestore(app);
-  await setPersistence(auth, browserSessionPersistence);
-  return true;
+  try {
+    const [{ initializeApp }, { browserSessionPersistence, EmailAuthProvider, getAuth, onAuthStateChanged, reauthenticateWithCredential, sendPasswordResetEmail, setPersistence, signInWithEmailAndPassword, signOut, updatePassword }, { collection, deleteDoc, doc, getDoc, getDocs, getFirestore, onSnapshot, query, setDoc, where, writeBatch }] = await Promise.all([
+      import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"),
+      import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js")
+    ]);
+
+    firebaseModules = { initializeApp, browserSessionPersistence, EmailAuthProvider, getAuth, onAuthStateChanged, reauthenticateWithCredential, sendPasswordResetEmail, setPersistence, signInWithEmailAndPassword, signOut, updatePassword, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, onSnapshot, query, setDoc, where, writeBatch };
+
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+    await setPersistence(auth, browserSessionPersistence);
+    return true;
+  } catch (error) {
+    console.warn("Firebase CDN no disponible, usando datos demo locales:", error.message);
+    return false;
+  }
 }
 
 export function getCurrentFirebaseUser() {
@@ -65,7 +56,7 @@ export function waitForAuthUser() {
       return;
     }
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = firebaseModules.onAuthStateChanged(auth, (user) => {
       unsubscribe();
       resolve(user);
     });
@@ -73,39 +64,66 @@ export function waitForAuthUser() {
 }
 
 export async function loginWithEmail(email, password) {
-  try {
-    const credential = await signInWithEmailAndPassword(auth, email, password);
-    return credential.user;
-  } catch (error) {
-    if (error.code !== "auth/user-not-found") throw error;
-
-    const credential = await createUserWithEmailAndPassword(auth, email, password);
-    return credential.user;
+  if (!auth || !firebaseModules) {
+    throw { code: "auth/firebase-not-available", message: "Firebase no está disponible en este momento." };
   }
+  const credential = await firebaseModules.signInWithEmailAndPassword(auth, email, password);
+  return credential.user;
+}
+
+export async function saveHabeasDataAcceptance(userId, email) {
+  if (!userId || !email || !db) return;
+  const habeasRef = firebaseModules.doc(db, "habeasData", userId);
+  await firebaseModules.setDoc(habeasRef, {
+    userId,
+    email: email.toLowerCase(),
+    acceptedAt: new Date().toISOString(),
+    userAgent: navigator.userAgent || ""
+  }, { merge: true });
+}
+
+export async function checkHabeasDataAcceptance(userId) {
+  if (!userId || !db) return false;
+  const habeasRef = firebaseModules.doc(db, "habeasData", userId);
+  const snap = await firebaseModules.getDoc(habeasRef);
+  return snap.exists();
+}
+
+export function subscribeToCourseActivities(userId, courseId, callback) {
+  if (!db || !firebaseModules) return () => {};
+  const ref = firebaseModules.doc(db, "cursos", `${userId}_${courseId}`);
+  return firebaseModules.onSnapshot(ref, (snap) => {
+    if (snap.exists()) {
+      const data = snap.data();
+      callback(data.activities || []);
+    }
+  }, () => {});
 }
 
 export async function logoutFirebaseUser() {
-  if (auth) await signOut(auth);
+  if (auth && firebaseModules) await firebaseModules.signOut(auth);
 }
 
 export async function sendPasswordRecovery(email) {
-  await sendPasswordResetEmail(auth, email);
+  if (!auth || !firebaseModules) throw new Error("Firebase no disponible.");
+  await firebaseModules.sendPasswordResetEmail(auth, email);
 }
 
 export async function updateCurrentUserPassword(currentPassword, newPassword) {
+  if (!auth || !firebaseModules) throw new Error("Firebase no disponible.");
   const user = getCurrentFirebaseUser();
   if (!user?.email) throw new Error("No hay usuario autenticado.");
 
-  const credential = EmailAuthProvider.credential(user.email, currentPassword);
-  await reauthenticateWithCredential(user, credential);
-  await updatePassword(user, newPassword);
+  const credential = firebaseModules.EmailAuthProvider.credential(user.email, currentPassword);
+  await firebaseModules.reauthenticateWithCredential(user, credential);
+  await firebaseModules.updatePassword(user, newPassword);
 }
 
 export async function loadUserData(user, defaultDatabase, normalizeDatabase) {
-  if (!user) return normalizeDatabase(defaultDatabase);
+  if (!user || !db || !firebaseModules) return normalizeDatabase(defaultDatabase);
 
-  const userRef = doc(db, "usuarios", user.uid);
-  const userSnap = await getDoc(userRef);
+  const userRef = firebaseModules.doc(db, "usuarios", user.uid);
+  const userSnap = await firebaseModules.getDoc(userRef);
   if (!userSnap.exists()) {
     await seedUserData(user, defaultDatabase);
   } else if (shouldReplaceCopiedDemo(user, userSnap.data(), defaultDatabase)) {
@@ -114,9 +132,9 @@ export async function loadUserData(user, defaultDatabase, normalizeDatabase) {
   }
 
   const [profileSnap, courseSnap, taskSnap] = await Promise.all([
-    getDoc(userRef),
-    getDocs(query(collection(db, "cursos"), where("userId", "==", user.uid))),
-    getDocs(query(collection(db, "tareasAsistente"), where("userId", "==", user.uid)))
+    firebaseModules.getDoc(userRef),
+    firebaseModules.getDocs(firebaseModules.query(firebaseModules.collection(db, "cursos"), firebaseModules.where("userId", "==", user.uid))),
+    firebaseModules.getDocs(firebaseModules.query(firebaseModules.collection(db, "tareasAsistente"), firebaseModules.where("userId", "==", user.uid)))
   ]);
 
   return normalizeDatabase({
@@ -127,9 +145,9 @@ export async function loadUserData(user, defaultDatabase, normalizeDatabase) {
 }
 
 export async function saveUserData(userId, database) {
-  if (!userId || !database) return;
+  if (!userId || !database || !db || !firebaseModules) return;
 
-  const batch = writeBatch(db);
+  const batch = firebaseModules.writeBatch(db);
   const userData = cleanForFirestore({
     ...database.user,
     userId,
@@ -137,11 +155,11 @@ export async function saveUserData(userId, database) {
   });
   delete userData.password;
 
-  batch.set(doc(db, "usuarios", userId), userData, { merge: true });
+  batch.set(firebaseModules.doc(db, "usuarios", userId), userData, { merge: true });
 
   database.courses.forEach((course, index) => {
     const courseDoc = cleanForFirestore({ ...course, userId, courseId: course.id, order: index });
-    batch.set(doc(db, "cursos", `${userId}_${course.id}`), courseDoc, { merge: true });
+    batch.set(firebaseModules.doc(db, "cursos", `${userId}_${course.id}`), courseDoc, { merge: true });
 
     const recommendationDoc = cleanForFirestore({
       userId,
@@ -151,12 +169,12 @@ export async function saveUserData(userId, database) {
       alternatives: course.alternatives || [],
       order: index
     });
-    batch.set(doc(db, "recomendaciones", `${userId}_${course.id}`), recommendationDoc, { merge: true });
+    batch.set(firebaseModules.doc(db, "recomendaciones", `${userId}_${course.id}`), recommendationDoc, { merge: true });
   });
 
   database.assistantTasks.forEach((task, index) => {
     batch.set(
-      doc(db, "tareasAsistente", `${userId}_${task.id}`),
+      firebaseModules.doc(db, "tareasAsistente", `${userId}_${task.id}`),
       cleanForFirestore({ ...task, userId, taskId: task.id, order: index }),
       { merge: true }
     );
@@ -166,7 +184,7 @@ export async function saveUserData(userId, database) {
 }
 
 export async function resetUserData(user, defaultDatabase) {
-  if (!user?.uid) return;
+  if (!user?.uid || !db || !firebaseModules) return;
   await deleteUserCollections(user.uid);
   await seedUserData(user, defaultDatabase);
 }
@@ -197,24 +215,11 @@ function buildInitialDatabaseForUser(user, defaultDatabase) {
 }
 
 function getProfileSeed(email) {
+  if (isAuthorizedDemoEmail(email)) {
+    return buildLorenaDemoProfile();
+  }
+
   const knownProfiles = {
-    "lorena.roa.196@unisabaneta.edu.co": {
-      name: "Lorena Roa Rivera",
-      faculty: "Ingenieria Informatica",
-      career: "Ingenieria Informatica",
-      semester: "8",
-      modality: "Virtual",
-      courses: {
-        matematicas: { enrolled: true, progress: 70, status: "En progreso", lessons: "7/10", average: "85%" },
-        programacion: { enrolled: true, progress: 40, status: "En progreso", lessons: "4/10", average: "35%" },
-        ingles: { enrolled: true, progress: 95, status: "En progreso", lessons: "9/10", average: "80%" }
-      },
-      assistantTasks: [
-        { id: "a1", label: "Refuerza Matematicas", done: true },
-        { id: "a2", label: "Tomar curso Python", done: true },
-        { id: "a3", label: "Completa el curso de Ingles A2", done: true }
-      ]
-    },
     "juan@unisabaneta.edu.co": {
       name: "Juan Esteban Martinez",
       faculty: "Derecho",
@@ -244,6 +249,26 @@ function getProfileSeed(email) {
   };
 
   return knownProfiles[email] || buildGenericProfile(email);
+}
+
+function buildLorenaDemoProfile() {
+  return {
+    name: "Lorena Roa Rivera",
+    faculty: "Ingenieria Informatica",
+    career: "Ingenieria Informatica",
+    semester: "8",
+    modality: "Virtual",
+    courses: {
+      matematicas: { enrolled: true, progress: 70, status: "En progreso", lessons: "7/10", average: "85%" },
+      programacion: { enrolled: true, progress: 40, status: "En progreso", lessons: "4/10", average: "35%" },
+      ingles: { enrolled: true, progress: 95, status: "En progreso", lessons: "9/10", average: "80%" }
+    },
+    assistantTasks: [
+      { id: "a1", label: "Refuerza Matematicas", done: true },
+      { id: "a2", label: "Tomar curso Python", done: true },
+      { id: "a3", label: "Completa el curso de Ingles A2", done: true }
+    ]
+  };
 }
 
 function buildGenericProfile(email) {
@@ -281,16 +306,30 @@ function shouldReplaceCopiedDemo(user, profile, defaultDatabase) {
   const defaultEmail = defaultDatabase.user.email.toLowerCase();
   return (
     authEmail &&
-    authEmail !== defaultEmail &&
-    profile?.name === defaultDatabase.user.name
+    (
+      (authEmail !== defaultEmail && profile?.name === defaultDatabase.user.name) ||
+      shouldReplaceGenericDemoAlias(authEmail, profile)
+    )
+  );
+}
+
+function shouldReplaceGenericDemoAlias(authEmail, profile) {
+  return (
+    isAuthorizedDemoEmail(authEmail) &&
+    (
+      profile?.name === "Lorena Roa 196" ||
+      profile?.faculty === "Facultad por definir" ||
+      profile?.career === "Programa acadÃ©mico"
+    )
   );
 }
 
 async function deleteUserCollections(userId) {
+  if (!db || !firebaseModules) return;
   await Promise.all(
     ["cursos", "recomendaciones", "tareasAsistente"].map(async (name) => {
-      const snapshot = await getDocs(query(collection(db, name), where("userId", "==", userId)));
-      await Promise.all(snapshot.docs.map((item) => deleteDoc(item.ref)));
+      const snapshot = await firebaseModules.getDocs(firebaseModules.query(firebaseModules.collection(db, name), firebaseModules.where("userId", "==", userId)));
+      await Promise.all(snapshot.docs.map((item) => firebaseModules.deleteDoc(item.ref)));
     })
   );
 }

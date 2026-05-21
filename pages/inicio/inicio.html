@@ -1,5 +1,5 @@
-<!-- Vista Inicio: bienvenida, cursos sugeridos y asistente virtual -->
-<div class="green-banner left">Bienvenido, Estudiante</div>
+<!-- Vista Inicio: bienvenida, cursos sugeridos, asistente virtual y recomendaciones dinámicas -->
+<div class="green-banner left">Bienvenido, {{studentName}}</div>
 <div class="home-grid fade-in">
   <!-- Cursos sugeridos principales -->
   <section class="home-left">
@@ -9,11 +9,11 @@
     </div>
   </section>
 
-  <!-- Lista editable del asistente virtual -->
+  <!-- Asistente virtual con recomendaciones dinámicas -->
   <section class="home-right">
     <h2 class="section-title">ASISTENTE VIRTUAL</h2>
-    <div class="assistant-list">
-      {{assistantTasks}}
+    <div class="assistant-recommendations">
+      {{assistantRecommendations}}
     </div>
   </section>
 </div>

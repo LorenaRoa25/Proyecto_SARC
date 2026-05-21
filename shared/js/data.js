@@ -1,6 +1,14 @@
 /**
  * Centraliza datos demo, estado global y persistencia Firebase de SARC.
+ * Incluye actividades evaluativas, cálculo dinámico de notas y helpers académicos.
  */
+
+// Polyfill para navegadores antiguos (Safari <15.4, Chrome <98)
+if (typeof structuredClone !== "function") {
+  self.structuredClone = function structuredClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+  };
+}
 
 import {
   getCurrentFirebaseUser,
@@ -11,8 +19,11 @@ import {
   saveUserData,
   waitForAuthUser
 } from "./firebase-service.js";
+import { DEMO_USER_EMAIL, isAuthorizedDemoEmail } from "./user-profiles.js";
 
 export const CORE_COURSE_IDS = ["matematicas", "programacion", "ingles"];
+
+export const INSTITUTIONAL_DOMAIN = "@unisabaneta.edu.co";
 
 const AVATAR_PLACEHOLDER =
   "data:image/svg+xml;utf8," +
@@ -25,15 +36,83 @@ const AVATAR_PLACEHOLDER =
     </svg>
   `);
 
+/**
+ * Plantilla de actividades de seguimiento para conservar compatibilidad
+ * con datos guardados en versiones anteriores.
+ */
+function buildDefaultActivities() {
+  return [
+    { id: "act1", name: "Parcial 1", percentage: 30, grade: 0, maxGrade: 5 },
+    { id: "act2", name: "Talleres", percentage: 20, grade: 0, maxGrade: 5 },
+    { id: "act3", name: "Proyecto", percentage: 25, grade: 0, maxGrade: 5 },
+    { id: "act4", name: "Participación", percentage: 25, grade: 0, maxGrade: 5 }
+  ];
+}
+
+/**
+ * Calcula la nota final ponderada a partir de las actividades.
+ * @param {Array<{percentage: number, grade: number}>} activities
+ * @returns {number} Nota final en escala de 0 a 5
+ */
+export function calculateFinalGrade(activities) {
+  if (!Array.isArray(activities) || activities.length === 0) return 0;
+  const total = activities.reduce((sum, act) => {
+    return sum + (Number(act.grade) || 0) * (Number(act.percentage) || 0) / 100;
+  }, 0);
+  return Math.round(total * 100) / 100;
+}
+
+/**
+ * Determina el estado académico según la nota final.
+ * @param {number} grade Nota final (0-5)
+ * @returns {{label: string, color: string, icon: string}}
+ */
+export function getAcademicStatus(grade) {
+  if (grade >= 4.5) return { label: "Excelente", color: "#1b8a3d", icon: "🏆" };
+  if (grade >= 4.0) return { label: "Sobresaliente", color: "#2e7d32", icon: "⭐" };
+  if (grade >= 3.5) return { label: "Aprobado", color: "#6aa84f", icon: "✅" };
+  if (grade >= 3.0) return { label: "En riesgo", color: "#e67e22", icon: "⚠️" };
+  return { label: "Reprobado", color: "#cf2a27", icon: "❌" };
+}
+
+/**
+ * Genera recomendaciones academicas basadas en el avance de cursos inscritos.
+ * @param {Array<object>} courses
+ * @returns {Array<{label: string, type: string}>}
+ */
+export function generateAcademicRecommendations(courses) {
+  const enrolled = courses.filter(c => c.enrolled);
+  if (enrolled.length === 0) return [];
+  const recs = [];
+  const progressItems = enrolled.map(c => ({ name: c.name, progress: Number(c.progress) || 0, course: c }));
+  const avg = progressItems.reduce((sum, item) => sum + item.progress, 0) / progressItems.length;
+
+  if (avg >= 75) {
+    recs.push({ label: `Tu avance general es ${avg.toFixed(0)}%. Puedes revisar nuevas opciones complementarias.`, type: "success" });
+  } else if (avg >= 40) {
+    recs.push({ label: `Tu avance general es ${avg.toFixed(0)}%. Conviene mantener constancia en los cursos inscritos.`, type: "warning" });
+  } else {
+    recs.push({ label: `Tu avance general es ${avg.toFixed(0)}%. Prioriza completar actividades pendientes antes de sumar mas cursos.`, type: "error" });
+  }
+
+  const pending = progressItems.sort((a, b) => a.progress - b.progress)[0];
+  if (pending) {
+    recs.push({ label: `El curso que requiere mas atencion es ${pending.name}, con ${pending.progress}% de avance.`, type: "warning" });
+  }
+
+  return recs;
+}
+
 export const defaultDatabase = {
   user: {
-    email: "lorena.roa.196@unisabaneta.edu.co",
+    email: DEMO_USER_EMAIL,
     name: "Lorena Roa Rivera",
     faculty: "Ingeniería Informática",
     career: "Ingeniería Informática",
     semester: "8",
     modality: "Virtual",
-    avatar: AVATAR_PLACEHOLDER
+    avatar: AVATAR_PLACEHOLDER,
+    habeasDataAccepted: false
   },
   courses: [
     {
@@ -56,7 +135,13 @@ export const defaultDatabase = {
       icon: "⊞",
       color: "blue",
       alternatives: ["Matemáticas intermedio", "Refuerzo álgebra"],
-      registered: false
+      registered: false,
+      activities: [
+        { id: "act1", name: "Parcial 1", percentage: 30, grade: 4.2, maxGrade: 5 },
+        { id: "act2", name: "Talleres", percentage: 20, grade: 4.5, maxGrade: 5 },
+        { id: "act3", name: "Proyecto", percentage: 25, grade: 3.8, maxGrade: 5 },
+        { id: "act4", name: "Participación", percentage: 25, grade: 5.0, maxGrade: 5 }
+      ]
     },
     {
       id: "programacion",
@@ -78,7 +163,13 @@ export const defaultDatabase = {
       icon: "</>",
       color: "red",
       alternatives: ["Curso en Front-end", "Curso Python"],
-      registered: false
+      registered: false,
+      activities: [
+        { id: "act1", name: "Parcial 1", percentage: 30, grade: 2.0, maxGrade: 5 },
+        { id: "act2", name: "Talleres", percentage: 20, grade: 3.5, maxGrade: 5 },
+        { id: "act3", name: "Proyecto", percentage: 25, grade: 1.5, maxGrade: 5 },
+        { id: "act4", name: "Participación", percentage: 25, grade: 3.0, maxGrade: 5 }
+      ]
     },
     {
       id: "ingles",
@@ -100,7 +191,13 @@ export const defaultDatabase = {
       icon: "📖",
       color: "green",
       alternatives: ["Inglés Nivel A1", "Inglés Nivel B1"],
-      registered: false
+      registered: false,
+      activities: [
+        { id: "act1", name: "Parcial 1", percentage: 30, grade: 4.0, maxGrade: 5 },
+        { id: "act2", name: "Talleres", percentage: 20, grade: 4.8, maxGrade: 5 },
+        { id: "act3", name: "Proyecto", percentage: 25, grade: 4.2, maxGrade: 5 },
+        { id: "act4", name: "Participación", percentage: 25, grade: 4.5, maxGrade: 5 }
+      ]
     },
     {
       id: "derecho-constitucional",
@@ -122,7 +219,8 @@ export const defaultDatabase = {
       icon: "D",
       color: "blue",
       alternatives: ["Introducción al Derecho", "Derechos Humanos"],
-      registered: false
+      registered: false,
+      activities: JSON.parse(JSON.stringify(buildDefaultActivities()))
     },
     {
       id: "comunicacion-efectiva",
@@ -144,7 +242,8 @@ export const defaultDatabase = {
       icon: "CE",
       color: "green",
       alternatives: ["Técnicas de Oratoria", "Redacción Académica"],
-      registered: false
+      registered: false,
+      activities: JSON.parse(JSON.stringify(buildDefaultActivities()))
     },
     {
       id: "algebra-lineal",
@@ -166,7 +265,8 @@ export const defaultDatabase = {
       icon: "AL",
       color: "blue",
       alternatives: ["Refuerzo Álgebra", "Pensamiento Lógico"],
-      registered: false
+      registered: false,
+      activities: JSON.parse(JSON.stringify(buildDefaultActivities()))
     },
     {
       id: "proyectos",
@@ -188,7 +288,8 @@ export const defaultDatabase = {
       icon: "FP",
       color: "red",
       alternatives: ["Gestión de Proyectos", "Metodología de la Investigación"],
-      registered: false
+      registered: false,
+      activities: JSON.parse(JSON.stringify(buildDefaultActivities()))
     }
   ],
   assistantTasks: [
@@ -269,7 +370,12 @@ export function normalizeDatabase(savedDb) {
   if (Array.isArray(incoming.courses)) {
     db.courses = db.courses.map((course) => {
       const savedCourse = incoming.courses.find((item) => item.id === course.id);
-      return savedCourse ? { ...course, ...savedCourse } : course;
+      if (!savedCourse) return course;
+      const merged = { ...course, ...savedCourse };
+      if (Array.isArray(savedCourse.activities) && savedCourse.activities.length > 0) {
+        merged.activities = savedCourse.activities;
+      }
+      return merged;
     });
   }
 
@@ -284,9 +390,13 @@ export function normalizeDatabase(savedDb) {
 }
 
 /**
- * Reinicia la sesión al cargar la demo, conservando el comportamiento original.
+ * Reinicia la sesión solo si no hay una sesión autenticada activa.
+ * Preserva la sesión de Firebase para usuarios ya autenticados.
  */
 export async function resetStartupSession() {
+  if (state.session?.authenticated) {
+    return;
+  }
   state.session = { authenticated: false };
   await logoutFirebaseUser();
 
@@ -310,8 +420,20 @@ export async function enableAllCourses() {
 /**
  * Reinicia por completo la información del usuario autenticado.
  */
+/**
+ * Compatibilidad con versiones anteriores de app.js que iniciaban una
+ * sincronizacion en tiempo real desde data.js.
+ * La sincronizacion actual se maneja desde firebase-service.js por curso.
+ * @returns {() => void} Funcion para cancelar la suscripcion.
+ */
+export function startRealtimeSync() {
+  return () => {};
+}
+
 export async function resetSarcDemo() {
   const user = getCurrentFirebaseUser();
+  if (!isAuthorizedDemoEmail(user?.email)) return;
+
   if (user) {
     await resetUserData(user, defaultDatabase);
     await logoutFirebaseUser();

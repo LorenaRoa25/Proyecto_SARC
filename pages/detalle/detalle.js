@@ -3,7 +3,7 @@
  */
 
 import { state } from "../../shared/js/data.js";
-import { bindCourseActions, getCourseById } from "../../shared/js/courses.js";
+import { bindCourseActions, getCourseById, isCourseAlreadyEnrolled } from "../../shared/js/courses.js";
 import { navigate } from "../../shared/js/navigation.js";
 import { interpolate, loadTemplate } from "../../shared/js/template-loader.js";
 
@@ -14,6 +14,7 @@ import { interpolate, loadTemplate } from "../../shared/js/template-loader.js";
 export async function renderDetail(container) {
   const template = await loadTemplate("pages/detalle/detalle.html");
   const course = getCourseById(state.currentDetailId) || state.db.courses[0];
+  const alreadyEnrolled = isCourseAlreadyEnrolled(course);
 
   container.innerHTML = interpolate(template, {
     courseId: course.id,
@@ -21,9 +22,9 @@ export async function renderDetail(container) {
     description: course.description,
     duration: course.duration,
     level: course.level,
-    enrollClass: course.registered ? "gray" : "green",
-    enrollLabel: course.registered ? "INSCRITO" : "INSCRIBIRSE",
-    disabled: course.registered ? "disabled" : ""
+    enrollClass: alreadyEnrolled ? "gray" : "green",
+    enrollLabel: alreadyEnrolled ? "INSCRITO" : "INSCRIBIRSE",
+    disabled: alreadyEnrolled ? "disabled" : ""
   });
 
   bindDetailEvents(container);

@@ -32,4 +32,8 @@ Si ya existían documentos como `cursos/algebra-lineal`, esos documentos son dat
 
 ## 5. Primer Ingreso
 
-Al ingresar con correo y contraseña, Firebase autentica al usuario. Si el usuario no existe, se crea con Email/Password y se siembran datos iniciales en Firestore para ese `uid`.
+Al ingresar con correo y contraseña, Firebase autentica al usuario mediante Email/Password. El usuario debe existir previamente en Firebase Authentication o ser creado desde la consola de Firebase.
+
+Después de un inicio de sesión correcto, SARC carga o inicializa los datos académicos del estudiante en Firestore para ese `uid`, manteniendo la información separada por usuario.
+
+Para sustentación académica se usa la cuenta demo documentada en el `README.md`.

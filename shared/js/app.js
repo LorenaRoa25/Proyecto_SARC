@@ -23,13 +23,22 @@ const loader = document.getElementById("loader");
  * Inicializa la app y registra eventos globales.
  */
 async function init() {
-  await initializeState();
-  await resetStartupSession();
-  await enableAllCourses();
-  bindGlobalEvents();
-  setDashboardRefresh(renderDashboard);
-  renderApp();
-  setTimeout(() => loader.classList.add("is-hidden"), 700);
+  try {
+    await initializeState();
+    await resetStartupSession();
+    await enableAllCourses();
+    bindGlobalEvents();
+    setDashboardRefresh(renderDashboard);
+    await renderApp();
+  } catch (error) {
+    console.error("Error al inicializar SARC:", error);
+    document.getElementById("viewContainer").innerHTML = `
+      <div style="padding:40px;text-align:center;color:#cf2a27;font-size:1.3rem;">
+        <strong>Error al cargar el sistema</strong><br>
+        <span style="font-size:1rem;color:#1f2937;">${error.message || "Revisa la consola del navegador para más detalles."}</span>
+      </div>`;
+  }
+  loader.classList.add("is-hidden");
   window.addEventListener("hashchange", renderApp);
 }
 

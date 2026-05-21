@@ -143,7 +143,7 @@ def update_project_document() -> None:
     table = doc.tables[9]
     set_cell_text(
         table.rows[5].cells[1],
-        "1. El sistema recibe correo y contraseña. 2. Con credenciales incorrectas muestra mensaje de error. 3. Con credenciales correctas carga Firestore y redirige al dashboard. 4. Si el usuario no existe, la demo puede crearlo automáticamente en Firebase.",
+        "1. El sistema recibe correo y contraseña. 2. Con credenciales incorrectas muestra mensaje de error. 3. Con credenciales correctas carga Firestore y redirige al dashboard. 4. El usuario debe existir previamente en Firebase Authentication.",
     )
     table = doc.tables[10]
     set_cell_text(

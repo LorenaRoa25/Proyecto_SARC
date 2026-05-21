@@ -32,5 +32,11 @@ service cloud.firestore {
       allow read, update, delete: if ownsResource();
       allow create: if ownsIncomingResource();
     }
+
+    match /habeasData/{userId} {
+      allow read: if signedIn() && request.auth.uid == userId;
+      allow create: if signedIn() && request.auth.uid == userId;
+      allow update: if signedIn() && request.auth.uid == userId;
+    }
   }
 }

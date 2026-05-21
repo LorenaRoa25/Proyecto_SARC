@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Inicio: distribución de cursos sugeridos y asistente virtual.
+   Inicio: distribucion original con mejoras visuales ligeras.
    ========================================================================== */
 
 .home-grid {
@@ -23,32 +23,111 @@
   background: var(--gray);
 }
 
-.simple-list,
-.assistant-list {
+.simple-list {
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
-.simple-list button {
-  padding: 0;
-  border: none;
-  background: none;
-  color: inherit;
-  font-size: 1.95rem;
-  text-align: left;
-}
-
-.assistant-item {
-  display: flex;
-  align-items: center;
+.home-course-button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 28px 1fr;
   gap: 12px;
-  font-size: 1.82rem;
+  align-items: start;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
 
-.assistant-item input {
+.home-course-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(2px);
+}
+
+.home-course-icon {
   width: 22px;
   height: 22px;
-  accent-color: var(--blue);
+  display: grid;
+  place-items: center;
+  margin-top: 4px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 0;
+}
+
+.home-course-icon::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.home-course-button strong,
+.home-course-button small {
+  display: block;
+}
+
+.home-course-button strong {
+  font-size: 1.72rem;
+  line-height: 1.22;
+  font-weight: 500;
+}
+
+.home-course-button small {
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.96rem;
+}
+
+.home-empty {
+  padding: 10px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.15rem;
+}
+
+.assistant-recommendations {
+  margin-bottom: 20px;
+}
+
+.assistant-chat {
+  display: grid;
+  gap: 12px;
+}
+
+.assistant-message {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0 12px;
+  border-bottom: 1px solid rgba(8, 83, 148, 0.18);
+}
+
+.assistant-badge {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.assistant-message.suggestion .assistant-badge {
+  background: var(--green);
+}
+
+.assistant-message p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.18rem;
+  line-height: 1.44;
 }
 
 @media (max-width: 1040px) {
@@ -63,8 +142,15 @@
     padding: 28px 24px;
   }
 
-  .simple-list button,
-  .assistant-item {
+  .home-course-button strong {
     font-size: 1.3rem;
+  }
+
+  .assistant-message {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-message p {
+    font-size: 1.05rem;
   }
 }

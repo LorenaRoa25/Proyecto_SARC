@@ -1,74 +1,73 @@
-# SARC - Sistema de Apoyo Académico con Recomendación de Cursos
+# SARC - Sistema de Apoyo Academico con Recomendacion de Cursos
 
-SARC es una aplicación web académica creada para apoyar a estudiantes en la consulta de cursos complementarios, recomendaciones, inscripción, seguimiento de progreso y gestión básica de perfil.
+SARC es una aplicacion web academica desarrollada para apoyar a estudiantes universitarios en la consulta de cursos complementarios, recomendaciones academicas, inscripcion a cursos, seguimiento de progreso, gestion basica de perfil y generacion de reportes PDF.
 
-El proyecto está construido con tecnologías web base: HTML, CSS y JavaScript modular. La autenticación y la persistencia se conectan con Firebase Authentication y Cloud Firestore.
+El sistema funciona como un frontend web conectado directamente con Firebase Authentication y Cloud Firestore. No utiliza Node.js obligatorio, Express, base de datos local ni backend de negocio. El archivo `app.py` se usa solo para servir archivos estaticos en `localhost` durante la ejecucion local.
 
-## Qué Problema Resuelve
+## Objetivo Academico
 
-En un entorno universitario, los estudiantes pueden tener dificultades para encontrar cursos de apoyo o refuerzo según sus necesidades académicas. SARC centraliza esa información en una interfaz sencilla donde el estudiante puede:
+Centralizar en una interfaz sencilla la informacion de cursos de apoyo academico, permitiendo que el estudiante consulte recomendaciones basadas en reglas, revise su avance, gestione su perfil y descargue reportes de progreso para apoyar su proceso de aprendizaje.
 
-- Ver cursos sugeridos.
-- Filtrar recomendaciones por área y modalidad.
-- Consultar el detalle de cada curso.
-- Inscribirse si hay cupos disponibles.
-- Revisar su progreso académico.
-- Descargar un reporte en PDF.
-- Editar algunos datos de perfil.
+## Tecnologias Utilizadas
 
-## Cómo Está Pensado El Proyecto
+| Tecnologia | Uso dentro del proyecto |
+| --- | --- |
+| HTML5 | Estructura principal del sistema y plantillas de cada vista. |
+| CSS3 | Estilos globales, layout, componentes visuales y adaptacion por pantalla. |
+| JavaScript ES Modules | Navegacion, estado global, validaciones, recomendaciones, progreso, perfil y reportes. |
+| Firebase Authentication | Inicio de sesion, recuperacion de contrasena y gestion de credenciales. |
+| Cloud Firestore | Persistencia de usuarios, cursos, recomendaciones, tareas y aceptacion de Habeas Data. |
+| Python local server (`app.py`) | Servidor local de archivos estaticos para ejecutar SARC en Windows. |
 
-La aplicación funciona como una página principal que cambia de vista sin recargar todo el sitio. Para eso usa rutas con hash en la URL, por ejemplo:
+## Requisitos Minimos
+
+- Windows 10 o superior.
+- Python 3 instalado y agregado al PATH.
+- Navegador moderno: Chrome, Edge, Firefox o Safari.
+- Conexion a internet para Firebase Authentication y Cloud Firestore.
+- Carpeta completa del proyecto SARC.
+
+## Ejecucion Local En Windows
+
+1. Abrir la carpeta principal del proyecto `Proyecto_SARC`.
+2. Hacer doble clic en el archivo `iniciar_sarc.bat`.
+3. Esperar a que la consola valide el entorno e inicie el servidor local.
+4. El navegador se abrira automaticamente en:
 
 ```text
-#login
-#inicio
-#recomendaciones
-#detalle/matematicas
-#progreso
-#perfil
+http://localhost:8000/
 ```
 
-El archivo `index.html` contiene la estructura general. El archivo `shared/js/app.js` decide qué vista mostrar, valida si hay sesión y llama el render correspondiente.
+5. Para cerrar el sistema, presionar `Ctrl+C` en la consola o cerrar la ventana del servidor.
 
-## Tecnologías Usadas
+No se recomienda abrir `index.html` directamente con doble clic, porque la aplicacion usa JavaScript ES Modules y carga plantillas HTML mediante `fetch`.
 
-| Tecnología | Uso dentro del proyecto |
-| --- | --- |
-| HTML5 | Estructura de cada vista y del contenedor principal. |
-| CSS3 | Estilos globales, layout, componentes y estilos por página. |
-| JavaScript ES Modules | Estado, rutas, eventos, renderizado y lógica de negocio. |
-| Firebase Authentication | Inicio de sesión, creación demo de usuario y recuperación de contraseña. |
-| Cloud Firestore | Guardado de usuario, cursos, recomendaciones y tareas por `userId`. |
-| Python | Servidor local simple para ejecutar el proyecto durante desarrollo. |
+## Credenciales Demo
 
-## Mapa Del Proyecto
+Usuario demo:
 
 ```text
-Proyecto_SARC_1/
+lorena.roa.196@unisabaneta.edu.co
+```
+
+Contrasena demo:
+
+```text
+Lorena25!
+```
+
+El usuario demo se utiliza para pruebas y sustentacion academica. Esta cuenta tiene funciones especiales de demostracion, como el boton `Reiniciar demo`, que solo aparece para la cuenta demo autorizada. Los demas usuarios registrados no deben visualizar ni ejecutar esa funcionalidad.
+
+## Estructura Del Proyecto
+
+```text
+Proyecto_SARC/
   index.html
   app.py
+  iniciar_sarc.bat
   README.md
   FIREBASE_SETUP.md
   firestore.rules
-
-  shared/
-    css/
-      base.css
-      layout.css
-      components.css
-    js/
-      app.js
-      data.js
-      firebase-config.js
-      firebase-service.js
-      navigation.js
-      courses.js
-      template-loader.js
-      pdf.js
-      sound.js
-    components/
-      feedback.js
 
   pages/
     login/
@@ -79,55 +78,68 @@ Proyecto_SARC_1/
     progreso/
     perfil/
 
+  shared/
+    css/
+    js/
+    components/
+
   Documentos/
-    DOCUMENTACION_CODIGO_SARC.docx
-    Documento proyecto SARC - Lorena Roa Rivera.docx
+    Manual_Tecnico_SARC.docx
+    Manual_Usuario_SARC.docx
+    SARC_SRS_IEEE830_ICONTEC.docx
     Informe_evaluacion_SARC.docx
     Minuta Licenciamiento-Lorena Roa.docx
-    Resumen_Ejecutivo_SARC.docx
+    Resumen_Ejecutivo_Minuta_SARC.docx
+    Guia_Rapida_Uso_SARC.docx
 
   tools/
-    scripts de apoyo para documentación
+    scripts de apoyo documental y capturas
 ```
+
+## Carpetas Principales
+
+`pages/` contiene las vistas funcionales del sistema, separadas por modulo: login, recuperacion, inicio, recomendaciones, detalle, progreso y perfil.
+
+`shared/` agrupa codigo reutilizable: estilos globales, componentes, navegacion, estado, conexion Firebase, cursos, reportes PDF y perfiles especiales.
+
+`Documentos/` contiene los entregables academicos del proyecto, incluyendo el Manual Tecnico, Manual de Usuario y documento SRS IEEE830 ICONTEC.
+
+`tools/` contiene scripts auxiliares para documentacion, capturas y generacion de archivos academicos. No es necesario ejecutar esta carpeta para usar el sistema.
 
 ## Archivos Clave
 
-`shared/js/app.js`  
-Inicializa la aplicación, controla rutas, protege vistas privadas y renderiza la pantalla correspondiente.
+`index.html` define la estructura principal de la aplicacion.
 
-`shared/js/data.js`  
-Contiene el estado global `state`, los datos base de demostración y las funciones para cargar o guardar información.
+`app.py` sirve los archivos estaticos en `localhost` para que el navegador cargue correctamente modulos JavaScript, plantillas y Firebase.
 
-`shared/js/firebase-service.js`  
-Centraliza la conexión con Firebase Authentication y Cloud Firestore. Aquí se autentica el usuario, se cargan datos y se guardan cambios.
+`iniciar_sarc.bat` automatiza el despliegue local en Windows: valida archivos esenciales, detecta Python, ejecuta `app.py` y abre el navegador.
 
-`shared/js/navigation.js`  
-Maneja la navegación interna usando `window.location.hash`.
+`shared/js/app.js` inicializa el sistema, controla rutas y protege vistas privadas.
 
-`shared/js/courses.js`  
-Gestiona filtros, búsqueda de cursos, inscripciones, control de cupos y refresco de vistas.
+`shared/js/data.js` centraliza el estado global, datos base, recomendaciones y persistencia.
 
-`shared/js/template-loader.js`  
-Carga los archivos HTML de cada vista y reemplaza variables como `{{courseList}}` o `{{name}}`.
+`shared/js/firebase-service.js` concentra la conexion con Firebase Authentication y Cloud Firestore.
 
-`shared/components/feedback.js`  
-Muestra modales, notificaciones y mensajes para enlaces visuales del prototipo.
+`shared/js/user-profiles.js` centraliza reglas de perfiles especiales, incluyendo la validacion del usuario demo autorizado.
 
-`pages/`  
-Cada carpeta representa una pantalla. Por ejemplo, `pages/login/` tiene su HTML, CSS y JS propios.
+## Funcionamiento General
 
-## Flujo De Datos
+1. El usuario abre SARC desde `iniciar_sarc.bat`.
+2. `app.py` inicia el servidor local en `http://localhost:8000/`.
+3. El navegador carga `index.html` y los modulos JavaScript.
+4. El estudiante inicia sesion con Firebase Authentication.
+5. Los datos academicos se cargan desde Cloud Firestore.
+6. Las vistas trabajan con el estado en memoria del frontend.
+7. Los cambios de perfil, cursos, progreso y tareas se guardan en Firestore.
+8. Los reportes PDF se generan desde JavaScript en el navegador.
 
-1. El estudiante entra a la aplicación desde el navegador.
-2. `app.js` inicializa Firebase y el estado general.
-3. El login usa Firebase Authentication.
-4. Cuando el usuario entra, `data.js` carga su información desde Firestore.
-5. Las vistas trabajan con `state.db`, que es la copia en memoria de los datos.
-6. Si el usuario se inscribe, edita perfil o marca tareas, se actualiza `state.db`.
-7. Luego `saveDatabase()` guarda los cambios en Firestore.
-8. Firestore separa los datos por `userId`.
+## Firebase
 
-## Base De Datos En Firebase
+La configuracion del SDK se encuentra en:
+
+```text
+shared/js/firebase-config.js
+```
 
 El proyecto usa estas colecciones principales:
 
@@ -135,108 +147,37 @@ El proyecto usa estas colecciones principales:
 - `cursos`
 - `recomendaciones`
 - `tareasAsistente`
+- `habeasData`
 
-Ejemplos de documentos:
+Las reglas de `firestore.rules` separan la informacion por `userId`, evitando que un usuario lea o modifique datos de otro.
 
-```text
-usuarios/{uid}
-cursos/{uid}_{courseId}
-recomendaciones/{uid}_{courseId}
-tareasAsistente/{uid}_{taskId}
-```
+## Alcance Actual
 
-Las reglas de `firestore.rules` verifican que el usuario autenticado coincida con el `userId` del documento. Esto evita que un estudiante lea o modifique información de otro.
+El sistema implementa:
 
-## Ejecución Local
+- Inicio de sesion institucional.
+- Recuperacion y cambio de contrasena mediante Firebase.
+- Aceptacion de Habeas Data.
+- Recomendaciones academicas basadas en reglas.
+- Catalogo de cursos con filtros.
+- Inscripcion a cursos.
+- Seguimiento de progreso academico.
+- Reportes PDF.
+- Perfil de estudiante editable.
+- Perfil demo con reinicio controlado.
+- Despliegue local portable mediante `.bat`.
 
-Abre una terminal en la carpeta del proyecto y ejecuta:
+No implementa panel administrativo funcional, backend propio, Express, base de datos local, chatbot conversacional ni inteligencia artificial predictiva.
 
-```bash
-python app.py
-```
+## Posibles Errores Comunes
 
-Luego abre en el navegador:
-
-```text
-http://localhost:8000/index.html
-```
-
-No se recomienda abrir `index.html` directamente con doble clic, porque la aplicación carga plantillas HTML con `fetch` y usa módulos JavaScript.
-
-## Configuración De Firebase
-
-La configuración del SDK se encuentra en:
-
-```text
-shared/js/firebase-config.js
-```
-
-Para preparar Firebase:
-
-1. Crear un proyecto en Firebase Console.
-2. Activar Authentication con Email/Password.
-3. Crear Cloud Firestore.
-4. Publicar las reglas de `firestore.rules`.
-5. Revisar la guía `FIREBASE_SETUP.md`.
-
-Nota: para facilitar la demostración, si el correo ingresado no existe, el sistema puede crear el usuario con Email/Password.
-
-## Documentación Incluida
-
-La carpeta `Documentos/` contiene los documentos principales del proyecto:
-
-- Documentación del código.
-- Documento general del proyecto SARC.
-- Informe de evaluación.
-- Minuta de licenciamiento.
-- Resumen ejecutivo.
-
-Estos documentos complementan el código y ayudan a sustentar la arquitectura, alcance, requisitos y funcionamiento del sistema.
-
-## Estado Actual
-
-El proyecto ya cuenta con:
-
-- Frontend modular por vistas.
-- Autenticación con Firebase.
-- Persistencia en Firestore.
-- Separación de datos por usuario.
-- Inscripción a cursos.
-- Vista de progreso.
-- Generación de PDF desde JavaScript.
-- Perfil editable.
-- Documentación técnica y funcional.
-
-## Posibles Mejoras Futuras
-
-- Separar registro e inicio de sesión en pantallas diferentes.
-- Validar estrictamente el dominio institucional del correo.
-- Crear un panel administrativo para cursos y usuarios.
-- Guardar imágenes de perfil en Firebase Storage.
-- Agregar pruebas automatizadas.
-- Publicar el proyecto en Firebase Hosting.
-- Mejorar el motor de recomendación con más criterios académicos.
-
-## Actualizar GitHub Después De Hacer Cambios
-
-Los cambios que haces en tu computador no se suben automáticamente a GitHub. Cada vez que quieras actualizar el repositorio, usa:
-
-```bash
-git status
-git add .
-git commit -m "Describe el cambio realizado"
-git push
-```
-
-Ejemplo:
-
-```bash
-git add .
-git commit -m "Actualiza documentación y corrige tildes"
-git push
-```
-
-Después de `git push`, entra al repositorio en GitHub y recarga la página.
+| Situacion | Causa probable | Solucion |
+| --- | --- | --- |
+| No se encontro Python | Python no esta instalado o no esta agregado al PATH. | Instalar Python 3 desde python.org y marcar "Add python.exe to PATH". |
+| No se encontro `index.html` | El `.bat` no esta en la raiz del proyecto. | Ejecutar `iniciar_sarc.bat` desde la carpeta principal de SARC. |
+| No se encontro `firebase-config.js` | Falta la configuracion Firebase. | Verificar que exista `shared/js/firebase-config.js`. |
+| Puerto 8000 ocupado | Ya existe otra instancia local ejecutandose. | Cerrar la consola anterior o detener el proceso que usa el puerto 8000. |
+| Login o Firestore no responden | No hay internet o Firebase no esta disponible. | Revisar conexion, credenciales Firebase y reglas de Firestore. |
 
 ## Autora
 

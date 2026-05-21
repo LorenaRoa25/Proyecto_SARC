@@ -98,6 +98,10 @@
   margin-bottom: 14px;
 }
 
+.password-field {
+  position: relative;
+}
+
 .auth-input {
   width: 100%;
   height: 54px;
@@ -107,6 +111,67 @@
   background: var(--white);
   color: var(--text);
   font-size: 1.15rem;
+}
+
+.password-field .auth-input {
+  padding-right: 58px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d3dbe4;
+  border-radius: 8px;
+  background: #f6f8fb;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 800;
+  transform: translateY(-50%);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.password-toggle:hover,
+.password-toggle.is-visible {
+  border-color: var(--blue);
+  background: #e8f1fb;
+}
+
+.eye-icon {
+  width: 19px;
+  height: 12px;
+  position: relative;
+  display: block;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.eye-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.password-toggle.is-visible .eye-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  width: 25px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: rotate(-35deg);
 }
 
 .auth-input:focus {
@@ -123,6 +188,16 @@
   color: var(--white);
   font-size: 1.25rem;
   font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.auth-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.auth-button:not(:disabled):hover {
+  opacity: 0.9;
 }
 
 .auth-link {
@@ -137,6 +212,50 @@
 .auth-link:hover {
   text-decoration: underline;
 }
+
+.habeas-data-field {
+  margin-bottom: 14px;
+}
+
+.habeas-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.habeas-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--blue);
+  flex-shrink: 0;
+}
+
+.habeas-checkbox a {
+  color: var(--blue);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.habeas-checkbox a:hover {
+  color: #0d6bb7;
+}
+
+.habeas-content p {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.habeas-content p:last-child {
+  margin-bottom: 0;
+}
+
+
 
 @media (max-width: 680px) {
   .login-card,

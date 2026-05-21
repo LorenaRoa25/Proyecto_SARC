@@ -8,7 +8,7 @@ from docx import Document
 
 DOCUMENTO_PROYECTO = Path(r"C:\Users\Usuario\OneDrive\Desktop\Documento proyecto SARC - Lorena Roa Rivera.docx")
 MINUTA = Path(r"C:\Users\Usuario\OneDrive\Desktop\Minuta Licenciamiento-Lorena Roa.docx")
-BACKUP_DIR = Path(r"C:\Users\Usuario\OneDrive\Desktop\Proyecto_SARC_1\backups_documentos")
+BACKUP_DIR = Path(r"C:\Users\Usuario\OneDrive\Desktop\Proyecto_SARC\backups_documentos")
 
 
 def replace_paragraph_text(paragraph, new_text):
